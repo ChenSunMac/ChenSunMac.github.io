@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+  <title>webots使用指南</title>
+  <meta name="description" content="Webots的前世今生">
+  <meta name="author" content="robotkang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="webots使用指南">
+  <meta name="twitter:description" content="Webots的前世今生">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="webots使用指南">
+  <meta property="og:description" content="Webots的前世今生">
+  
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://robotkang.cc/2017/04/webots%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">
+  <link rel="alternate" type="application/rss+xml" title="亢志军" href="http://robotkang.cc/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+
+
+<script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=2854006074878156134' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+
+
+<!-- 百度统计 -->
+  
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?144d500dd9ac4a65465a14b95f3e4ade";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+  
+
+<!-- google 统计 -->
+  
+
+</head>
+
+
+  <body style="height:1000px;">
+
+   <meta name="baidu-site-verification" content="0L5MKMrHOb" />
+
+    <span class="mobile btn-mobile-menu">        
+      <div class="nav_container">
+         <nav class="nav-menu-item" style = "float:right">
+            <i class="nav-menu-item">
+              <a href="/#blog" title="" class="blog-button">  博客主页
+              </a>
+            </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/archive" title="archive" class="btn-mobile-menu__icon">
+                      所有文章
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/tags" title="tags" class="btn-mobile-menu__icon">
+                      标签
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/liuyan" title="liuyan" class="btn-mobile-menu__icon">
+                      留言
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/ziyuan" title="ziyuan" class="btn-mobile-menu__icon">
+                      资源
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/about" title="about" class="btn-mobile-menu__icon">
+                      关于我
+                  </a>
+                </i>
+            
+          </nav>
+      </div>
+    </span>
+
+
+    <header class="panel-cover panel-cover--collapsed">
+<style type="text/css">
+body {background-image:url(http://7sbmib.com1.z0.glb.clouddn.com/body_background1.png);}
+p.flower {background-image: url(http://7sbmib.com1.z0.glb.clouddn.com/body_background1.png); padding: 20px;}
+</style>
+  
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <!-- 头像效果-start -->
+        <div class="ih-item circle effect right_to_left">            
+            <a href="/#blog" title="前往 亢志军 的主页" class="blog-button">
+                <div class="img"><img src="/images/avatar.jpg" alt="img"></div>
+                <div class="info">
+                    <div class="info-back">
+                        <h1> 
+                            
+                                RobotKang
+                            
+                        </h1>
+                        <p>
+                           
+                                Python/机器学习/嵌入式
+                            
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- 头像效果-end -->
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for 亢志军" class="blog-button">亢志军</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">自留地</span>
+        
+        <hr class="panel-cover__divider" style="height:1px;border:none;border-top:1px solid #555555;"/>
+        <p class="panel-cover__description">欢迎来到我的个人网站~</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" style="height:1px;border:none;border-top:1px solid #555555;"/>
+        
+        
+        
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">博客主页</a></li>
+                
+                  <li class="navigation__item"><a href="/archive" title="archive">所有文章</a></li>
+                
+                  <li class="navigation__item"><a href="/tags" title="tags">标签</a></li>
+                
+                  <li class="navigation__item"><a href="/liuyan" title="liuyan">留言</a></li>
+                
+                  <li class="navigation__item"><a href="/ziyuan" title="ziyuan">资源</a></li>
+                
+                  <li class="navigation__item"><a href="/about" title="about">关于我</a></li>
+                
+              </ul>
+            </nav>
+          </div>          
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-disabled"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+
+
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- latex公式支持代码 end -->
+
+<!-- 代码高亮设置 begin 
+<link rel="stylesheet" href="/css/pygments-default.css">
+ 代码高亮设置 end -->
+
+
+<article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title">webots使用指南</h1>
+    <div class="post-meta" style="color:#FF6633">
+      <img src="/images/calendar.png" width="20px"/> 
+      <time datetime="2017-04-19 00:00:00 -0400" itemprop="datePublished" class="post-meta__date date">2017-04-19</time>  
+         
+      <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
+    </p>
+    </div>
+  </header>
+
+  <section class="post">
+
+    <h2 id="webots">Webots的前世今生</h2>
+
+<p>　Webots是Cyberbotics公司出品的<code class="highlighter-rouge">便携式机器人仿真平台</code>，可运行在windows，Mac和Linux上，内建3D编辑器,可构建3D机器人模型。应用C++或Java或者MATLAB编辑机器人程序可模拟机器人的动作。也就是说，它支持多种编程语言，包括C, C++, JAVA, Python, Matlab, VRML97。      <br />
+    Webots是一个商业产品，最新的版本是8.5.4，从官网下载的版本刚开始打开的时候是试用版（Free）,这个免费版本是个鸡肋，它不允许用户修改机器人的控制器的代码，就是说，你不能写自己的控制器。下载之后，从官网注册一个账号之后用注册的账号在软件的Preference中的License注册，可以免费使用30天的PRO版本，或者EDU版本。PRO版本是旗舰版，涵盖了软件所有的功能，所以使用的时候推荐使用<code class="highlighter-rouge">PRO版本</code>。       <br />
+    这个软件学起来其实很容易，就是一个仿真平台，并且封装和提供了各种<code class="highlighter-rouge">API函数</code>。这个软件的学习资料中文版的很少，几乎没有，我知道的只有一个“Webots使用介绍.pdf”这个中文教程，但是它其实就是官网的第一个教程的翻译而已。官网或者软件本身提供了两个很好的很强大的英文学习资料，并且以pdf格式和html两种形式发布，一个是UserGuide（用户指南），一个是Reference Manual(参考手册)。 我推荐在网页直接看，因为网页的目录做得很好，查找方便，另外，用<code class="highlighter-rouge">google浏览器</code>还可以直接网页翻译，遇到不认识的英文词句就可以很快捷地理解他们的意思了。</p>
+
+<h2 id="webots-1">Webots快速上手</h2>
+
+<p><strong>1. 进入webots官网，注册账号</strong>   <br />
+- 官网: <a href="http://www.cyberbotics.com/">http://www.cyberbotics.com/</a>     <br />
+- 用户指南：<a href="https://www.cyberbotics.com/doc/guide/index">https://www.cyberbotics.com/doc/guide/index</a>      <br />
+- 参考手册：<a href="https://www.cyberbotics.com/doc/reference/index">https://www.cyberbotics.com/doc/reference/index</a>        <br />
+<strong>2.登陆到webots官网，激活软件试用，过期之后可重新申请。 </strong>     <br />
+<img src="http://omjh2j5h3.bkt.clouddn.com/webots/444.png" width="420" height="250" alt="photos" /></p>
+
+<p><strong> 3.在webots里新建world，点击菜单栏加号添加机器人，选择aldebaran里的NAO机器人</strong>  <br />
+<img src="http://omjh2j5h3.bkt.clouddn.com/webots/555.png" width="420" height="250" alt="photos" /></p>
+
+<p><strong> 4.左侧窗口中展开NAO模型，设置参数，将如图两个参数设置为正确值。</strong> </p>
+
+<p><img src="http://omjh2j5h3.bkt.clouddn.com/webots/666.png" width="250" height="400" alt="photos" /></p>
+
+<p>   </p>
+
+<hr />
+<blockquote>
+  <p>1.狼牙月，漫天星光；无人夜，遍山萤火。城间歌舞升平，山间琴弦独奏，试问吾友，如今安在？       <br />
+2.最怕你一生碌碌无为,
+却还说平凡难能可贵</p>
+</blockquote>
+
+<p><br /></p>
+
+
+  </section>
+</article>
+<br>
+<section>
+  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</section>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js"></script>
+    <title>打赏</title>
+    <style type="text/css">
+        .content{width:80%;margin:10px auto;}
+                .hide_box{z-index:999;filter:alpha(opacity=50);background:#666;opacity: 0.5;-moz-opacity: 0.5;left:0;top:0;height:99%;width:100%;position:fixed;display:none;}
+        .shang_box{width:540px;height:540px;padding:10px;background-color:#fff;border-radius:10px;position:fixed;z-index:1000;left:50%;top:50%;margin-left:-280px;margin-top:-280px;border:1px dotted #dedede;display:none;}
+        .shang_box img{border:none;border-width:0;}
+        .dashang{display:block;width:100px;margin:5px auto;height:25px;line-height:25px;padding:10px;background-color:#E74851;color:#fff;text-align:center;text-decoration:none;border-radius:10px;font-weight:bold;font-size:16px;transition: all 0.3s;}
+        .dashang:hover{opacity:0.8;padding:15px;font-size:18px;}
+        .shang_close{float:right;display:inline-block;}
+                .shang_logo{display:block;text-align:center;margin:20px auto;}
+        .shang_tit{width: 100%;height: 75px;text-align: center;line-height: 66px;color: #a3a3a3;font-size: 16px;background: url('/dsimg/cy-reward-title-bg.jpg');font-family: 'Microsoft YaHei';margin-top: 7px;margin-right:2px;}
+        .shang_tit p{color:#a3a3a3;text-align:center;font-size:16px;}
+        .shang_payimg{width:140px;padding:10px;border:6px solid #EA5F00;margin:0 auto;border-radius:3px;height:140px;}
+        .shang_payimg img{display:block;text-align:center;width:140px;height:140px; }
+        .pay_explain{text-align:center;margin:10px auto;font-size:12px;color:#545454;}
+        .radiobox{width: 16px;height: 16px;background: url('/dsimg/radio2.jpg');display: block;float: left;margin-top: 5px;margin-right: 14px;}
+        .checked .radiobox{background:url('/dsimg/radio1.jpg');}
+        .shang_payselect{text-align:center;margin:0 auto;margin-top:40px;cursor:pointer;height:60px;width:280px;}
+        .shang_payselect .pay_item{display:inline-block;margin-right:10px;float:left;}
+        .shang_info{clear:both;}
+		.shang_info p,.shang_info a{color:#C3C3C3;text-align:center;font-size:12px;text-decoration:none;line-height:2em;}
+    </style>
+</head>
+
+<body>
+    <div class="content">
+    <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下">打赏</a></p>
+    <div class="hide_box"></div>
+    <div class="shang_box">
+    	<a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="/dsimg/close.jpg" alt="取消" /></a>
+        <img class="shang_logo" src="/dsimg/logos.png" alt="亢志军" />
+    	<div class="shang_tit">
+    		<p>感谢您的支持，我会继续努力的!</p>
+    	</div>
+    	<div class="shang_payimg">
+    		<img src="/dsimg/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+    	</div>
+    		<div class="pay_explain">扫码打赏，你说多少就多少</div>
+    	<div class="shang_payselect">
+    		<div class="pay_item checked" data-id="alipay">
+	    		<span class="radiobox"></span>
+	    		<span class="pay_logo"><img src="/dsimg/alipay.jpg" alt="支付宝" /></span>
+    		</div>
+    		<div class="pay_item" data-id="weipay">
+	    		<span class="radiobox"></span>
+	    		<span class="pay_logo"><img src="/dsimg/wechat.jpg" alt="微信" /></span>
+    		</div>
+    	</div>
+    	<div class="shang_info">
+    		<p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+    		<p>Powered by <a href="robotkang.cc" target="_blank" title="亢志军">亢志军</a>，分享从这里开始，精彩与您同在</p>
+    	</div>
+    </div>
+    </div>
+    <script type="text/javascript">
+    $(function(){
+    	$(".pay_item").click(function(){
+    		$(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+    		var dataid=$(this).attr('data-id');
+    		$(".shang_payimg img").attr("src","/dsimg/"+dataid+"img.jpg");
+    		$("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+    	});
+    });
+    function dashangToggle(){
+    	$(".hide_box").fadeToggle();
+    	$(".shang_box").fadeToggle();
+    }
+    </script>
+</body>
+</html>
+
+<section>
+       <ul class="pager">
+        
+        <li class="previous">
+            <a href="/2017/04/%E8%93%9D%E7%89%99%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/" data-toggle="tooltip" data-placement="top" title="蓝牙模块相关知识汇总">上一篇：  <span>蓝牙模块相关知识汇总</span>
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2017/04/VS-Code-%E9%85%8D%E7%BD%AEPython/" data-toggle="tooltip" data-placement="top" title="VS Code 配置Python ">下一篇：  <span>VS Code 配置Python </span>
+            </a>
+        </li>
+        
+    </ul>
+</section>
+
+
+
+
+<br>
+
+<br><br><br></br>
+
+<!-- wangyi评论框 start -->
+
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href, 
+    sourceId: "",
+    productKey: "88e913c19bd844db833a1288040a08ce",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+<!-- wangyi 公共JS代码 end -->
+
+
+<link href="/css/top.css/" rel="stylesheet" type="text/css" />
+<script src="/js/jquery.js?v=1.83.min/" type="text/javascript"></script>
+<script src="/js/top.js/"></script>
+<div style="display: none;" id="rocket-to-top">
+<div style="opacity:0;display: block;" class="level-2"></div>
+<div class="level-3"></div>
+
+
+
+
+
+            <section class="footer">
+    <footer>
+        <div class = "footer_div">  
+        <nav class="cover-navigation navigation--social">
+          <ul class="navigation">
+
+          
+          <!-- Weibo -->
+          <li class="navigation__item_social">
+            <a href="http://weibo.com/123456789" title="@123456789 的微博" target="_blank">
+              <i class='social fa fa-weibo fa-2x'></i>
+              <span class="label">Weibo</span>
+            </a>
+          </li>
+          
+
+          
+          <!-- Github -->
+          <li class="navigation__item_social">
+            <a href="https://github.com/MengZheK" title="@MengZheK 的 Github" target="_blank">
+              <i class='social fa fa-github fa-2x'></i>
+              <span class="label">Github</span>
+            </a>
+          </li>
+          
+          
+          
+
+          
+
+          <!-- RSS -->
+          <li class="navigation__item_social">
+            <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+              <i class='social fa fa-rss fa-2x'></i>
+              <span class="label">RSS</span>
+            </a>
+          </li>
+
+          
+          <!-- Email -->
+          <li class="navigation__item_social">
+            <a href="mailto:robotkang@foxmail.com" title="Contact me">
+              <i class='social fa fa-envelope fa-2x'></i>
+              <span class="label">Email</span>
+            </a>
+          </li>
+          
+
+          </ul>
+        </nav>
+
+        </div>
+
+
+
+        <div class = "footer_div">  
+           <p class="copyright text-muted">
+            Copyright &copy; 亢志军 2017 Theme by <a href="http://robotkang.cc/">robotkang</a> |
+            <iframe
+                style="margin-left: 2px; margin-bottom:-5px;"
+                frameborder="0" scrolling="0" width="91px" height="20px"
+                src="https://ghbtns.com/github-btn.html?user=MengZheK&repo=kangblog.github.io&type=star&count=true" >
+            </iframe>|
+            
+<!-- cnzz -->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261874359'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261874359%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</p>
+        	<div align="right">
+    			<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<!-- 访问统计 -->
+ 
+      Total <span id="busuanzi_value_site_pv"></span> views.
+您是我的第<span id="busuanzi_value_site_uv"></span> 个访客..
+<span id="busuanzi_value_page_pv"></span> Hits
+  
+          </span>
+        </div>
+        <div>
+    </footer>
+</section>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript" src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+    
+<!-- 
+
+
+
+<link href="/css/top.css/" rel="stylesheet" type="text/css" />
+<script src="/js/jquery.js?v=1.83.min/" type="text/javascript"></script>
+<script src="/js/top.js/"></script>
+<div style="display: none;" id="rocket-to-top">
+<div style="opacity:0;display: block;" class="level-2"></div>
+<div class="level-3"></div>
+</div>-->
+
+
+<!--小人只在首页显示 start*-->
+<div id="spig" class="spig">
+    <div id="message">正在加载中……</div>
+    <div id="mumu" class="mumu"></div>
+</div>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="/js/jquery.xiaoren.js"></script>
+<script type="text/javascript" src="/js/spig.js"></script>
+<link rel="stylesheet" href="/css/xiaoren.css" type="text/css"/>
+<script type="text/javascript">
+var isindex = true;
+var visitor = true;
+</script>
+
+
+</body>
+
+</html>

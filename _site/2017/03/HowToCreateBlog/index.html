@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+  <title>Jekyll+Github个人博客构建之路</title>
+  <meta name="description" content="本文转载自Lilian，后稍加改之。特此声明！">
+  <meta name="author" content="robotkang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Jekyll+Github个人博客构建之路">
+  <meta name="twitter:description" content="本文转载自Lilian，后稍加改之。特此声明！">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Jekyll+Github个人博客构建之路">
+  <meta property="og:description" content="本文转载自Lilian，后稍加改之。特此声明！">
+  
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://robotkang.cc/2017/03/HowToCreateBlog/">
+  <link rel="alternate" type="application/rss+xml" title="亢志军" href="http://robotkang.cc/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+
+
+<script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=2854006074878156134' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+
+
+<!-- 百度统计 -->
+  
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?144d500dd9ac4a65465a14b95f3e4ade";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+  
+
+<!-- google 统计 -->
+  
+
+</head>
+
+
+  <body style="height:1000px;">
+
+   <meta name="baidu-site-verification" content="0L5MKMrHOb" />
+
+    <span class="mobile btn-mobile-menu">        
+      <div class="nav_container">
+         <nav class="nav-menu-item" style = "float:right">
+            <i class="nav-menu-item">
+              <a href="/#blog" title="" class="blog-button">  博客主页
+              </a>
+            </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/archive" title="archive" class="btn-mobile-menu__icon">
+                      所有文章
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/tags" title="tags" class="btn-mobile-menu__icon">
+                      标签
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/liuyan" title="liuyan" class="btn-mobile-menu__icon">
+                      留言
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/ziyuan" title="ziyuan" class="btn-mobile-menu__icon">
+                      资源
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/about" title="about" class="btn-mobile-menu__icon">
+                      关于我
+                  </a>
+                </i>
+            
+          </nav>
+      </div>
+    </span>
+
+
+    <header class="panel-cover panel-cover--collapsed">
+<style type="text/css">
+body {background-image:url(http://7sbmib.com1.z0.glb.clouddn.com/body_background1.png);}
+p.flower {background-image: url(http://7sbmib.com1.z0.glb.clouddn.com/body_background1.png); padding: 20px;}
+</style>
+  
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <!-- 头像效果-start -->
+        <div class="ih-item circle effect right_to_left">            
+            <a href="/#blog" title="前往 亢志军 的主页" class="blog-button">
+                <div class="img"><img src="/images/avatar.jpg" alt="img"></div>
+                <div class="info">
+                    <div class="info-back">
+                        <h1> 
+                            
+                                RobotKang
+                            
+                        </h1>
+                        <p>
+                           
+                                Python/机器学习/嵌入式
+                            
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- 头像效果-end -->
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for 亢志军" class="blog-button">亢志军</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">自留地</span>
+        
+        <hr class="panel-cover__divider" style="height:1px;border:none;border-top:1px solid #555555;"/>
+        <p class="panel-cover__description">欢迎来到我的个人网站~</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" style="height:1px;border:none;border-top:1px solid #555555;"/>
+        
+        
+        
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">博客主页</a></li>
+                
+                  <li class="navigation__item"><a href="/archive" title="archive">所有文章</a></li>
+                
+                  <li class="navigation__item"><a href="/tags" title="tags">标签</a></li>
+                
+                  <li class="navigation__item"><a href="/liuyan" title="liuyan">留言</a></li>
+                
+                  <li class="navigation__item"><a href="/ziyuan" title="ziyuan">资源</a></li>
+                
+                  <li class="navigation__item"><a href="/about" title="about">关于我</a></li>
+                
+              </ul>
+            </nav>
+          </div>          
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-disabled"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+
+
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- latex公式支持代码 end -->
+
+<!-- 代码高亮设置 begin 
+<link rel="stylesheet" href="/css/pygments-default.css">
+ 代码高亮设置 end -->
+
+
+<article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title">Jekyll+Github个人博客构建之路</h1>
+    <div class="post-meta" style="color:#FF6633">
+      <img src="/images/calendar.png" width="20px"/> 
+      <time datetime="2017-03-03 00:00:00 -0500" itemprop="datePublished" class="post-meta__date date">2017-03-03</time>  
+         
+      <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
+    </p>
+    </div>
+  </header>
+
+  <section class="post">
+
+    <hr />
+<p><strong>本文转载自<a href="http://www.lilian.info" target="_blank">Lilian</a>，后稍加改之。特此声明！</strong></p>
+
+<hr />
+
+<p><em>本博客的搭建真是历经了千辛万苦、一步一坑啊。</em></p>
+
+<h3 id="section">参考博客</h3>
+
+<ul>
+  <li><a href="http://baixin.io/2016/10/jekyll_tutorials1/">Jekyll搭建个人博客</a></li>
+</ul>
+
+<h3 id="section-1">说在前面的话</h3>
+
+<ul>
+  <li>我们需要做很多事情。包括环境配置，账号注册，域名购买（不是必须）等。之前一直想搞一个属于自己的博客，16年我以16元的价格买了一个域名「话说域名的续费有点小贵啊..」并且用python搭了一个离线的博客之后就不了了之了「关键部署太麻烦..」。直到前几又萌生出了搭建博客的心思，才又重新搞起。好在，经过几天的瞎搞，弄出来了。</li>
+</ul>
+
+<h3 id="section-2">几个关键内容</h3>
+
+<ul>
+  <li>Jekyll
+    <ul>
+      <li>Ruby</li>
+      <li>DevKit</li>
+      <li>Pygments</li>
+      <li>Python</li>
+    </ul>
+  </li>
+  <li>Github
+    <ul>
+      <li>账号</li>
+      <li>客户端</li>
+    </ul>
+  </li>
+  <li>域名</li>
+  <li>网站统计
+    <ul>
+      <li>百度</li>
+      <li>google</li>
+    </ul>
+  </li>
+  <li>多说评论系统</li>
+</ul>
+
+<h2 id="section-3">一步一步建立自己的小站</h2>
+
+<h3 id="github">建立github</h3>
+
+<ul>
+  <li>
+    <p>注册github。</p>
+  </li>
+  <li>
+    <p>建立仓库。仓库名为<用户名>.github.io，详细请参看该博客<a href="http://blog.csdn.net/renfufei/article/details/37725057/">github建立个人博客</a></用户名></p>
+  </li>
+  <li>
+    <p>上述都是在github网页中操作。为了后续测试及更新博客的方便安装github客户端。</p>
+  </li>
+</ul>
+
+<h3 id="section-4">域名等设置</h3>
+
+<ul>
+  <li>
+    <p>我是在<a href="https://www.aliyun.com">阿里云</a>网站购买。也可以去其他地方。注册用户，挑选合适的域名，付款（支付宝，比较方便）。然后需要域名空间绑定，找域名服务器管理商进行管理。</p>
+  </li>
+  <li>
+    <p>图床用了<a href="https://portal.qiniu.com/signup?code=3lfl9quhqj902">七牛</a>家的。免费版的目前够用，放一些图片比较方便</p>
+  </li>
+</ul>
+
+<h3 id="windowsjekylllinux">Windows上安装Jekyll「也可用linux」</h3>
+
+<ul>
+  <li>参考：<a href="http://blog.csdn.net/rainloving/article/details/45745491">Windows 上安装 Jekyll</a>。安装好Jekyll后。打开github客户端，登录。将之前建立的仓库clone到本地。例如我的：dearLilian.github.io， clone到d://lilian/下。就会看到d://lilian/下出现了一个名为dearLilian.github.io的文件夹。</li>
+</ul>
+
+<h3 id="section-5">网站评论与统计</h3>
+
+<ul>
+  <li>首先是网站统计，你需要在<a href="http://tongji.baidu.com/web/register">百度统计</a>和<a href="https://www.google.com/analytics/">Google Analytics</a>注册账号，并提取相应的id（详细操作请baidu or google）例如我的baidu id为e572ae9801b3a18891f123796b889f77，google id为UA-88738012-1，后面会使用。</li>
+  <li>其次是网站的评论管理系统，在<a href="http://duoshuo.com/">多说</a>(点击我要安装)上注册账号，设置域名。比如我的是www.robotkang.duoshuo.com。即多说的用户名为robotkang（后面会用到）</li>
+</ul>
+
+<h3 id="section-6">选择博客模板</h3>
+
+<ul>
+  <li>例如，我选择了<a href="https://github.com/leopardpan/leopardpan.github.io/">baixin</a>的博客模板。如果大家喜欢，可以将这个download下来。也可以去<a href="https://github.com/MengZheK/kangblog.github.io/">我的github</a>上fork我的。</li>
+</ul>
+
+<h3 id="section-7">将模板修改为自己的博客</h3>
+
+<ul>
+  <li>将上述模板下载后，解压。并将leopardpan.github.io-master里面的文件copy到kangblog.github.io文件夹里。此时，如果你打开Jekyll服务，即：命令行模式输入</li>
+</ul>
+
+<p><code class="highlighter-rouge">
+cd d://zhijun/kangblog.github.io
+</code></p>
+
+<p><code class="highlighter-rouge">
+jekyll serve
+</code></p>
+
+<p>然后浏览器打开：localhost:4000，此时就能看到原作者（baixin）的博客。</p>
+
+<p>那么现在来修改模板，呈现你的东西吧。（为了方便编辑各种格式的文件，建议事先安装sublime Text）</p>
+
+<p>工作路径：<code class="highlighter-rouge">d://zhijun/kangblog.github.io</code></p>
+
+<p><strong>1、修改配置文件</strong></p>
+
+<p>首先打开<code class="highlighter-rouge">_config.yml</code>文件.修改你想修改的地方。</p>
+
+<p>需要修改的项目包括：
+- <code class="highlighter-rouge">titile</code>:你的博客标题</p>
+
+<ul>
+  <li><code class="highlighter-rouge">subtitle</code>:你的博客子标题</li>
+  <li><code class="highlighter-rouge">description</code>:你的博客描述</li>
+  <li><code class="highlighter-rouge">avatarTitle</code>：你的头像里的标题</li>
+  <li><code class="highlighter-rouge">avatarDesc</code>：你的头像描述</li>
+  <li><code class="highlighter-rouge">url</code>:改成你的域名</li>
+  <li><code class="highlighter-rouge">comment</code>里的<code class="highlighter-rouge">duoshuo</code>:改成你的多说的用户名</li>
+  <li><code class="highlighter-rouge">social</code>里面的
+    <ul>
+      <li><code class="highlighter-rouge">weibo</code>：你的微薄id（不是用户昵称）</li>
+      <li><code class="highlighter-rouge">github</code>：你的github用户名</li>
+      <li><code class="highlighter-rouge">mail</code>:你的邮箱</li>
+      <li>其他的可以补充，没有的可以不写，将原文中的删除即可</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">baidu</code>: <code class="highlighter-rouge">id</code>：你的百度统计的id</li>
+  <li><code class="highlighter-rouge">ga</code>: <code class="highlighter-rouge">id</code>:你的Google Analytics的id</li>
+</ul>
+
+<p><strong>2、修改域名配置文件<code class="highlighter-rouge">CNAME</code></strong></p>
+
+<p>修改为你自己的域名，如：<code class="highlighter-rouge">robotkang.cc</code>如果没有直接清空(后面访问时,直接访问自己的github page即可）</p>
+
+<p><strong>3、修改个人文件<code class="highlighter-rouge">about.md</code></strong></p>
+
+<p>这里也应该修改为你自己的介绍。（要求会基本的markdown语法。）</p>
+
+<p><strong>4、头像</strong></p>
+
+<p>如果你想使用自己的头像，那么请打开<code class="highlighter-rouge">images</code>文件夹，将你自己的头像图片放在该文件夹，并重命名为<code class="highlighter-rouge">avatar.jpg</code>。</p>
+
+<p><strong>5、网站图标</strong></p>
+
+<p>如果你想使用自己的个性网站图标，同样的将你的图标图片放在该文件夹，并重命名为<code class="highlighter-rouge">favicon.png</code>。</p>
+
+<p><strong>6、博客文章</strong></p>
+
+<p>最后就是你的博客内容。请打开<code class="highlighter-rouge">_posts</code>文件夹，可以把原来的文件都删除掉，然后编辑你自己的博客。</p>
+
+<p>这里面，你在新建博客时必须包含前6行的内容，其中<code class="highlighter-rouge">title</code>后写你自己的博客标题，<code class="highlighter-rouge">date</code>后写你自己的时间（但格式要保持一致），<code class="highlighter-rouge">tag</code>后写你自己的标签。后面的内容则是markdown语法的内容。
+将上述文件保存，命名为：<code class="highlighter-rouge">2016-08-04-MyFirstBlog.md</code>。</p>
+
+<p>此时重新启动jekyll服务</p>
+
+<p>shell</p>
+
+<p><code class="highlighter-rouge">
+cd d://zhijun/kangblog.github.io
+</code></p>
+
+<p><code class="highlighter-rouge">
+jekyll serve
+</code></p>
+
+<p>然后打开<code class="highlighter-rouge">localhost:4000</code>，打开博客主页，就可以看到你刚刚发布的这篇博客了。</p>
+
+<h3 id="section-8">博客上线</h3>
+
+<p>之前的操作都是在本地，剩下最关键的一步啦。就是在github客户端将这些changes统统<code class="highlighter-rouge">commit</code>并sync到服务端。详细请查询github如何commit以及sync（客户端就点击几下就ok了）。用git shell的话使用如下命令：</p>
+
+<p><code class="highlighter-rouge">
+git commit -a
+</code></p>
+
+<p><code class="highlighter-rouge">
+git push
+</code></p>
+
+<p>当同步完成后，在浏览器输入你的域名，比如我的是：<code class="highlighter-rouge">robotkang.cc</code>，然后就能看到你的博客了。任何人都可以看到哦。</p>
+
+<h2 id="section-9">掉进过的那些坑</h2>
+
+<h3 id="jekyll">关于jekyll</h3>
+
+<ul>
+  <li>在启动jekyll时候，由于gemfile中需要的gem没有安装好，或者有依赖的没有安装，总会报错。解决办法是在官网上查询好依赖关系，依次安装好。</li>
+  <li>其次，项目中所需要的gem必须都要在gemfile中声明好，否则启动服务失败。</li>
+</ul>
+
+<h3 id="github-1">关于github提交冲突的问题</h3>
+
+<ul>
+  <li>发生冲突后，会发现冲突的文件会出现两种内容，当然会有一定的标志。这时候需要将你不需要的那个版本（以及冲突的那个标志）去掉。具体还需要去进一步学习github的相关内容。</li>
+</ul>
+
+<h2 id="section-10">后续学习</h2>
+
+<h3 id="git">版本控制git</h3>
+
+<ul>
+  <li>因为需要经常更新博客。而且不只在一个终端。所以要学习好git来更熟练的操作。</li>
+</ul>
+
+<h3 id="markdown">markdown</h3>
+
+<ul>
+  <li>博客的内容基本采用markdown编写，需要熟知markdown语法才能写出更美观的博客。</li>
+</ul>
+
+<h3 id="htmlcss">HTML,CSS</h3>
+
+<ul>
+  <li>觉得现在的模板太丑了？那你要学习怎么去设置及设计更符合你审美的博客外观。</li>
+</ul>
+
+<h3 id="jekyllruby">jekyll,ruby</h3>
+
+<ul>
+  <li>本博客是基于jekyll搭建的，然而到现在我还是不太知道jekyll到底是个啥。同时jekyll是基于ruby的，哦，ruby我知道是个编程语言。然而不知道怎么编，那还是去学习一下基本语法及常见应用场景吧。</li>
+</ul>
+
+<h3 id="section-11">搜索</h3>
+
+<ul>
+  <li>我还想给自己的博客添加一个搜索功能。后续再想想怎么做吧。</li>
+</ul>
+
+<h2 id="section-12">结束语</h2>
+
+<p>由于我也是个菜鸟新手。所以如果大家有什么问题的话，可以留言，也可以email（robotkang@foxmail.com）我，请教谈不上，大家一起探讨。</p>
+
+<p><strong>本文转载自Lilian，后稍加改之。特此声明！</strong></p>
+
+
+  </section>
+</article>
+<br>
+<section>
+  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</section>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js"></script>
+    <title>打赏</title>
+    <style type="text/css">
+        .content{width:80%;margin:10px auto;}
+                .hide_box{z-index:999;filter:alpha(opacity=50);background:#666;opacity: 0.5;-moz-opacity: 0.5;left:0;top:0;height:99%;width:100%;position:fixed;display:none;}
+        .shang_box{width:540px;height:540px;padding:10px;background-color:#fff;border-radius:10px;position:fixed;z-index:1000;left:50%;top:50%;margin-left:-280px;margin-top:-280px;border:1px dotted #dedede;display:none;}
+        .shang_box img{border:none;border-width:0;}
+        .dashang{display:block;width:100px;margin:5px auto;height:25px;line-height:25px;padding:10px;background-color:#E74851;color:#fff;text-align:center;text-decoration:none;border-radius:10px;font-weight:bold;font-size:16px;transition: all 0.3s;}
+        .dashang:hover{opacity:0.8;padding:15px;font-size:18px;}
+        .shang_close{float:right;display:inline-block;}
+                .shang_logo{display:block;text-align:center;margin:20px auto;}
+        .shang_tit{width: 100%;height: 75px;text-align: center;line-height: 66px;color: #a3a3a3;font-size: 16px;background: url('/dsimg/cy-reward-title-bg.jpg');font-family: 'Microsoft YaHei';margin-top: 7px;margin-right:2px;}
+        .shang_tit p{color:#a3a3a3;text-align:center;font-size:16px;}
+        .shang_payimg{width:140px;padding:10px;border:6px solid #EA5F00;margin:0 auto;border-radius:3px;height:140px;}
+        .shang_payimg img{display:block;text-align:center;width:140px;height:140px; }
+        .pay_explain{text-align:center;margin:10px auto;font-size:12px;color:#545454;}
+        .radiobox{width: 16px;height: 16px;background: url('/dsimg/radio2.jpg');display: block;float: left;margin-top: 5px;margin-right: 14px;}
+        .checked .radiobox{background:url('/dsimg/radio1.jpg');}
+        .shang_payselect{text-align:center;margin:0 auto;margin-top:40px;cursor:pointer;height:60px;width:280px;}
+        .shang_payselect .pay_item{display:inline-block;margin-right:10px;float:left;}
+        .shang_info{clear:both;}
+		.shang_info p,.shang_info a{color:#C3C3C3;text-align:center;font-size:12px;text-decoration:none;line-height:2em;}
+    </style>
+</head>
+
+<body>
+    <div class="content">
+    <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下">打赏</a></p>
+    <div class="hide_box"></div>
+    <div class="shang_box">
+    	<a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="/dsimg/close.jpg" alt="取消" /></a>
+        <img class="shang_logo" src="/dsimg/logos.png" alt="亢志军" />
+    	<div class="shang_tit">
+    		<p>感谢您的支持，我会继续努力的!</p>
+    	</div>
+    	<div class="shang_payimg">
+    		<img src="/dsimg/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+    	</div>
+    		<div class="pay_explain">扫码打赏，你说多少就多少</div>
+    	<div class="shang_payselect">
+    		<div class="pay_item checked" data-id="alipay">
+	    		<span class="radiobox"></span>
+	    		<span class="pay_logo"><img src="/dsimg/alipay.jpg" alt="支付宝" /></span>
+    		</div>
+    		<div class="pay_item" data-id="weipay">
+	    		<span class="radiobox"></span>
+	    		<span class="pay_logo"><img src="/dsimg/wechat.jpg" alt="微信" /></span>
+    		</div>
+    	</div>
+    	<div class="shang_info">
+    		<p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+    		<p>Powered by <a href="robotkang.cc" target="_blank" title="亢志军">亢志军</a>，分享从这里开始，精彩与您同在</p>
+    	</div>
+    </div>
+    </div>
+    <script type="text/javascript">
+    $(function(){
+    	$(".pay_item").click(function(){
+    		$(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+    		var dataid=$(this).attr('data-id');
+    		$(".shang_payimg img").attr("src","/dsimg/"+dataid+"img.jpg");
+    		$("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+    	});
+    });
+    function dashangToggle(){
+    	$(".hide_box").fadeToggle();
+    	$(".shang_box").fadeToggle();
+    }
+    </script>
+</body>
+</html>
+
+<section>
+       <ul class="pager">
+        
+        <li class="previous">
+            <a href="/2016/10/Xcode8/" data-toggle="tooltip" data-placement="top" title="Xcode 8 使用笔记">上一篇：  <span>Xcode 8 使用笔记</span>
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2017/03/helloworld1/" data-toggle="tooltip" data-placement="top" title="Hello World">下一篇：  <span>Hello World</span>
+            </a>
+        </li>
+        
+    </ul>
+</section>
+
+
+
+
+<br>
+
+<br><br><br></br>
+
+<!-- wangyi评论框 start -->
+
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href, 
+    sourceId: "",
+    productKey: "88e913c19bd844db833a1288040a08ce",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+<!-- wangyi 公共JS代码 end -->
+
+
+<link href="/css/top.css/" rel="stylesheet" type="text/css" />
+<script src="/js/jquery.js?v=1.83.min/" type="text/javascript"></script>
+<script src="/js/top.js/"></script>
+<div style="display: none;" id="rocket-to-top">
+<div style="opacity:0;display: block;" class="level-2"></div>
+<div class="level-3"></div>
+
+
+
+
+
+            <section class="footer">
+    <footer>
+        <div class = "footer_div">  
+        <nav class="cover-navigation navigation--social">
+          <ul class="navigation">
+
+          
+          <!-- Weibo -->
+          <li class="navigation__item_social">
+            <a href="http://weibo.com/123456789" title="@123456789 的微博" target="_blank">
+              <i class='social fa fa-weibo fa-2x'></i>
+              <span class="label">Weibo</span>
+            </a>
+          </li>
+          
+
+          
+          <!-- Github -->
+          <li class="navigation__item_social">
+            <a href="https://github.com/MengZheK" title="@MengZheK 的 Github" target="_blank">
+              <i class='social fa fa-github fa-2x'></i>
+              <span class="label">Github</span>
+            </a>
+          </li>
+          
+          
+          
+
+          
+
+          <!-- RSS -->
+          <li class="navigation__item_social">
+            <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+              <i class='social fa fa-rss fa-2x'></i>
+              <span class="label">RSS</span>
+            </a>
+          </li>
+
+          
+          <!-- Email -->
+          <li class="navigation__item_social">
+            <a href="mailto:robotkang@foxmail.com" title="Contact me">
+              <i class='social fa fa-envelope fa-2x'></i>
+              <span class="label">Email</span>
+            </a>
+          </li>
+          
+
+          </ul>
+        </nav>
+
+        </div>
+
+
+
+        <div class = "footer_div">  
+           <p class="copyright text-muted">
+            Copyright &copy; 亢志军 2017 Theme by <a href="http://robotkang.cc/">robotkang</a> |
+            <iframe
+                style="margin-left: 2px; margin-bottom:-5px;"
+                frameborder="0" scrolling="0" width="91px" height="20px"
+                src="https://ghbtns.com/github-btn.html?user=MengZheK&repo=kangblog.github.io&type=star&count=true" >
+            </iframe>|
+            
+<!-- cnzz -->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261874359'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261874359%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</p>
+        	<div align="right">
+    			<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<!-- 访问统计 -->
+ 
+      Total <span id="busuanzi_value_site_pv"></span> views.
+您是我的第<span id="busuanzi_value_site_uv"></span> 个访客..
+<span id="busuanzi_value_page_pv"></span> Hits
+  
+          </span>
+        </div>
+        <div>
+    </footer>
+</section>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript" src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+    
+<!-- 
+
+
+
+<link href="/css/top.css/" rel="stylesheet" type="text/css" />
+<script src="/js/jquery.js?v=1.83.min/" type="text/javascript"></script>
+<script src="/js/top.js/"></script>
+<div style="display: none;" id="rocket-to-top">
+<div style="opacity:0;display: block;" class="level-2"></div>
+<div class="level-3"></div>
+</div>-->
+
+
+<!--小人只在首页显示 start*-->
+<div id="spig" class="spig">
+    <div id="message">正在加载中……</div>
+    <div id="mumu" class="mumu"></div>
+</div>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="/js/jquery.xiaoren.js"></script>
+<script type="text/javascript" src="/js/spig.js"></script>
+<link rel="stylesheet" href="/css/xiaoren.css" type="text/css"/>
+<script type="text/javascript">
+var isindex = true;
+var visitor = true;
+</script>
+
+
+</body>
+
+</html>

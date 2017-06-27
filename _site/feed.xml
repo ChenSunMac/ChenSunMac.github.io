@@ -1,0 +1,1106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>亢志军</title>
+    <description>欢迎来到我的个人网站~</description>
+    <link>http://robotkang.cc/</link>
+    <atom:link href="http://robotkang.cc/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 26 Jun 2017 23:05:24 -0400</pubDate>
+    <lastBuildDate>Mon, 26 Jun 2017 23:05:24 -0400</lastBuildDate>
+    <generator>Jekyll v3.1.1</generator>
+    
+      <item>
+        <title>闲来无事，自己做了一个arduino履带超声波避障小车</title>
+        <description>&lt;p&gt;　　这我看到网上有很多小伙伴做的超声波壁障小车都是用减速电机来作为动力输出，我觉得自己再做一个这样的意义也不怎么大，正好手头也没有电机驱动板。于是我就想能不能用连续旋转舵机舵机来作为动力输出，实验室也有很多这样的的舵机，我就不用在某宝上花钱买了O(∩_∩)O,利用一周多的课余时间终于把这个小玩意儿搞好了，本着开源共享的理念，下面就让我细细道来&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;材料：&lt;/strong&gt;    &lt;br /&gt;
+ - 小车底盘、履带        &lt;br /&gt;
+ - 两个连续旋转舵机、一个标准小舵机（用来旋转超声波模块）        &lt;br /&gt;
+ - 一个HC-SR04超声波模块、一个超声波模块旋转云台（支架）          &lt;br /&gt;
+ - Arduino UNO、Arduino  V5 拓展板（这个很好用）        &lt;br /&gt;
+ - 一个4.8V电池盒【舵机需要单独供电】、一块12V电池       &lt;br /&gt;
+ - 杜邦线若干、小螺钉螺母若干。&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;程序：&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;啥话不说，先上程序&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	/*
+	Date:2017-05-25
+	Name:超声波避障小车
+	Writer: mengzhe
+	Arduino IDE 1.5.6
+	*/
+	#include &amp;lt;Servo.h&amp;gt;               //调用舵机库
+	Servo left;
+	Servo right;
+	Servo head;                     //定义左右和头部舵机名称
+	const int TrigPin = 3;
+	const int EchoPin = 2;          //定义HC-SR04引脚
+	float da;
+	float dl;
+	float dr;                       //将距离存储为单精度浮点数 前左右三组数据
+	void setup()
+	{
+	  Serial.begin(9600);// 初始化串口通信及连接SR04的引脚
+	  left.attach(10);
+	  right.attach(11);
+	  head.attach(12);
+	  pinMode(TrigPin, OUTPUT);
+	  pinMode(EchoPin, INPUT); //要检测引脚上输入的脉冲宽度，需要先设置为输入状态   
+	  Serial.println(&quot;Ultrasonic Car  By Mengzhe&quot;);
+	  left.write(90);
+	  right.write(90);
+	  head.write(105);             //小车初始化 停止 头朝前看
+	  Serial.println(&quot;System start complete&quot;);
+	  delay(1000);
+	}
+
+	void loop()
+	{
+	  digitalWrite(TrigPin, LOW);
+	  delayMicroseconds(2);
+	  digitalWrite(TrigPin, HIGH);
+	  delayMicroseconds(10);
+	  digitalWrite(TrigPin, LOW);//产生一个10us的高脉冲触发TrigPin 
+	  da = pulseIn(EchoPin, HIGH) / 58.00;//读取接收到反射时长 计算出距离并换算成cm
+	  if (da &amp;gt;= 20)
+	  {
+	    left.write(45);
+	    right.write(111);
+	    Serial.print(&quot;Distance = &quot;);
+	    Serial.print(da);
+	    Serial.print(&quot;cm&quot;);
+	    Serial.print(&quot;  &quot;);
+	    Serial.println(&quot;Moving advance&quot;);
+	    delay(500);          //如果距离大于20cm则前进并输出&quot;正在前进&quot;
+	  }
+	  else if (da &amp;lt;= 20)
+	  {
+	    left.write(90);
+	    right.write(90);
+	    Serial.print(&quot;Distance = &quot;);
+	    Serial.print(da);
+	    Serial.print(&quot;    &quot;);
+	    Serial.println(&quot;Stopped&quot;); //如果距离小于20cm则小车停止并输出&quot;停止&quot;
+	    head.write(180);
+	    delay(1000);
+	    digitalWrite(TrigPin, LOW);
+	    delayMicroseconds(2);
+	    digitalWrite(TrigPin, HIGH);
+	    delayMicroseconds(10);
+	    digitalWrite(TrigPin, LOW);
+	    dl = pulseIn(EchoPin, HIGH) / 58.00;
+	    Serial.print(&quot;Left distance = &quot;);
+	    Serial.print(dl);
+	    Serial.print(&quot;  &quot;);//头部舵机左转测量左边距离并输出
+	    head.write(25);
+	    delay(1000);
+	    digitalWrite(TrigPin, LOW);
+	    delayMicroseconds(2);
+	    digitalWrite(TrigPin, HIGH);
+	    delayMicroseconds(10);
+	    digitalWrite(TrigPin, LOW);
+	    dr = pulseIn(EchoPin, HIGH) / 58.00;
+	    Serial.print(&quot;Right distance = &quot;);
+	    Serial.print(dr);
+	    Serial.print(&quot;  &quot;);
+	    Serial.println();//头部舵机右转测量右边距离并输出
+	    head.write(105);     //头部舵机回中
+	    if (dl &amp;gt;= 20 &amp;amp;&amp;amp; dl &amp;lt;= 1000 &amp;amp;&amp;amp; dl &amp;gt; dr)
+	    {
+	      left.write(180);
+	      right.write(180);
+	      Serial.println(&quot;Turning left&quot;);
+	      delay(900);      //判断左右距离 若左边大则左转
+	    }
+	    else if (dl &amp;gt;= 1000)
+	    {
+	      left.write(0);
+	      right.write(0);
+	      Serial.println(&quot;Turning right&quot;);
+	      delay(900);
+	      //特殊情况 若左边返回距离大于1000则说明探头被遮挡 此时右转
+	    }
+	    else if (dr &amp;gt;= 20 &amp;amp;&amp;amp; dr &amp;lt;= 1000 &amp;amp;&amp;amp; dr &amp;gt; dl)
+	    {
+	      left.write(0);
+	      right.write(0);
+	      Serial.println(&quot;Turning right&quot;);
+	      delay(900);      //判断左右距离 若右边大则右转
+	    }
+	    else if (dr &amp;gt;= 1000)
+	    {
+	      left.write(180);
+	      right.write(180);
+	      Serial.println(&quot;Turning left&quot;);
+	      delay(900);
+	      //特殊情况 若右边返回距离大于1000则说明探头被遮挡 此时左转
+	    }
+	    else if (dr &amp;lt;= 20 &amp;amp;&amp;amp; dl &amp;lt;= 20)
+	    {
+	      left.write(180);
+	      right.write(180);
+	      Serial.println(&quot;Turning around&quot;);//若左右两边距离均小于20cm 则掉头
+	      delay(1500);
+	    }
+	  }
+	}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;正文：&lt;/h3&gt;
+
+&lt;p&gt;1.首先得把小车的底盘部分给搞好，在这里我得感谢一位我们机器人团队里的一位大神和我在实验室里拼了几个小时的底盘部分，我们装了拆，拆了装，直到诞生了我们都比较满意的这个底盘,因为这些零件都是我从学院库房的某个角落里翻出来，东拼西凑的.
+&lt;a href=&quot;/photos/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/2017-1.png&quot; width=&quot;500&quot; height=&quot;340&quot; alt=&quot;photos&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;/photos/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/2017-2.png&quot; width=&quot;500&quot; height=&quot;340&quot; alt=&quot;photos&quot; /&gt;&lt;/a&gt;&lt;p&gt;&lt;/p&gt; 
+2.接下来，就是接线，接电池啥的。在这里我再次强调一下(舵机必须得单独供电)，在这里，我向大家推介一本书《Arduino机器人制作指南》，我从本书中获得了很大的帮助。也可以仿照我画的这张图接线(画的不是很好，大家能看懂就行O(∩_∩)O)：
+&lt;p&gt;
+&lt;a href=&quot;/photos/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/2017-3.png&quot; width=&quot;500&quot; height=&quot;340&quot; alt=&quot;photos&quot; /&gt;&lt;/a&gt; &lt;p&gt;&lt;/p&gt;
+3.安装好控制超声波模块的舵机。        
+&lt;p&gt;
+&lt;a href=&quot;/photos/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/2017-4.png&quot; width=&quot;500&quot; height=&quot;340&quot; alt=&quot;photos&quot; /&gt;&lt;/a&gt; &lt;p&gt;&lt;/p&gt;
+4.安装好的整体效果图，简单的固定好，不是很美观,对于大神搞这些来说这都是小意思     
+&lt;p&gt;
+&lt;a href=&quot;/photos/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/2017-5.png&quot; width=&quot;500&quot; height=&quot;340&quot; alt=&quot;photos&quot; /&gt;&lt;/a&gt; &lt;p&gt;&lt;/p&gt;
+5.经过我不断的调试，终于搞定了(这个程序也是参考了很多人的，在此表示感谢)，有不足之处，望共同探讨，以求进步。               
+
+总：经过运行，小车的效果还是嘿棒滴，履带的可玩性也比较大。后期我会不断地往上加新的功能，欢迎共同探讨O(∩_∩)O~      
+
+&lt;p&gt;
+我在极客工坊的原帖地址：http://www.geek-workshop.com/thread-26377-1-1.html
+      
+      
+
+
+&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 25 May 2017 00:00:00 -0400</pubDate>
+        <link>http://robotkang.cc/2017/05/%E8%87%AA%E5%B7%B1%E5%81%9A%E7%9A%84%E4%B8%80%E4%B8%AAarduino%E5%B1%A5%E5%B8%A6%E8%B6%85%E5%A3%B0%E6%B3%A2%E9%81%BF%E9%9A%9C%E5%B0%8F%E8%BD%A61/</link>
+        <guid isPermaLink="true">http://robotkang.cc/2017/05/%E8%87%AA%E5%B7%B1%E5%81%9A%E7%9A%84%E4%B8%80%E4%B8%AAarduino%E5%B1%A5%E5%B8%A6%E8%B6%85%E5%A3%B0%E6%B3%A2%E9%81%BF%E9%9A%9C%E5%B0%8F%E8%BD%A61/</guid>
+        
+        <category>Arduino</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>如何高效且优雅的翻墙</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/image/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91.png&quot; alt=&quot;上网&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;以前是知道有翻墙这么个东西，总感觉天朝的网络世界已经够我遨游了，而且处处是一片祥和，所以就觉得墙内挺好，也就懒得架梯子翻墙了，但最近时不时的要上网查点技术资料，有的时候需要频繁的访问国外的一些网站，可在天朝是不能随随便便访问外网的。搜索一番，在无意中发现了&lt;a href=&quot;https://lvpn.info/aff.php?id=923137&quot;&gt;Loco加速器&lt;/a&gt;这个网站。免费使用了一下感觉各方面都很满意，网速很快很稳定，不过免费的有各种不尽人意的地方，比如什么定时断网、流量限制、时间限制什么的，用起来各种不爽，于是索性就买了一年的会员。接下来就是使用它了，这段时间一直在用。      &lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;下面是我搜索到的各家翻墙软件，大家可以自由选择。有需要的话，可以一起探讨一下。(∩_∩) (^o^)/~          &lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p style=&quot;color: #FF2D2D&quot;&gt;
+&lt;strong&gt;推荐大家使用付费的，包年包月也花不了几个钱，用着也省心&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;VPN服务商&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;特点&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;月/价格&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;官方网站&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Loco加速器&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;快速、稳定，支持所有设备，随时随地使用&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;¥15&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://lvpn.info/aff.php?id=923137&quot;&gt;点此进入&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;流星加速器&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;无限流量，国内外节点，全部地域可用&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;¥20&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://t.cn/R65FtK1&quot;&gt;点此进入&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;赤兔加速器&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;一群有理想、无节操的青年们的诚意之作&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;¥20&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://cht.li/nlb75&quot;&gt;点此进入&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;豆荚VPN&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;轻便、客户端体积小，不与其他进程抢占CPU使用率&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;¥20&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://doujia.gs/4umn9&quot;&gt;点此进入&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;灰熊加速器&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;新用户注册即送1G 高速流量，不限带宽连接服务器&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;¥20&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://g46.net/qyjqq&quot;&gt;点此进入&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;泰坦加速器&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;免费试用、多平台支持、快速稳定、数据加密&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;¥25&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://42v.net/ymree&quot;&gt;点此进入&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;GreenVPN&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;老牌VPN、快速、稳定的网络优化服务、售后很好&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;¥18&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://gjsq.me/30438734&quot;&gt;点此进入&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;天行VPN&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;老牌VPN、提供世界各地VPN代理服务器，低延时、高稳定性&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;¥20&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://go.tianxingvpn.top/?r=28008&quot;&gt;点此进入&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/image/Google%20earth.png&quot; alt=&quot;此处输入图片的描述&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;自从翻墙以来，感觉是发现了新大陆！最近发现谷歌地球是相当…用一个词形容那就是“惊艳”，玩了一下午简直停不下来，当查看天朝的时候，发现并没有给任何一个城市建模（反正截止目前没得），这也难怪，与世隔绝嘛，大家都懂。         &lt;br /&gt;
+&lt;br /&gt;
+  墙外的世界是如此美好，先让我呼吸下新鲜空气先(^o^)/~&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://gjsq.me/30438734&quot;&gt;&lt;img style=&quot;border: 0px&quot; src=&quot;http://omjh2j5h3.bkt.clouddn.com/01.gif&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;如果注定要一个人赶路，那就此告别吧，大漠孤烟，夕阳西下。再喝最后一碗酒，然后我就出发。不必挽留，无需相送。今日一别，来世再见。若他们问起我，就说我是尘世的一粒沙，本该浪迹天涯……
+——来自《网易云音乐》&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 19 May 2017 00:00:00 -0400</pubDate>
+        <link>http://robotkang.cc/2017/05/%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E4%B8%94%E4%BC%98%E9%9B%85%E7%9A%84%E7%BF%BB%E5%A2%99/</link>
+        <guid isPermaLink="true">http://robotkang.cc/2017/05/%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E4%B8%94%E4%BC%98%E9%9B%85%E7%9A%84%E7%BF%BB%E5%A2%99/</guid>
+        
+        <category>博客</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>VS Code 配置Python </title>
+        <description>&lt;h2 id=&quot;visual-studio-code&quot;&gt;Visual Studio Code&lt;/h2&gt;
+
+&lt;p&gt;　Microsoft在2015年4月30日Build 开发者大会上正式宣布了 Visual Studio Code 项目：一个运行于 &lt;code class=&quot;highlighter-rouge&quot;&gt;Mac OS X&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;Windows&lt;/code&gt;和 &lt;code class=&quot;highlighter-rouge&quot;&gt;Linux&lt;/code&gt; 之上的，针对于编写现代 Web 和云应用的跨平台源代码编辑器。      &lt;br /&gt;
+    看到&lt;code class=&quot;highlighter-rouge&quot;&gt;Visual Studio Code&lt;/code&gt;还是蛮激动的，界面也很好看，非常轻量级，搭配各种插件的话，就可以重现Visual Studio的强大功能。&lt;code class=&quot;highlighter-rouge&quot;&gt; 微软&lt;/code&gt; 这两年来不断开放的姿态，越来越让我们看到微软的情怀和未来。Visual Studio Code的定位应该还是Editor，一个全功能的Editor，通过Editor反推微软的SDK，.NET(开源，跨平台)等产品铺路。&lt;/p&gt;
+
+&lt;h2 id=&quot;vs-code-python&quot;&gt;VS Code 配置Python&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt; 1. 进入VS Code官网，下载软件&lt;/strong&gt; &lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;官网: &lt;a href=&quot;https://code.visualstudio.com/Download#&quot;&gt;https://code.visualstudio.com/Download#&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Python也要在本地下载安装好，我现在安装的是&lt;code class=&quot;highlighter-rouge&quot;&gt; python 3.5.2&lt;/code&gt; ，配置好环境变量.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt; 2.安装VS Code的Python插件，选择安装次数最多的那个&lt;/strong&gt;     &lt;br /&gt;
+&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/vscode/1.jpg&quot; width=&quot;800&quot; height=&quot;500&quot; alt=&quot;photos&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt; 3.安装其他插件&lt;/strong&gt;  &lt;br /&gt;
+ &lt;strong&gt;3.1 配置flake8&lt;/strong&gt;    &lt;br /&gt;
+ 安装flake8之后写代码的时候编辑器就会提示哪里出错，代码格式不规范也会提示.           &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;1.&lt;/code&gt;打开命令行「windows：cmd」
+&lt;code class=&quot;highlighter-rouge&quot;&gt;2.&lt;/code&gt;输入 &lt;code class=&quot;highlighter-rouge&quot;&gt;pip install flake8&lt;/code&gt;.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;3.&lt;/code&gt;安装flake8成功后，打开VScode，文件-&amp;gt;首选项-&amp;gt;用户设置，在settings.json文件中输入”python.linting.flake8Enabled”: true
+&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/vscode/2.jpg&quot; width=&quot;750&quot; height=&quot;250&quot; alt=&quot;photos&quot; /&gt;
+ &lt;strong&gt;3.2 配置yapf&lt;/strong&gt;      &lt;br /&gt;
+ 安装yapf之后在VScode中按&lt;code class=&quot;highlighter-rouge&quot;&gt;Alt+Shift+F&lt;/code&gt;即可自动格式化代码      &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;1.&lt;/code&gt;打开命令行
+&lt;code class=&quot;highlighter-rouge&quot;&gt;2.&lt;/code&gt;输入 &lt;code class=&quot;highlighter-rouge&quot;&gt;pip install yapf&lt;/code&gt;.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;3.&lt;/code&gt;安装yapf成功后，打开VScode，文件-&amp;gt;首选项-&amp;gt;用户设置，在settings.json文件中输入”python.formatting.provider”: “yapf”&lt;/p&gt;
+
+&lt;p&gt; &lt;strong&gt;3.3软件自带插件，直接在软件中安装&lt;/strong&gt;      &lt;br /&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt; &lt;strong&gt;vscode-icons&lt;/strong&gt;：可以使VScode左侧的资源管理器根据文件类型显示图标      &lt;br /&gt;
+  Enable the extension：
+Go to File &amp;gt; Preferences &amp;gt; File Icon Theme &amp;gt; VSCode Icons.      &lt;br /&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;2&lt;/code&gt; &lt;strong&gt;markdown&lt;/strong&gt;：Markdown 编辑器   &lt;br /&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;3&lt;/code&gt; &lt;strong&gt;Guides&lt;/strong&gt;：缩进辅助线. Guides is simply an extension that add various indentation guide lines       &lt;br /&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;4&lt;/code&gt; &lt;strong&gt;Git History&lt;/strong&gt;：Git 历史       &lt;br /&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;5&lt;/code&gt; &lt;strong&gt;Settings Sync&lt;/strong&gt;：用户配置同步      &lt;br /&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;6&lt;/code&gt; &lt;strong&gt;View in Browser&lt;/strong&gt;：Extension for vscode to view a html file in a browser.&lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl + F1&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4.设置快捷键&lt;/strong&gt;        &lt;br /&gt;
+ 文件-&amp;gt;首选项-&amp;gt;键盘快捷方式，将需要的修改的快捷键的整个大括号里面的内容复制到右边keybindings.json文件中，然后修改“key”的值为你需要的快捷键即可。我这边只修改了复制一行和删除一行的快捷键。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/vscode/4.jpg&quot; width=&quot;700&quot; height=&quot;180&quot; alt=&quot;photos&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;总结&lt;/h2&gt;
+
+&lt;p&gt; 好了，接下来就可以愉快的敲代码了O(∩_∩)O哈哈~&lt;/p&gt;
+
+&lt;p&gt; 到这边VScode就可以编辑python代码了，新建一个文件夹，用VSCode打开该文件夹，并在其中新建一个test.py文件来做测试。编辑完代码按F5即可运行。初次运行会让你选环境，选择python即可。默认按F5后需要再按一次F5程序才会运行，如果要按F5马上运行需要将launch.json文件的 &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;stopOnEntry&quot;: true&lt;/code&gt;,改为&lt;code class=&quot;highlighter-rouge&quot;&gt; &quot;stopOnEntry&quot;: false&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/vscode/5.jpg&quot; width=&quot;800&quot; height=&quot;500&quot; alt=&quot;photos&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt; 有什么需要补充或者哪里有错误的欢迎大家指出(｡・`ω´･)&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;哥们儿，我们内蒙喝酒有个规矩。我先介绍一下今天桌上的几个朋友，然后咱们先喝一圈。 喝完之后你能说出来他们的名字，就是你认我们这些朋友，我们自己喝一杯。 要是你说不出来名字，就是情谊还没到，你自己喝一杯。准备好没？ 先从你旁边的噶拉仓巴拉丹扎木苏日丹开始，再往下是乌勒吉德勒格列日图愣…&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 25 Apr 2017 00:00:00 -0400</pubDate>
+        <link>http://robotkang.cc/2017/04/VS-Code-%E9%85%8D%E7%BD%AEPython/</link>
+        <guid isPermaLink="true">http://robotkang.cc/2017/04/VS-Code-%E9%85%8D%E7%BD%AEPython/</guid>
+        
+        <category>Python</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>webots使用指南</title>
+        <description>&lt;h2 id=&quot;webots&quot;&gt;Webots的前世今生&lt;/h2&gt;
+
+&lt;p&gt;　Webots是Cyberbotics公司出品的&lt;code class=&quot;highlighter-rouge&quot;&gt;便携式机器人仿真平台&lt;/code&gt;，可运行在windows，Mac和Linux上，内建3D编辑器,可构建3D机器人模型。应用C++或Java或者MATLAB编辑机器人程序可模拟机器人的动作。也就是说，它支持多种编程语言，包括C, C++, JAVA, Python, Matlab, VRML97。      &lt;br /&gt;
+    Webots是一个商业产品，最新的版本是8.5.4，从官网下载的版本刚开始打开的时候是试用版（Free）,这个免费版本是个鸡肋，它不允许用户修改机器人的控制器的代码，就是说，你不能写自己的控制器。下载之后，从官网注册一个账号之后用注册的账号在软件的Preference中的License注册，可以免费使用30天的PRO版本，或者EDU版本。PRO版本是旗舰版，涵盖了软件所有的功能，所以使用的时候推荐使用&lt;code class=&quot;highlighter-rouge&quot;&gt;PRO版本&lt;/code&gt;。       &lt;br /&gt;
+    这个软件学起来其实很容易，就是一个仿真平台，并且封装和提供了各种&lt;code class=&quot;highlighter-rouge&quot;&gt;API函数&lt;/code&gt;。这个软件的学习资料中文版的很少，几乎没有，我知道的只有一个“Webots使用介绍.pdf”这个中文教程，但是它其实就是官网的第一个教程的翻译而已。官网或者软件本身提供了两个很好的很强大的英文学习资料，并且以pdf格式和html两种形式发布，一个是UserGuide（用户指南），一个是Reference Manual(参考手册)。 我推荐在网页直接看，因为网页的目录做得很好，查找方便，另外，用&lt;code class=&quot;highlighter-rouge&quot;&gt;google浏览器&lt;/code&gt;还可以直接网页翻译，遇到不认识的英文词句就可以很快捷地理解他们的意思了。&lt;/p&gt;
+
+&lt;h2 id=&quot;webots-1&quot;&gt;Webots快速上手&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;1. 进入webots官网，注册账号&lt;/strong&gt;   &lt;br /&gt;
+- 官网: &lt;a href=&quot;http://www.cyberbotics.com/&quot;&gt;http://www.cyberbotics.com/&lt;/a&gt;     &lt;br /&gt;
+- 用户指南：&lt;a href=&quot;https://www.cyberbotics.com/doc/guide/index&quot;&gt;https://www.cyberbotics.com/doc/guide/index&lt;/a&gt;      &lt;br /&gt;
+- 参考手册：&lt;a href=&quot;https://www.cyberbotics.com/doc/reference/index&quot;&gt;https://www.cyberbotics.com/doc/reference/index&lt;/a&gt;        &lt;br /&gt;
+&lt;strong&gt;2.登陆到webots官网，激活软件试用，过期之后可重新申请。 &lt;/strong&gt;     &lt;br /&gt;
+&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/webots/444.png&quot; width=&quot;420&quot; height=&quot;250&quot; alt=&quot;photos&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt; 3.在webots里新建world，点击菜单栏加号添加机器人，选择aldebaran里的NAO机器人&lt;/strong&gt;  &lt;br /&gt;
+&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/webots/555.png&quot; width=&quot;420&quot; height=&quot;250&quot; alt=&quot;photos&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt; 4.左侧窗口中展开NAO模型，设置参数，将如图两个参数设置为正确值。&lt;/strong&gt; &lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/webots/666.png&quot; width=&quot;250&quot; height=&quot;400&quot; alt=&quot;photos&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;   &lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;1.狼牙月，漫天星光；无人夜，遍山萤火。城间歌舞升平，山间琴弦独奏，试问吾友，如今安在？       &lt;br /&gt;
+2.最怕你一生碌碌无为,
+却还说平凡难能可贵&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 19 Apr 2017 00:00:00 -0400</pubDate>
+        <link>http://robotkang.cc/2017/04/webots%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+        <guid isPermaLink="true">http://robotkang.cc/2017/04/webots%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+        
+        <category>NAO机器人</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>蓝牙模块相关知识汇总</title>
+        <description>&lt;h2 id=&quot;hc05-at&quot;&gt;蓝牙HC05模块探究-设置AT指令&lt;/h2&gt;
+
+&lt;p&gt;　蓝牙HC05是主从一体的蓝牙串口模块，简单的说，当蓝牙设备与蓝牙设备配对连接成功后，我们可以忽视蓝牙内部的通信协议，直接将将蓝牙当做串口用。当建立连接，两设备共同使用一通道也就是同一个串口，一个设备发送数据到通道中，另外一个设备便可以接收通道中的数据。当然，对于建立这种通道连接是有一定条件，那就是对蓝牙设置好能进行配对连接的AT模式。 一般的蓝牙串口模块引脚：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;RXD：接收端         &lt;br /&gt;
+TXD：发送端     &lt;br /&gt;
+AT：设置工作模式（1、工作模式 2、AT指令设置模式）          &lt;br /&gt;
+VCC：模块供电正极（5V）        &lt;br /&gt;
+GND:模块供电负极&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/%E8%93%9D%E7%89%99/7.png&quot; width=&quot;380&quot; height=&quot;230&quot; alt=&quot;photos&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;一般的蓝牙模块使用有三种。&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;一：蓝牙从设备与电脑配对连接(1、电脑自带蓝牙 2、电脑不带蓝牙，这事需要蓝牙适配器)&lt;/li&gt;
+  &lt;li&gt;二：蓝牙从设备与手机配对连接&lt;/li&gt;
+  &lt;li&gt;三：蓝牙从设备与蓝牙主设备配对连接&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;hc05at&quot;&gt;HC05蓝牙模块的AT模式设置的方法大致有三种：&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;一、默认设置&lt;/li&gt;
+  &lt;li&gt;二、用USB转UART模块设置&lt;/li&gt;
+  &lt;li&gt;三、用带有蓝牙设置的主控器串口程序进行设置&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;  第一：主要默认设置：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;模块工作角色：从模式&lt;/li&gt;
+  &lt;li&gt;串口参数：38400bits/s 停止位1位无校验位&lt;/li&gt;
+  &lt;li&gt;配对码：1234&lt;/li&gt;
+  &lt;li&gt;设备名称：HC-05&lt;/li&gt;
+  &lt;li&gt;连接模式：任意蓝牙设备连接模式（恢复默认设置 AT指令：AT+ORGL）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;  第二：用USB to UART模块设置蓝牙&lt;/strong&gt;     &lt;br /&gt;
+    蓝牙与USB转串口模块连接方式，RXD-TX TXD-RX VCC-VCC GND-GND       &lt;br /&gt;
+    要设置蓝牙AT指令，必须让AT引脚置高(接高电平)，然后接上蓝牙模块，当蓝牙模块state灯变为慢闪，则表明已经进入AT模式。（j将蓝牙模块与转串口模块对插，用跳线将AT对应的引脚接VCC）这时候将转串口模块接入电脑，打开超级终端或者串口调试助手便可以开始设置AT模式。      &lt;br /&gt;
+    打开串口调试助手，测试AT指令，找到相应串口号后，注意两点，&lt;code class=&quot;highlighter-rouge&quot;&gt;1、设置AT模式的波特率为38400 &lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;2、输入指令后加上回车后换行，发送后返回OK.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/%E8%93%9D%E7%89%99/6.png&quot; width=&quot;420&quot; height=&quot;250&quot; alt=&quot;photos&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;    &lt;em&gt;下面来设置模块为从机模式，依次输入指令:&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;AT+NAME=Bluetooth-Slave  蓝牙名称为Bluetooth-Slave&lt;/li&gt;
+  &lt;li&gt;AT+ROLE=0                蓝牙模式为从模式&lt;/li&gt;
+  &lt;li&gt;AT+CMODE=0               蓝牙连接模式为任意地址连接模式&lt;/li&gt;
+  &lt;li&gt;AT+PSWD=1234             蓝牙配对密码为1234&lt;/li&gt;
+  &lt;li&gt;AT+UART=9600，0，0       蓝牙通信串口波特率为9600，停止位1位，无校验位&lt;/li&gt;
+  &lt;li&gt;AT+RMAAD                 清空配对列表&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;相应返回OK表示设置成功。这个时候的蓝牙就可以与电脑主机或者手机配对通信。需要注意的是设置指令里的符号不要在中文状态下输入，否则不会返回相应指令。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt; 第三：用Arduino配置蓝牙AT指令&lt;/strong&gt;            &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;步骤一 &lt;/code&gt;给Arduino下载程序&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	#define AT 2
+	#define LED 13
+	void setup()
+	{
+		pinMode(LED,OUTPUT);
+		pinMode(AT,OUTPUT);
+		digitalWrite(AT,HIGH);
+		Serial.begin(38400);//这里应该和你的模块通信波特率一致
+		delay(100);
+		Serial.println(&quot;AT&quot;);
+		delay(100);
+		Serial.println(&quot;AT+NAME=OPENJUMPER-Bluetooth&quot;);//命名模块名
+		delay(100);
+		Serial.println(&quot;AT+ROLE=0&quot;);//设置主从模式：0从机，1主机
+		delay(100);
+		Serial.println(&quot;AT+PSWD=1234&quot;);//设置配对密码，如1234
+		delay(100);
+		Serial.println(&quot;AT+UART=9600,0,0&quot;);//设置波特率9600，停止位1，校验位无
+		delay(100);
+		Serial.println(&quot;AT+RMAAD&quot;);//清空配对列表
+	}
+	void loop()
+	{
+	       digitalWrite(LED, HIGH);
+	       delay(500);
+	       digitalWrite(LED, LOW);
+	       delay(500);
+	}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;步骤二&lt;/code&gt; 蓝牙与Ardino连线 RXD-TX TXD-RX VCC-VCC GND-GND AT-2 （当很多传感器扩展板带有蓝牙模块接口，则可以直接将蓝牙插在扩展板上接口，不用麻烦接线）。   &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;步骤三&lt;/code&gt; 按下Arduino的复位按键，让程序开始运行一次，当发现板载L灯500ms闪烁时则表明已设置成功。&lt;/p&gt;
+
+&lt;h2 id=&quot;athc05at&quot;&gt;两个蓝牙模块配对连接教程：（具体AT指令参考HC05AT指令集）&lt;/h2&gt;
+
+&lt;p&gt;简单说 一个蓝牙设置为主机，一个蓝牙设置为从机，设置对应密码波特率AT指令后，自动连接配对。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;第一步&lt;/code&gt;：准备好做主机的蓝牙模块，用cp2102转串口模块连接蓝牙并进入AT设置模式（指示灯慢闪）
+分别输入下面AT指令 （注意输入指令后加上回车后换行，发送后返回OK表示设置成功，如下指令是一条一条输入，切勿所有一起输入再点发送。设置完成后可以通过AT指令类似AT+NAME?这样的指令查询刚刚设置是否成功，具体参考HC05AT指令集）&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;AT+NAME=Bluetooth-Master  蓝牙主机名称为Bluetooth-Master &lt;/li&gt;
+  &lt;li&gt;AT+ROLE=1                蓝牙模式为主模式&lt;/li&gt;
+  &lt;li&gt;AT+CMODE=1              蓝牙连接模式为任意地址连接模式&lt;/li&gt;
+  &lt;li&gt;AT+PSWD=1234             蓝牙配对密码为1234&lt;/li&gt;
+  &lt;li&gt;AT+UART=9600，0，0       蓝牙通信串口波特率为9600，停止位1位，无校验位&lt;/li&gt;
+  &lt;li&gt;AT+RMAAD                 清空配对列表&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;第二步&lt;/code&gt;：准备好做从机的蓝牙模块用cp2102转串口模块连接蓝牙并进入AT设置模式（指示灯慢闪）
+分别输入下面AT指令 （注意输入指令后加上回车后换行，发送后返回OK表示设置成功）    &lt;br /&gt;
+（如果设置没有效果可以先恢复出厂设置AT+ORGL）&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;AT+NAME=Bluetooth-Slave  蓝牙名称为Bluetooth-Slave&lt;/li&gt;
+  &lt;li&gt;AT+ROLE=0                蓝牙模式为从模式&lt;/li&gt;
+  &lt;li&gt;AT+CMODE=1              蓝牙连接模式为任意地址连接模式&lt;/li&gt;
+  &lt;li&gt;AT+PSWD=1234             蓝牙配对密码为1234&lt;/li&gt;
+  &lt;li&gt;AT+UART=9600，0，0       蓝牙通信串口波特率为9600，停止位1位，无校验位&lt;/li&gt;
+  &lt;li&gt;AT+RMAAD                 清空配对列表&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;第三步&lt;/code&gt;：分别给主模块和从模块选择进入工作模式，并重新上电。两个模块会自动连接然后配对，这样后，状态灯会出现慢闪烁指示。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;附表：&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/%E8%93%9D%E7%89%99/5.png&quot; width=&quot;680&quot; height=&quot;430&quot; alt=&quot;photos&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;人，活一辈子，总该做点什么，应该有自己存在的目的和追求。但大多数的人，仅仅是为了生存而疲于奔波，他们中的很多人一直到老，整个人生经历中竟然没有几件值得回忆的事情。如果问他们为什么而活着，他们会告诉你，既然还活着，那就活下去吧。那样的人生有什么意义？多么可悲。当你的精神上有了追求，不管你追寻的是什么，只要你坚信你是对的，就去做。就算是时间和历史将你遗忘，只要你自己为你自己所做的一切而感到满足，那就足够了。——《藏地密码》
+&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Thu, 13 Apr 2017 00:00:00 -0400</pubDate>
+        <link>http://robotkang.cc/2017/04/%E8%93%9D%E7%89%99%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+        <guid isPermaLink="true">http://robotkang.cc/2017/04/%E8%93%9D%E7%89%99%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+        
+        <category>博客</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Arduino与Kinect打造体感智能车</title>
+        <description>&lt;p&gt;　　这个小项目是之前在学校实验室做的，已成功运行，现在把相关的资料记录下来，便于日后察阅。&lt;/p&gt;
+
+&lt;p&gt;　　之前大部分步骤是按照奥松的这篇教程来做的，原文地址：&lt;a href=&quot;http://www.alsrobot.cn/article-114.html&quot; target=&quot;_blank&quot;&gt;奥松&lt;/a&gt;，有什么问题也可以在文章末尾给我留言。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;正文：&lt;/h2&gt;
+&lt;p&gt;  体感智能车的原理非常的简单，就是利用Kinect采集人体的姿体信息，然后通过蓝牙串口向Arduino发送字符命令。Arduino通过相应的字符命令控制双H桥电机驱动模块实现小车的前进后退等动作。项目主要用到小车底盘套件、蓝牙、控制器等…
+&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/%E6%99%BA%E8%83%BD%E8%BD%A6/1.png&quot; width=&quot;380&quot; height=&quot;230&quot; alt=&quot;photos&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;arduino&quot;&gt;Arduino实现串口控制小车&lt;/h3&gt;
+
+&lt;p&gt; 下面按照制作过程为大家介绍如何来弄。&lt;/p&gt;
+
+&lt;p&gt;一、安装4WD小车，小车是纯金属的外壳比较抗撞不容易损坏，亚克力的也行，视自己情况而定。
+&lt;a href=&quot;http://v.youku.com/v_show/id_XNTU2NjY3MDI0.html&quot;&gt;安装视频&lt;/a&gt;
+&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/%E6%99%BA%E8%83%BD%E8%BD%A6/3.png&quot; width=&quot;380&quot; height=&quot;230&quot; alt=&quot;photos&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;      安装好小车地盘后再小车地盘内部安装双H桥驱动和电池将控制引脚用3P杜邦线接到Arduino上，连接好电源向Arduino内烧录程序（编译软件为Arduino IDE）。代码如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    #define  pinI1  9      //定义I1接口
+    #define  pinI2  8      //定义I2接口
+    #define  speedpin 10   //定义EA(PWM调速)接口
+    #define  pinI3  4      //定义I3接口
+    #define  pinI4  5      //定义I4接口
+    #define  speedpin1 6   //定义EB(PWM调速)接口 
+    #define SPEED    150 
+    char opt = &#39; &#39; ; 
+void setup()
+{    	 Serial.begin(115200);
+  pinMode(pinI1,OUTPUT);       //初始化电机控制引脚为输出
+  pinMode(pinI2,OUTPUT);
+  pinMode(speedpin,OUTPUT);
+  pinMode(pinI3,OUTPUT);       //初始化电机控制引脚为输出
+  pinMode(pinI4,OUTPUT);
+  pinMode(speedpin1,OUTPUT);
+}
+ void loop()
+{
+    while(Serial.available()&amp;gt;0)
+      opt = Serial.read();
+    switch(opt)
+    {
+      case &#39;w&#39;:
+        Straight(200);
+        break;
+      case &#39;a&#39;:
+        zuozhuan(200);
+        break;
+      case &#39;s&#39;:
+        Retreat(200);
+        break;
+      case &#39;d&#39;:
+        youzhuan(200);
+	break;
+      case &#39;x&#39;:
+        Stop(200);
+        break;
+      case &#39;q&#39;:
+        Straight(200);
+        delay(1000);
+        zuozhuan(200);
+        delay(500);
+         Straight(200);
+        delay(1000);
+        youzhuan(200);
+        delay(500);
+        Stop(200);
+        opt = -1;
+        break;
+      default:
+        break;
+    }
+    Serial.flush();
+}
+//直行函数time为直行的时间  单位ms
+ void Straight(int time)
+ {
+     analogWrite(speedpin,SPEED);//输入模拟值进行设定速度
+     analogWrite(speedpin1,SPEED);      
+     digitalWrite(pinI4,HIGH);//使直流电机（右）逆时针转
+     digitalWrite(pinI3,LOW);      
+     digitalWrite(pinI1,HIGH);//使直流电机（左）顺时针转
+     digitalWrite(pinI2,LOW);     
+     delay(time);
+ } 
+  //右转函数time为直行的时间  单位ms
+ void youzhuan(int time)
+ {
+     analogWrite(speedpin,SPEED);//输入模拟值进行设定速度
+     analogWrite(speedpin1,SPEED);      
+     digitalWrite(pinI4,HIGH);//使直流电机（右）逆时针转
+     digitalWrite(pinI3,LOW);      
+     digitalWrite(pinI1,LOW);//使直流电机（左）顺时针转
+     digitalWrite(pinI2,HIGH);     
+     delay(time);
+ }
+  //左转函数time为直行的时间  单位ms
+ void zuozhuan(int time)  	{
+     analogWrite(speedpin,SPEED);//输入模拟值进行设定速度
+     analogWrite(speedpin1,SPEED);      
+     digitalWrite(pinI4,LOW);//使直流电机（右）逆时针转
+     digitalWrite(pinI3,HIGH);      
+     digitalWrite(pinI1,HIGH);//使直流电机（左）顺时针转
+     digitalWrite(pinI2,LOW);     
+     delay(time);
+ }  	  //后退函数time为后退的时间  单位ms
+ void Retreat(int time)
+ {
+     analogWrite(speedpin,SPEED);//输入模拟值进行设定速度
+     analogWrite(speedpin1,SPEED);      
+     digitalWrite(pinI4,LOW );//使直流电机（右）顺时针转
+     digitalWrite(pinI3,HIGH);      
+     digitalWrite(pinI1,LOW);//使直流电机（左）逆时针转
+     digitalWrite(pinI2,HIGH);  
+     delay(time);
+ }  
+//刹车函数time为停车的时间  单位ms
+ void Stop(int time)
+ {
+     digitalWrite(pinI4,HIGH);//使直流电机（右）刹车
+     digitalWrite(pinI3,HIGH);      
+     digitalWrite(pinI1,HIGH);//使直流电机（左）刹车
+     digitalWrite(pinI2,HIGH);
+     delay(time);  
+ }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;        程序下载好后安装蓝牙模块，通过串口助手进行测试，确定字符命令可以控制小车。&lt;/p&gt;
+
+&lt;h3 id=&quot;kinectarduino&quot;&gt;Kinect与Arduino进行串口通信&lt;/h3&gt;
+
+&lt;p&gt;        下面进行Kinect的代码编写，我采用的是processing软件，使用前需要安装Kinectqu驱动&lt;code class=&quot;highlighter-rouge&quot;&gt;OpenNI_NITE_Installer-win32-0.27&lt;/code&gt;和kinect的链接库&lt;code class=&quot;highlighter-rouge&quot;&gt;SimpleOpenNI-0.27&lt;/code&gt;&lt;a href=&quot;https://code.google.com/p/simple-openni/downloads/list&quot; target=&quot;_blank&quot;&gt;下载地址&lt;/a&gt;。
+ &lt;/p&gt;
+
+&lt;p&gt;         解压驱动包，首先安装&lt;code class=&quot;highlighter-rouge&quot;&gt;OpenNI&lt;/code&gt;，然后安装&lt;code class=&quot;highlighter-rouge&quot;&gt;SensorKinect&lt;/code&gt;，最后Sensor全部安装完成以后，重启电脑。将你的Kinect连接上电脑插好电源，可以通过查看控制面板中的设备管理器，检查你的电脑是否已 经识别&lt;code class=&quot;highlighter-rouge&quot;&gt;Kinect&lt;/code&gt;。
+ &lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/%E6%99%BA%E8%83%BD%E8%BD%A6/2.png&quot; width=&quot;300&quot; height=&quot;180&quot; alt=&quot;photos&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;          驱动安装完成后下载&lt;code class=&quot;highlighter-rouge&quot;&gt;processing&lt;/code&gt;软件双击打开，打开后会在&lt;code class=&quot;highlighter-rouge&quot;&gt;我的文档&lt;/code&gt;中出现processing文件夹讲下载的库文件&lt;code class=&quot;highlighter-rouge&quot;&gt;SimpleOpenNI-0.27&lt;/code&gt;解压后复制到processing下的libraries下如果没有新建一个即可。重新打开processing就可以进行Kenect的程序编写了。&lt;/p&gt;
+
+&lt;p&gt;          控制小车的代码如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	import SimpleOpenNI.*;
+	SimpleOpenNI  kinect;  
+	import processing.serial.*;
+	Serial port;  
+	PFont myFont;
+	String myStr;
+	String Str_w;
+	String Str_s;
+	String Str_a;
+	String Str_d;
+	String Str_x;
+	String Str_temp_NO;
+	String Str_temp_Yes;  
+	PVector right_hand;
+	PVector right_hip;  
+	PVector head;  
+	PVector left_hand;
+	PVector left_hip;  
+	PVector difference;
+	float   shouju;
+	float   youtou;
+	float   zuotou;
+	float   youhip;
+	float   zuohip;  
+	char ch_w= &#39;w&#39;;
+	char ch_s= &#39;s&#39;;
+	char ch_a= &#39;a&#39;;
+	char ch_d= &#39;d&#39;;
+	char ch_x= &#39;x&#39;;  
+	void setup() 
+	{
+	  size(640, 600);   
+	  kinect = new SimpleOpenNI(this); 
+	  kinect.enableDepth(); 
+	  kinect.enableRGB();  
+	  kinect.setMirror(true);  
+	  kinect.enableUser(SimpleOpenNI.SKEL_PROFILE_ALL);    
+	  myFont = createFont(&quot;黑体&quot;, 32); 
+	  myStr = &quot;重庆文理学院机器人研究所&quot;; 
+	  Str_w = &quot;前进&quot;;
+	  Str_s = &quot;后退&quot;;
+	  Str_a = &quot;左转&quot;;
+	  Str_d = &quot;右转&quot;;
+	  Str_x = &quot;停止&quot;; 
+	  Str_temp_NO = &quot;未识别&quot;;
+	  Str_temp_Yes = &quot;连接成功&quot;;   
+	  right_hand = new PVector();
+	  right_hip = new PVector();  
+	  head = new PVector();  
+	  left_hand = new PVector();
+	  left_hip = new PVector();   
+	  println(Serial.list());//定义串口
+	  String portName = Serial.list()[0];
+	  port = new Serial(this, portName, 115200);//波特率
+	}  
+	void draw() 
+	{ 
+	  background(80,100,140);//
+	kinect.update();   
+	  //PImage depthImage = kinect.depthImage();
+	  //image(kinect.depthImage(),0, 0);  
+	  PImage rgbImage = kinect.rgbImage();  
+	  image(rgbImage, 0, 0);    
+	  fill(0,0,255); 
+	  textFont(myFont); 
+	  text(myStr, 100, 530);   
+	  text(&quot;www.cqwu.net&quot; , 195, 565);    
+	  IntVector userList = new IntVector();
+	  kinect.getUsers(userList);  
+	  if (userList.size() &amp;gt; 0)
+	  {
+	    int userId = userList.get(0);
+	    onEndCalibration(userId, true);  
+	    if ( kinect.isTrackingSkeleton(userId))
+	    {
+	        fill(0,0,255);
+	        textFont(myFont); 
+	        text(myStr, 100, 530);   
+	        text(&quot;www.cqwu.net &quot; , 195, 565);         
+	        fill(0, 255, 0);
+	        textSize(25);
+	        text(Str_temp_Yes, 270,30);         
+	        kinect.getJointPositionSkeleton(userId, SimpleOpenNI.SKEL_RIGHT_HAND,right_hand);
+	        kinect.convertRealWorldToProjective(right_hand, right_hand);       
+	        kinect.getJointPositionSkeleton(userId, SimpleOpenNI.SKEL_RIGHT_HIP,right_hip);
+	        kinect.convertRealWorldToProjective(right_hip, right_hip);             
+	        kinect.getJointPositionSkeleton(userId, SimpleOpenNI.SKEL_HEAD,head);
+	        kinect.convertRealWorldToProjective(head, head);         
+	        kinect.getJointPositionSkeleton(userId, SimpleOpenNI.SKEL_LEFT_HAND,left_hand);
+	        kinect.convertRealWorldToProjective(left_hand, left_hand);               
+	        kinect.getJointPositionSkeleton(userId, SimpleOpenNI.SKEL_LEFT_HIP,left_hip);
+	        kinect.convertRealWorldToProjective(left_hip, left_hip);         
+	       //textSize(20);
+	        difference = PVector.sub(right_hand, left_hand);
+	        shouju = difference.mag();
+	// text(&quot;shouju: &quot; + int(shouju), 20, 20);          
+	        difference = PVector.sub(right_hand, head);
+	        youtou = difference.mag();
+	      //  text(&quot;youtou: &quot; + int(youtou), 20, 45);         
+	        difference = PVector.sub(left_hand, head);
+	        zuotou = difference.mag();
+	      //  text(&quot;zuotou: &quot; + int(zuotou), 20, 70);         
+	        difference = PVector.sub(right_hand, right_hip);
+	        youhip = difference.mag();
+	      //  text(&quot;youhip: &quot; + int(youhip), 20, 95);         
+	        difference = PVector.sub(left_hand, right_hip);
+	        zuohip = difference.mag();
+         //  text(&quot;zuohip: &quot; + int(zuohip), 20, 120);          
+	        fill(255, 255, 0);
+	        textSize(20);
+	        if(shouju&amp;gt;400 &amp;amp;&amp;amp; youtou&amp;gt;200 &amp;amp;&amp;amp; zuotou&amp;gt;200 &amp;amp;&amp;amp; youhip&amp;gt;200 &amp;amp;&amp;amp; zuohip&amp;gt;200)
+	        {
+	          text(Str_w, 20, 40);
+	          port.write(ch_w);
+	        }
+	        else if(shouju&amp;lt;200 &amp;amp;&amp;amp; youtou&amp;lt;200 &amp;amp;&amp;amp; zuotou&amp;lt;200 &amp;amp;&amp;amp; youhip&amp;gt;200 &amp;amp;&amp;amp; zuohip&amp;gt;200)
+	        {
+	          text(Str_s, 20, 40);
+	          port.write(ch_s); 
+	        }
+	        else if(shouju&amp;gt;300 &amp;amp;&amp;amp; youtou&amp;gt;180 &amp;amp;&amp;amp; zuotou&amp;gt;180 &amp;amp;&amp;amp; youhip&amp;lt;150 &amp;amp;&amp;amp; zuohip&amp;gt;250)
+	        {
+	          text(Str_a, 20, 40);
+	          port.write(ch_a); 
+	        }
+	        else if(shouju&amp;gt;300 &amp;amp;&amp;amp; youtou&amp;gt;180 &amp;amp;&amp;amp; zuotou&amp;gt;180 &amp;amp;&amp;amp; youhip&amp;gt;200 &amp;amp;&amp;amp; zuohip&amp;lt;150)
+	        {
+	          text(Str_d, 20, 40);
+	          port.write(ch_d); 
+	        }
+	        else if(shouju&amp;lt;250 &amp;amp;&amp;amp; youtou&amp;gt;180 &amp;amp;&amp;amp; zuotou&amp;gt;180 &amp;amp;&amp;amp; youhip&amp;lt;180 &amp;amp;&amp;amp; zuohip&amp;lt;180)
+	        {
+	          text(Str_x, 20, 40);
+	          port.write(ch_x); 
+	        }        
+	        /***************************************************************
+	        fill(255, 0, 0);
+	        ellipse(left_hip.x, left_hip.y, 15, 15);
+	        ellipse(left_hand.x, left_hand.y, 15, 15);
+	        ellipse(head.x, head.y, 15, 15);
+	        ellipse(right_hip.x, right_hip.y, 15, 15);
+	        ellipse(right_hand.x, right_hand.y, 15, 15);
+	        ****************************************************************/
+	        /****************************************************************
+	        stroke(0, 255, 0);
+	        strokeWeight(4);
+	        line(right_hand.x, right_hand.y, head.x, head.y);
+	        line(right_hand.x, right_hand.y, right_hip.x, right_hip.y);
+	        line(left_hand.x, left_hand.y, head.x, head.y);
+	        line(left_hand.x, left_hand.y, left_hip.x, left_hip.y);
+	        ****************************************************************/
+	    }
+	  }
+	  else
+	  {
+	      fill(255, 0, 0);
+	      textSize(25);
+	      text(Str_temp_NO, 280, 30);
+	  }
+	}  
+	// user-tracking callbacks!
+	void onNewUser(int userId) {
+	  println(&quot;start pose detection&quot;);
+	  kinect.startPoseDetection(&quot;Psi&quot;, userId);
+	}
+	void onEndCalibration(int userId, boolean successful) {
+	  if (successful) {
+	    println(&quot;  User calibrated !!!&quot;);
+	    kinect.startTrackingSkeleton(userId);
+	  }
+	  else {
+	    println(&quot;  Failed to calibrate user !!!&quot;);
+	    kinect.startPoseDetection(&quot;Psi&quot;, userId);
+	  }
+	}
+	void onStartPose(String pose, int userId) {
+	  println(&quot;Started pose for user&quot;);
+	  kinect.stopPoseDetection(userId);
+	  kinect.requestCalibrationSkeleton(userId, true);
+	}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;        程序编写完成后连接蓝牙串口（注意没有串口时程序会报错）这样一个体感智能车就制作完成了。&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;我觉得生命是最重要的，所以在我心里，没有事情是解决不了的。不是每一个人都可以幸运的过自己理想中的生活，有楼有车当然好了，没有难道哭吗？所以呢，我们一定要享受我们所过的生活。——《新不了情》
+&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;　&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 10 Apr 2017 00:00:00 -0400</pubDate>
+        <link>http://robotkang.cc/2017/04/Arduino%E4%B8%8EKinect%E6%89%93%E9%80%A0-%E4%BD%93%E6%84%9F%E6%99%BA%E8%83%BD%E8%BD%A6/</link>
+        <guid isPermaLink="true">http://robotkang.cc/2017/04/Arduino%E4%B8%8EKinect%E6%89%93%E9%80%A0-%E4%BD%93%E6%84%9F%E6%99%BA%E8%83%BD%E8%BD%A6/</guid>
+        
+        <category>Arduino</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>写在生命节点的话——向恋</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/2017-03-25.png&quot; alt=&quot;world&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;三月底，教室外的空地上，桃花在温润的地气下开了花，春天最有风韵的那个部分由桃花的生气释放出来我是无比陶醉。&lt;/p&gt;
+
+&lt;p&gt;我看这样的风景是在三月的每一个日出清晨，在一方不大的讲台上。在一群调皮可爱的学生晨读之际，透过一扇模糊的玻璃窗。天地间一片花红柳绿，确实在某些时刻打动了我，以致离别之际，竟心存不舍。&lt;/p&gt;
+
+&lt;p&gt;思来想去，这大抵是因为四年的时光，已经把一个理科思维的文科生教化成了一名文艺女青年；又或许是是古人所说“好伤春”，总该凸显下我的性别了。但最有可能的，应该是快说再见的季节到了，于是乎近来稍有触动便教人无语凝咽…&lt;/p&gt;
+
+&lt;p&gt;确实到了生命中的一个节点,忽的想起找工作时马校说的那番话：人生当中最重要的两个节点，一是工作，二是婚姻，你们要慎重选择。婚姻还早，工作倒是迫在眉睫，对我说了这样一番话的校长，我竟没有选择，现在想想是有些狼心狗肺之嫌。&lt;/p&gt;
+
+&lt;p&gt;没有回家乡，没有去更好的城市，没有留在永川，而是把自己卖到了涪陵，在山上，在山里, 在崇山峻岭之中。十年，整整十年，我都怀疑自己签的时候是不是被猪油蒙了心。这可是我一生当中最青春洋溢，最年少轻狂，最满含希望的时光。似乎是放弃了亲情，放弃了爱情，放弃了友情，放弃了所有的人脉，放弃了一切最终做出的脑残的决定。在每回一次家，因为这件事情被骂三次的情形之下，我居然只有在想继续考研的前提下想过放弃这份工作。没理由的，没缘由的憧憬那即将到来的生活。&lt;/p&gt;
+
+&lt;p&gt;在木槿朝荣的七月上，去往将要生活十年的地方。期望能够驯服桀骜不驯的自己，也期望能够一个人与天空、与风、与雪、与将要遇见的人们，一同起舞。&lt;/p&gt;
+
+&lt;p&gt;像兴梦姐姐说的一样：路长且阻，仍需努力奋斗呀~&lt;/p&gt;
+
+&lt;p&gt;果然汉文学生要多提笔，不然自己都不知道自己写了什么鬼，哈哈……&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;此文是由本人在万能的朋友圈同&lt;a style=&quot;text-decoration:none&quot;&gt;向恋&lt;/a&gt;妹纸征用而来，估计是写于重庆文理学院图书馆的某个角落里吧O(∩_∩)O哈哈~&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;学长寄语：道阻且长 行则将至&lt;/h3&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;如果注定要一个人赶路，那就此告别吧，大漠孤烟，夕阳西下。再喝最后一碗酒，然后我就出发。不必挽留，无需相送。今日一别，来世再见。若他们问起我，就说我是尘世的一粒沙，本该浪迹天涯……&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;——来自《网易云音乐》&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Fri, 07 Apr 2017 00:00:00 -0400</pubDate>
+        <link>http://robotkang.cc/2017/04/%E8%8A%82%E7%82%B9/</link>
+        <guid isPermaLink="true">http://robotkang.cc/2017/04/%E8%8A%82%E7%82%B9/</guid>
+        
+        <category>文人墨客</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>NAO机器人修改系统时间的方法</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;问题描述：&lt;/h2&gt;
+
+&lt;p&gt;当我升级nao机器人后，发现nao连不上官网，加载时间太长
+会出现如下情况：&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;NAO Says: Error 501 System date is wrong could not update application from the store&lt;/code&gt;&lt;br /&gt;
+最后，我查了一下原因，原来是它的系统时间不对。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/nao%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/2.jpg&quot; width=&quot;480&quot; height=&quot;220&quot; alt=&quot;photos&quot; /&gt;
+&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/nao%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/1.jpg&quot; width=&quot;480&quot; height=&quot;200&quot; alt=&quot;photos&quot; /&gt;
+&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/nao%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/3.jpg&quot; width=&quot;580&quot; height=&quot;230&quot; alt=&quot;photos&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;解决方法：&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/nao%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/4.jpg&quot; width=&quot;460&quot; height=&quot;200&quot; alt=&quot;photos&quot; /&gt;
+1. 首先，先把nao连接到你的电脑上（可有线亦可无线）&lt;br /&gt;
+2. SSH  nao机器人，要用到&lt;a href=&quot;http://rj.baidu.com/soft/detail/15699.html?ald&quot;&gt;PUTTY&lt;/a&gt;这个软件&lt;br /&gt;
+3. 打开后 如图设置：IP地址填nao机器人的IP，port端口默认22，选择ssh，然后点击open，会弹出命令框
+登录的用户名和密码均是nao（如果没改的话），登录之后即可进行相关的linux操作了&lt;br /&gt;
+&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/nao%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/5.jpg&quot; width=&quot;380&quot; height=&quot;230&quot; alt=&quot;photos&quot; /&gt;按照此种方法登录的是普通用户，目前还没有找到NAO的root用户登录的密码，即目前的权限相对较小
+登录之后，输入命令&lt;code class=&quot;highlighter-rouge&quot;&gt;su&lt;/code&gt;切换到root状态，密码是root，可以对执行文件等进行操作，符合linux的操作习惯
+&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/nao%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/6.jpg&quot; width=&quot;380&quot; height=&quot;130&quot; alt=&quot;photos&quot; /&gt;
+4. 进入root模式后输入命令：&lt;code class=&quot;highlighter-rouge&quot;&gt;rc-update add ntp-client default&lt;/code&gt;&lt;br /&gt;
+5. 运行后退出就可以了：&lt;code class=&quot;highlighter-rouge&quot;&gt;exit&lt;/code&gt;&lt;br /&gt;
+6. 可以在chro软件端查看nao的本地时间&lt;br /&gt;
+&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/nao%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/7.jpg&quot; width=&quot;480&quot; height=&quot;200&quot; alt=&quot;photos&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;总有一天，会有一个人，看你写过的所有状态，读完写的
+所有微博，看你从小到大的所有照片，甚至去别的地方寻找关于你的信息，试着听你听的歌，走你走过的地方，看你喜欢看的书，品尝你总是大呼好吃的东西……只是想弥补上，他迟到的时光。
+&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Fri, 07 Apr 2017 00:00:00 -0400</pubDate>
+        <link>http://robotkang.cc/2017/04/NAO%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+        <guid isPermaLink="true">http://robotkang.cc/2017/04/NAO%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+        
+        <category>NAO机器人</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>NAO机器人刷机</title>
+        <description>&lt;p&gt;学校的那台[nao机器人]系统版本比较低了，官方慢慢的不支持了，所以我就给它来了一次升级，好在刷机比较成功。不过刷机后机器人开机的时间比较长了，估计是硬件有点跟不上了吧…  现在把升级过程方法记录在这里，大家也可以参考一下~&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;机器人刷机的办法一般有两种，第一种是通过choregraph来，先去&lt;a href=&quot;https://www.ald.softbankrobotics.com/en&quot;&gt;官网&lt;/a&gt;community-source-documentions-NAOQI OS下载你需要的系统镜像文件版本，然后再去chore（连接-高级-更新机器人系统），这种是比较正常的办法~但是有时候机器人系统完全崩溃，想要整个机器人恢复到出厂设置，变成一台全新的机器人，那么就需要用到下面的方法了。&lt;/li&gt;
+  &lt;li&gt;在给机器人刷机恢复至出厂设置前，你需要准备以下几样：&lt;br /&gt;
+a) NAOQI os&lt;br /&gt;
+b) Flasher（官网下，下载位置与OS下载位置相同）&lt;br /&gt;
+c) 大于4G的U盘&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;下面我们就开始刷机。&lt;br /&gt;
+第一步，先打开flasher，注意要用管理员权限打开，然后插上U盘，选中你的U盘。&lt;br /&gt;
+&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/nao%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%88%B7%E6%9C%BA%E6%96%87%E7%AB%A0/2.png&quot; alt=&quot;world&quot; /&gt;
+第二步，选中U盘之后，勾选 Factory reset，这一步一定要勾选，因为只有这样才能把原本的系统完全抹去。&lt;br /&gt;
+第三步，点击&lt;code class=&quot;highlighter-rouge&quot;&gt;write&lt;/code&gt;，开始刻写镜像文件OS至U盘。&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;在这一步骤，很可能出现错误，显示在记得U盘里已经有了什么driver什么的，出现这一错误的原因是因为U盘已经被windows系统装上了驱动，需要清除，所以我们给它清除一下即可。
+点击电脑左下角“开始”，输入“diskpart”，这个是Windows自带的。&lt;/code&gt;
+&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/nao%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%88%B7%E6%9C%BA%E6%96%87%E7%AB%A0/1.png&quot; alt=&quot;world&quot; /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;然后，我们就按照下图的指示，一步步的来clean你的U盘。注意最好把盘里重要的资料备份，因为这步操作会把盘里的东西全抹掉。&lt;/code&gt;
+&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/nao%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%88%B7%E6%9C%BA%E6%96%87%E7%AB%A0/3.png&quot; alt=&quot;world&quot; /&gt;
+接下来我们就可以去write了。&lt;br /&gt;
+第四步，write完成后，就要开始正式刷机了。&lt;br /&gt;
+首先，关闭机器人，刷机要在机器人关闭情况下进行，但是切记要确保机器人有电，否则刷机过程中没电了就得重刷了。&lt;br /&gt;
+接下来把U盘插入机器人后脑部的USB，然后按住breast button要等到等变蓝再松手，机器人会启动，button会持续开始闪烁蓝灯，这就意味着开始刷机了，然后耐心等待即可，大概需要十分钟左右。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;刷机成功，机器人会说话，大概意思就是让你触摸它的头部或者手部脚部它就会wake up，然后就算是刷机彻底成功啦~就可以愉快的继续使用NAO了。&lt;br /&gt;&lt;/p&gt;
+
+&lt;p style=&quot;color: #FF2D2D&quot;&gt;
+&lt;strong&gt;话说，中午的时候外甥女给我发来几张图片，点开一看，原来今天是我们成为QQ好友整七年的日子，感觉腾讯这个小功能做的还是蛮贴心的，也觉得时间过得还真是快啊...所以下班后去超市买了十块钱的瓜子庆祝了一下...&lt;/strong&gt;
+&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;总有一天，我会克服请假、签证、资金等种种羁绊，远渡重洋，跋涉万里，直到北欧大陆的尽头，在北极光的照耀下，拿出冻得快要没电的手机，打开网易云音乐，点开这首victory ，我要看看是怎样的陆地，怎样的天空，怎样的海洋，怎样的国家，怎样的人民，怎样的环境，怎样的生活，能孕育出这样的歌曲。
+&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Thu, 06 Apr 2017 00:00:00 -0400</pubDate>
+        <link>http://robotkang.cc/2017/04/NAO%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%88%B7%E6%9C%BA/</link>
+        <guid isPermaLink="true">http://robotkang.cc/2017/04/NAO%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%88%B7%E6%9C%BA/</guid>
+        
+        <category>NAO机器人</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>博客之二三事</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://omjh2j5h3.bkt.clouddn.com/2017-03-25.png&quot; alt=&quot;world&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;自从开通了个人博客之后，我一直在不断给它添加内容，上网收集各种资料，各种网页模板，所以也没有静下心来写一些文字，那么就趁着这周末的闲暇时间来总结一下这些天我对我的网站做了什么以及我还要对它做什么..
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;做了什么:&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;添加了[多说]的评论和最近访客，并且修改了样式。让我郁闷的是多说要要关闭这项业务了，我才用了几周它就要离我们而去了。没办法总得再找个插件吧。坑爹的[畅言]竟然要备案，我连服务器都买不起，你让我怎么备案啊…果断弃。现在注册了网易的账号，多说6月1号关门后，打算用网易的评论插件了。&lt;/li&gt;
+  &lt;li&gt;在一些网页添加了音乐。看着我的博客，听着音乐，岂不美哉？哈哈，不知道这些音乐符不符合你们的口味。过后打算把网易云的外链播放器加入进来。&lt;/li&gt;
+  &lt;li&gt;在资源一栏里添加了好多我觉得日后用的着的外链。会不断完善的。&lt;/li&gt;
+  &lt;li&gt;添加了&lt;a href=&quot;http://robotkang.cc/photos/&quot;&gt;相册&lt;/a&gt;的功能。这个功能一直是我想要的，可以把一些有意义的相片放上来，和大家一起分享。&lt;/li&gt;
+  &lt;li&gt;添加了一些&lt;a href=&quot;http://robotkang.cc/ziyuan/&quot;&gt;小游戏&lt;/a&gt;。是不是童心未泯啊？哈哈哈..无聊时候可以玩一下，有经典的坦克过关小游戏等等。那天看到过超级玛丽的HTML，赶明儿再找一下加进来、、、&lt;/li&gt;
+  &lt;li&gt;在网站的某个位置加了一个秘密空间，仔细的童鞋应该可以找得到吧O(∩_∩)O~，以后的某一天会用得到的。现在把它改成了我的网站计时页面。&lt;/li&gt;
+  &lt;li&gt;图床用了&lt;a href=&quot;https://portal.qiniu.com/signup?code=3lfl9quhqj902&quot;&gt;七牛&lt;/a&gt;家的。免费版的目前够用，放一些图片比较方便。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;还要做什么:&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;做一个个人wiki。身处互联网时代，信息传播快，更新快，有些时候要记得信息太多太杂，这时就需要一个平台来把那些信息记录下来，以便及时检索，二次消化，这是一个终生学习的时代，要懂得沉淀。&lt;/li&gt;
+  &lt;li&gt;加一个书单影视页面。在这个浮躁的社会，要想静下来去读书觉得好难，拿起一本书，心里总想看看朋友圈谁谁又发动态了，头条又更新了什么国家大事云云。所以以后在看书的时候，手机关机才对，做这个页面也是能够记录一下我看了什么书，观过什么影，从中得到了什么启发。
+&lt;br /&gt;
+  &lt;code class=&quot;highlighter-rouge&quot;&gt;“大爷，楼上是马冬梅家吗？” “马冬什么？” “马冬梅啊。” “什么冬梅？” “马冬梅啊。” “马什么梅？” “大爷，您凉快吧！”
+ “好嘞！” &lt;/code&gt;
+ &lt;br /&gt;突然想到这段台词，O(∩_∩)O哈哈哈~ 咳咳，扯远了扯远了…好，咱们接着规划，&lt;/li&gt;
+  &lt;li&gt;做一个大学班级记录页面。不得不说，日子过得真是快啊，转眼间已成了一名大四狗了，为了纪念这段腐朽又美好的时光，我觉得很有必要做一个这样的页面：把班级这四年的历程记录一下，把班里的孩纸信息留下来。以后看一下也是极好的。&lt;/li&gt;
+  &lt;li&gt;做一个个人导航页。可以把一些同学好友的事情记录一下，比如吧宿舍某某人和某某人的腻歪日子弄个计时，做一个见证吧，O(∩_∩)O哈哈哈~ 真真是极好的！&lt;/li&gt;
+  &lt;li&gt;学习一下网站的SEO。有些时候在度娘上搜不到我网站的信息，这是不能容忍的.不能容忍的…&lt;/li&gt;
+  &lt;li&gt;再加一些小功能吧。譬如返回顶部、搜索框、网页特效啦等等。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;结：&lt;/h3&gt;
+&lt;p&gt;通过建设这个网站，我也懂得了一些css、HTML、jekyll、git、Linux相关知识，感觉不错，只要github还开展page业务，我就会一直把我这个网站经营下去的。
+&lt;br /&gt;明天貌似是好天气，得去图书馆找几本项目管理PM的书看看，觉得很有必要。
+&lt;br /&gt;
+恩，一篇小总结被我写成了流水账，好吧，就这样吧，愿一切安好，你，我。&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;我希望终有一天我能开着车飞驰在西藏大公路上，车里放着这样一首歌，我身边坐着那位我希望她三十岁不嫁又希望她能嫁出去的女人，后面坐着我一生中最要好的两个朋友。我们撒野在大漠边疆，雪域高原，看日出日落，对酒高歌，看尽人生所有繁华寂寞，在一片虚无中与苍茫大地，与皑皑苍穹，一同睡去…
+&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Sat, 25 Mar 2017 00:00:00 -0400</pubDate>
+        <link>http://robotkang.cc/2017/03/%E5%8D%9A%E5%AE%A2%E4%B9%8B%E4%BA%8C%E4%B8%89%E4%BA%8B/</link>
+        <guid isPermaLink="true">http://robotkang.cc/2017/03/%E5%8D%9A%E5%AE%A2%E4%B9%8B%E4%BA%8C%E4%B8%89%E4%BA%8B/</guid>
+        
+        <category>闲言碎语</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
