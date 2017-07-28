@@ -3,44 +3,38 @@ layout: page
 title: 关于我 
 ---
 
-一个 iOS SDK 开发者，喜欢研究一些新技术。
+一个俗人。
 <p>
-平时喜欢整理个人博客，逛逛技术论坛。
+老本行算是自动化，因为too young too simple，研究生转战了计算电磁行业，被Maxwell虐了千百遍，由于金钱和对未来的评估，慢慢的接触CS。抱着学以致用的想法，努力的把CS，自动化以及计算电磁的破烂结合在一起。
+
 <p>
 了解一些 前端 基本概念和 Python 的简单用法。
+自学CS的大部分内容。当然在国内某和尚大学念本科的时候学的还是清华谭某人的C。
+
+研究生期间基本自学了java，python，C++
+
+为了饭桌上的食物，也自学了前端的一些知识。
+
+<p>
+人生走过四分之一，只觉得王阳明的行事哲学用来靠谱。建立这个博客也是希望 行 与 知 能并肩。
+
+冯友兰先生说的是“对知识的反思便是哲思”，那么这个博客也是希望能够通过自己对知识的输出与整理，获得一些形而上的东西。
+
+如果有幸能让观者也获得如斯体验，那便是善。
+<p>
+
 
 <p>
 
-所在公司
-<a target="_blank" href="https://www.talkingdata.com/"> TalkingData </a>
-是一个移动互联网大数据平台的公司，无论你是运营、产品、开发 或者是App终端用户都可以了解下我们公司。
-<p>
-
-推荐一个我维护的 Team 博客
-<a target="_blank" href="http://talkingdata.me/"> voyagelab </a>
-里面有一些关于 iOS 、Android 和 机器学习 的文章。
+<h3> 这个博客 </h3>  
 
 <p>
 
-<h3> 我们的博客 </h3>  
 
-<p>
+非常感谢<b>leopardpan</b>的开源提供的模板，模板的链接在<a target="_blank" href='https://github.com/leopardpan/leopardpan.github.io/'>Github</a> 上。
+我为了偷懒，直接用了大神提供的框架。
+当然，我的源码在<a target="_blank" href='https://github.com/chensunmac/chensunmac.github.io/'>Github</a> 上。
 
-是的，这个博客是我们大家的，目前已经有很大一部分人在使用我的博客模板了，我也很高兴大家使用我的模板。
-
-<p>
-
-如果你想搭建一个跟我一样的博客，可以看我的 
-<a href="/2016/10/jekyll_tutorials1/"> Jekyll 搭建个人博客 </a>
-教程
-
-<p>
-
-有关于博客主题的建议和意见都可以提给我，让我们一起来打造一个精美的主题吧~ 
-
-<p> 
-
-博客源码在 <a target="_blank" href='https://github.com/leopardpan/leopardpan.github.io/'>Github</a> 上，你的 Star 是我更新的动力，谢谢~
 
 {% include comments.html %}
 
