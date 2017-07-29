@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 关于我 
+comments:true
 ---
 
 一个俗人。
@@ -36,7 +37,7 @@ title: 关于我
 当然，我的源码在<a target="_blank" href='https://github.com/chensunmac/chensunmac.github.io/'>Github</a> 上。
 
 
-{% include comments.html %}
+
 
 
 
