@@ -29,7 +29,7 @@ baidu:
 # Google Analytics
 # 使用博客模板请去掉或者更换 id
 ga:
-    id:  
+    id: UA-103586236-1
     host: auto  
 
 
