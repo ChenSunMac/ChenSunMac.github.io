@@ -14,18 +14,6 @@ layout: default
   <section class="post">
     {{ content }}
   </section>
-
-
-
-</article>
-
-
-{% include new-old.html %}
-  <!-- mathjax -->
-  {% if page.mathjax %}
-  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  {% endif %}
-  
   <!-- disqus comments -->
  {% if page.comments %}
  <div id="disqus_thread"></div>
@@ -42,5 +30,11 @@ layout: default
   <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   {% endif %}
+
+
+
+</article>
+
+  
 
 
