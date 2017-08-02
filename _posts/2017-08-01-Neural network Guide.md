@@ -5,7 +5,6 @@ date: 2017-08-01
 tag: NN, ML
 comments: true
 ---
-# Neural Network Notes
 
 ## References:
 Convolutional Neural Networks (CNN) have become an important tool for object recognition. Please check the cool content from <a> http://cs231n.github.io/</a> and <a>http://karpathy.github.io/neuralnets/</a>
