@@ -12,11 +12,11 @@ Convolutional Neural Networks (CNN) have become an important tool for object rec
 ## Introduction:
 In most of our daily life, we need to do **"Analyze"** observation(**data/input**) in order to make certain decisions(**output**).  
 
-People are tired of heurustic pattern, hence we have some nice mathmatical algorithm to ease the work:
+People are tired of heuristic pattern, hence we have some nice mathematical algorithm to ease the work:
 - Simple Linear Function y = Ax
 - Nonlinear Function y = f(x)
 
-We always want to implement such mathmatical model into computer programs like the following:
+We always want to implement such mathematical model into computer programs like the following:
 ```python
 def model(data)
     # some matrix or function with parameters
@@ -39,5 +39,66 @@ def predict(model, test_data)
     # Use the model we trained
     return test_decision
 ```
+
+
+Eventually, we want to use those observed data to get a proper model and even update our model. In linear classification, the parameter we tried to toggle with are pretty much the entries of ***A, B*** in ***y = Ax+B***. These types of linear model can be think of any kind of linear systems, e.g. could be circuits, networks and so on.
+
+## Real Valued Circuits
+One great way of understanding Neural Networks is to think them as real-valued circuit. We have *+*, *max*, *log()*, *exp()* and more computational functions. 
+
+```javascript
+var forwardMultiply = function (x,y){
+    return x * y;
+};
+forwardMultiply(2,3); //returns 6
+```
+
+#### Core Question:
+How should one tweak the input parameters slightly to increase/decrease the output?
+
+- Random Local Search:
+    use Math.random() to generate little tweak on *x* and *y*.
+    If the result better than the current result, update it.
+    -   Cost too much
+
+- Analytic Gradient
+In the example above, f(x,y) = x*y, we have
+$frac{\partial f(x,y)}{\partial x} = y$.
+
+Hence, we can transform the derivative calculation into
+```javascript
+var x_gradient = y;
+var y_gradient = x;
+var step_size = 0.01;
+
+x + = step_size * x_gradient;
+y + = step_size * y_gradient;
+
+var out = forwardMultiply(x,y); // In this case, out is updated to 2.03*3.02
+```
+
+##### To Scale
+
+The analytic gradient method works well and we can always use *Chain Rule* when the circuit scaled up. For example, if we computing f(x) = (x+y)z.
+
+```javascript
+var forwardMultiply = function(a, b){return a * b};
+var forwardAdd = function(a, b){return a + b};
+
+var fowardCircuit = function(x, y, z) {
+    var q = forwardAdd(x, y);
+    var f = forwardMultiply(q, z);
+    return f;
+};
+var x = -2, y = 5, z = -4;
+var f = forwardCircuit(x, y, z);
+```
+
+
+
+
+
+
+
 
 
