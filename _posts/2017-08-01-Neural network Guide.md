@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Neural Network Notes
-date: 2017-08-01
+date: 2017-08-02
 tag: NN, ML
 comments: true
 ---
