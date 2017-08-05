@@ -6,6 +6,8 @@ tag: PureTech, Signal Processing
 comments: true
 ---
 
+### Post Processing
+
 We can obtain binary files of all those analog signals sampled from all kinds of platforms (manned, robot based...). These signals could be sound or EM signals. 
 
 ## Import Binary Data
@@ -32,3 +34,15 @@ s = SignalGenerator(lower(im.header.pulsePattern), ...
 The rest of the binary file should be our data, e.g. Signal shots of transducer at certain time points. We can always store them into arrays for further computation. 
 
 ## Caliper Algorithm 
+
+
+
+
+
+
+
+
+
+
+
+
