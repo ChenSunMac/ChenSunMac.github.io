@@ -1,0 +1,70 @@
+---
+layout: post
+title: NodeJS 开发 - Express Templating
+date: 2017-08-11
+tag: NodeJS, express, web, pug, jade, html
+comments: true
+---
+
+## PUG
+Pug (previously jade) is a templating engine for Express. Templating engines are used to remove the cluttering of our server code with HTML, concatenating strings wildly to existing HTML templates.
+
+To use:
+```sh
+$ npm install --save pug
+```
+
+## PUG and HTML
+There are many tools converting HTML and PUG. The following example shows their consistency:
+```pug
+doctype html
+html
+   head
+      title = "Hello Pug"
+   body
+      p.greetings#people Hello World!
+```
+can be converted to 
+```html
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Hello Pug</title>
+   </head>
+   
+   <body>
+      <p class = "greetings" id = "people">Hello World!</p>
+   </body>
+</html>
+```
+
+## Passing Values to Templates
+The advantage of using pug templates instead of static html is the ability to passing values and render the page view on server side.
+
+This feature enables the pages content to be dynamic and can be easily linked with database.
+
+#### Example
+For a new route handling:
+```js
+var express = require('express');
+var app = express();
+
+app.get('/dynamic_view', function(req, res){
+   res.render('dynamic', {
+      name: "CHAIN SOON EXAMPLE", 
+      url:"http://chensunmac.github.io"
+   });
+});
+
+app.listen(3000);
+```
+
+We can create a new view file in views directory, called *dynamic.pug*, with the following code
+```pug
+html
+   head
+      title=name
+   body
+      h1=name
+      a(href = url) URL
+```
