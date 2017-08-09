@@ -43,12 +43,34 @@ Cross-correlation is a measure of similarity of two series as a function of the 
 
 ![Cross-Correlation](https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Comparison_convolution_correlation.svg/600px-Comparison_convolution_correlation.svg.png "Cross-Correlation")
 
+As an example, consider two real valued functions ***f*** and ***g*** differing only by an unknown shift along the x-axis. One can use the cross-correlation to find how much ***g***  must be shifted along the x-axis to make it identical to ***f*** . The formula essentially slides the ***g***  function along the x-axis, calculating the integral of their product at each position. When the functions match, the value of ***f*g***  is maximized.
+
+In MATLAB, we have the handy tool by 
+```matlab
+            % Calculate the cross correlation between received pulse and
+            % transmitted pulse. 
+            [r, lags] = xcorr(receivedSignal(startIndex:end), obj.txPulse);
+            % Find the index where the cross correlation is at its
+            % maximum            
+            [valueMax, indexMax] = max(r);
+```
+
+From the calculated index, we can then use simple algebra to calculate the distance
+```matlab
+            % distance to pipe wall from transducer d = (wave velocity * sample points)/( 2*Fs )
+distance = single(obj.signal_delay) * obj.config.V_WATER / ( 2 * obj.config.SAMPLE_RATE );
+            
+```
+
+### Noise and PSD
+
+The power spectrum $S_{{xx}}(f)$ of a time series $x(t)$ describes the distribution of power into frequency components composing that signal. The statistical average of a certain signal or sort of signal (including noise) as analyzed in terms of its frequency content, is called its spectrum.
+
+PSD can be calculated by FFT or DFT.
+There are many packages do this, simple.
 
 
-
-
-
-
+### 
 
 
 
