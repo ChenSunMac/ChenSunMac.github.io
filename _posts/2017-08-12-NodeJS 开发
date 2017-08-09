@@ -48,3 +48,32 @@ The project file template have the following structure:
 7. 【package.json】项目依赖配置及开发者信息
 
 
+### Simple "HELLO WORLD" Example 
+Create a new file called index.js:
+```js
+var express = require('express');      // imports Express
+var app = express();                   // 创造一个Express模块对象：app
+
+app.get('/', function(req, res){       // app.get(route, callback):
+   res.send("Hello world!");           // takes an object as input and it sends this to the requesting client
+});
+
+app.listen(3000);                      // listen to port 3000
+```
+
+And go to terminal:
+```shell
+$ nodemon index.js
+```
+This will start the server. We can visit http://localhost:3000  to test it.
+
+- **callback** function
+  + An asynchronous function that is called when the server starts listening for requests.
+  + The callback function has 2 parameters, request(req) and response(res). 
+    - The request object(req) represents the HTTP request and has properties for the request query string, parameters, body, HTTP headers, etc.
+    - The response object represents the HTTP response that the Express app sends when it receives an HTTP request.
+    
+### Routing
+Web frameworks provide resources such as HTML pages, scripts, images, etc. at different routes. 
+    
+    
