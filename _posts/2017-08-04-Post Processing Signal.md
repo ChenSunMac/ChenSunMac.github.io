@@ -14,11 +14,11 @@ We can obtain binary files of all those analog signals sampled from all kinds of
 
 At first glance, a proper binary file should contain ***Header*** which include the configuration of the test/run, for example the *sample rate*, *bandwidth*, *pulse Pattern* and *pipe profile*
 
-    The data import is done by a **ImportHandler** Class:
-     ``` matlab
+The data import is done by a **ImportHandler** Class:
+``` matlab
         im = ImportHandler;
         im.readFolder('The\Folder\Path')
-    ```  
+```  
 
 Now the basic configuration should be imported into the object *im* and we can generate the impulse by simply run
 
@@ -35,6 +35,13 @@ The rest of the binary file should be our data, e.g. Signal shots of transducer 
 
 ## Caliper Algorithm 
 
+In order to the distance between the transducer to the pipe wall, we can make use of <a href="https://en.wikipedia.org/wiki/Cross-correlation">**cross correlation**</a> between emitted pulse and recorded transducer signal.
+
+### Cross-correlation
+
+Cross-correlation is a measure of similarity of two series as a function of the displacement of one relative to the other. This is also known as a sliding dot product or sliding inner-product.
+
+![Cross-Correlation](https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Comparison_convolution_correlation.svg/600px-Comparison_convolution_correlation.svg.png "Cross-Correlation")
 
 
 
