@@ -62,15 +62,17 @@ distance = single(obj.signal_delay) * obj.config.V_WATER / ( 2 * obj.config.SAMP
             
 ```
 
-### Noise and PSD
+## Noise and PSD
 
 The power spectrum $S_{{xx}}(f)$ of a time series $x(t)$ describes the distribution of power into frequency components composing that signal. The statistical average of a certain signal or sort of signal (including noise) as analyzed in terms of its frequency content, is called its spectrum.
 
-PSD can be calculated by FFT or DFT.
-There are many packages do this, simple.
+PSD can be calculated by FFT or DFT. Before doing so, one need to specify the noise part of the signal(instead of the valid emit and received sound signal). From the Caliper Algorithm, we can obtain the first and second Reflection Index. Then, the signal before the first reflection is just pure background noise. We can then segment that part for noise calculation.
 
+There are many packages doing PSD, simple.
 
-### 
+## Thickness Algorithm
+
+Finally, we come to the thickness. The detection eventually want to find the abnormal part of the pipe thickness, whether there is a dent or some hole. The thickness calculation can be evaluated in time domain, as well as frequency one.
 
 
 
