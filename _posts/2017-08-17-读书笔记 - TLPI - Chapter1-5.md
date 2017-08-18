@@ -25,6 +25,8 @@ The first attempt to standardize the operating system interface yielded POSIX.1,
 
 Linux separates implementation from distribution. Consequently, there is no single “official” Linux distribution. Each Linux distributor’s offering consists of a snapshot of the current stable kernel, with various patches applied.
 <br>
+
+<a https="http://www.ruanyifeng.com/blog/2010/03/unix_copyright_history.html">A bit More on UNIX History</a>
 ## Fundamental Concepts
 
 ### Kernel
@@ -148,3 +150,20 @@ A session is a collection of process groups ( jobs).
 Sessions are used mainly by job-control shells. All of the process groups created
 by a job-control shell belong to the same session as the shell, which is the session
 leader.
+
+
+
+### File Abstraction
+
+Everything is a file.
+
+And UNIX has unified file interface with *open, read, write, close* methods.
+
+<br>
+
+The data for each file is managed by an array of on-disk data structure called ***inodes***.
+
+One inode is allocated for each file and each directory.
+
+
+
