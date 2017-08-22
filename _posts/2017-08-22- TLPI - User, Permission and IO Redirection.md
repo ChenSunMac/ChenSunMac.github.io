@@ -200,9 +200,10 @@ ls: cannot access %: No such file or directory
 <br>
 
 **Overwrite**
-- >, stdout
-- <, stdin
-- 2>, stderr
+
+- ">", stdout
+- "<", stdin
+- "2>", stderr
 
 ```sh
 cat > writeToMe.txt
@@ -222,9 +223,9 @@ we can see a\n b\n c there
 <br>
 
 **Append**
-- >>, stdout
-- <<, stdin
-- 2>>, stderr
+- ">>", stdout
+- "<<", stdin
+- "2>>", stderr
 
 
 ### Pipes
@@ -255,7 +256,7 @@ Filters are commands that alter piped redirection and output. Note that filter c
 - find 
     + return files with filenames that match the argument passed to find
 ```sh
-#locate and print a list of every file in and beneath the current directory
+# locate and print a list of every file in and beneath the current directory
 find      
 # locate and print a list of every file in the current directory
 find.
