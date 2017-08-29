@@ -69,3 +69,15 @@ ln -s file1.txt file2.txt
 
 
 ### File Content Manipulation
+
+1. cat 
+2. less
+3. head
+4. tail
+5. sort
+6. uniq
+7. wc
+8. comm
+9. diff
+10. grep
+
