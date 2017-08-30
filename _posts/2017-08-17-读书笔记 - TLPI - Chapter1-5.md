@@ -3,6 +3,8 @@ layout: post
 title: 读书笔记 - TLPI - Chapter1-5
 date: 2017-08-17
 tag: Unix, Shell, Linux, File System, Process, Thread
+categories:
+- Linux & C
 comments: true
 ---
 

@@ -3,6 +3,8 @@ layout: post
 title: 读书笔记 - TLPI - User, Permission and IO Redirection
 date: 2017-08-22
 tag: Unix, Shell, Linux, File System, Process, Thread
+categories:
+- Linux & C
 comments: true
 ---
 

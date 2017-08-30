@@ -3,6 +3,8 @@ layout: post
 title: Shell Scripting 01
 date: 2017-08-09
 tag: BELL, Shell, Linux
+categories:
+- Linux & C
 comments: true
 ---
 
