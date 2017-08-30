@@ -1,71 +1,43 @@
-# Basic
-title: Chain Soon
-subtitle: MyBlog
+# Site settings
+title: Chain Soon's blog
 description: Welcome to my blog
-# 头像里面的标题
-avatarTitle: Chain Soon
-# 头像里面的描述
-avatarDesc: blog
-url: "http://chensunmac.github.io"
+baseurl: "/blog" # the subpath of your site, e.g. /blog
+url: "http://chensunmac.github.io" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
 
-# Comment
-comment:
-    # disqus: leopard
-    # duoshuo: leopard 
-    # cloudTie: leopard
+# User settings
+username: Chain Soon
+user_description: Keep curious on knowledge
+user_title: System Engineer
+email: chensunmac@gmail.com
+twitter_username: 
+github_username: chensunmac
+gplus_username: chensunmac
+disqus_username: chensunmac
 
-# Social
-social:
-    weibo: abcd1234
-    github: chensunmac
-    # twitter: 
-    mail: chensunmac@gmail.com
-
-# 百度统计 
-# 使用博客模板请去掉或者更换 id 
-baidu:
-    id:   
-
-# Google Analytics
-# 使用博客模板请去掉或者更换 id
-ga:
-    id: UA-103586236-1
-    host: auto  
-
-
-# 《----------------- 上面的信息修改成你自己的 ---------------------------》
-#
-#
-#  _post/ 下的文章更换成你自己的文章
-#  帮忙star一下，感谢~😆 地址： https://github.com/leopardpan/leopardpan.github.io
-#
-#
-# 《--------------- 下面的信息可以自行选择是否修改 ------------------------》
-
-
-permalink: /:year/:month/:title/
-# Format
+# Build settings
+markdown: kramdown
 highlighter: rouge
-
-textColor: #FF0000
-
-# supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
-cover_color: clear
-
-# The blog button should not be removed.
-blog_button:
-    title: 博客主页
-
-# Navigation buttons in the front page.s
-nav:
-    - {title: 所有文章, description: archive, url: '/archive'}   
-    - {title: 标签, description: tags, url: '/tags'}      
-    - {title: 关于我, description: about, url: '/about'}      
-    
-
-# Pagination
-gems: [jekyll-paginate,jekyll-sitemap]
-paginate: 20
-paginate_path: "page/:num/"
+permalink: /:title/
 
 
+# html minify
+compress_html:
+  clippings: all
+  comments: all
+  endings: []
+  profile: false
+
+# Links to include in menu navigation
+# For external links add external: true
+links:
+  - title: Home
+    url: /
+  - title: Series
+    url: /series
+  - title: Tags
+    url: /tags
+  - title: About Me
+    url: /about
+
+# exclude my node related stuff
+exclude: ['package.json', 'src', 'node_modules']
