@@ -34,7 +34,7 @@
               .shang_box-play{width:540px;height:540px;padding:10px;background-color:#fff;border-radius:10px;position:fixed;z-index:1000;left:50%;top:50%;margin-left:-280px;margin-top:-280px;border:1px dotted #dedede;display:none;}
               .shang_box-play img{border:none;border-width:0;}
               .dashang{display:block;width:100px;margin:5px auto;height:25px;line-height:25px;padding:10px;background-color:#E74851;color:#fff;text-align:center;text-decoration:none;border-radius:10px;font-weight:bold;font-size:16px;transition: all 0.3s;}
-              .dashang:hover{opacity:0.8;padding:15px;font-size:18px;}
+              .dashang:hover{opacity:0.8;padding:25px;font-size:18px;}
               .shang_close-play{float:right;display:inline-block;
                 margin-right: 10px;margin-top: 20px;
               }
@@ -50,18 +50,4 @@
               .shang_info-play p,.shang_info-play a{color:#C3C3C3;text-align:center;font-size:12px;text-decoration:none;line-height:2em;}
             </style>
 
-       <ul class="pager">
-        {% if page.previous.url %}
-        <li class="previous">
-            <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">上一篇：  <span>{{page.previous.title}}</span>
-            </a>
-        </li>
-        {% endif %}
-        {% if page.next.url %}
-        <li class="next">
-            <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">下一篇：  <span>{{page.next.title}}</span>
-            </a>
-        </li>
-        {% endif %}
-    </ul>
 </section>
