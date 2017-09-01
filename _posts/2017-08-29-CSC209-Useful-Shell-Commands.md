@@ -90,7 +90,34 @@ cat mytext.txt >> another-text-file.txt #  read the contents of mytext.txt, and 
 
 ```
 <br>
+2. less： less is more
+When you want to view a file that is longer than one screen, you can use either the **less** utility or the **more** utility. Each of these utilities pauses after displaying a screen of text; press the SPACE bar to display the next screen of text. 
 
+```sh
+less [options] [files-list]
+```
+
+less is more 这种命名方式真的是恶趣味.
+<br>
+3. head： (prints the first 10 lines of each file to std out)
+head makes it easy to output the first part of files.
+
+```sh
+head myfile.txt     # print first 10 lines 
+head -15 myfile.txt     # print first 15 lines
+head myfile.txt myfile2.txt # Display the first ten lines of both myfile.txt and myfile2.txt
+#######
+head -c 20 myfile.txt   #output only the first twenty bytes (characters) of myfile.txt
+```
+<br>
+4. tail (tail prints the last 10 lines of each FILE to standard output. )
+同上
+<br>
+5. sort: (rearrange lines in a text file)
+- 数字比字母优先
+- 小数字、小字母优先
+- 同样字母，小写比大写优先
+<br>
 6. uniq: (reports or filters out repeated lines in a file.)
 Let's say we have an eight-line text file, myfile.txt, which contains the following text:
 ```
