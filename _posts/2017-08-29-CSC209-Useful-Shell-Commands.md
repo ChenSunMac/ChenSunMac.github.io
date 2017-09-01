@@ -3,8 +3,7 @@ layout: post
 title: CSC 209 Useful Shell Commands
 date: 2017-08-29
 tag: Unix, Shell, Linux, File System, CSC209
-categories:
-- Linux & C
+categories: Linux & C
 ---
 
 
