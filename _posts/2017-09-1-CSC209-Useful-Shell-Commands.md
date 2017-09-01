@@ -2,8 +2,9 @@
 layout: post
 title: CSC 209 Useful Shell Commands 2
 date: 2017-09-21
-tag: Unix, Shell, Linux, File System, CSC209
-categories: Linux & C
+tag: [Unix, Shell, Linux, File System, CSC209]
+categories: 
+- Linux & C
 ---
 
 
