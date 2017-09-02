@@ -186,4 +186,4 @@ grep "May 31 03" /etc/httpd/logs/error_log # search the  error_log file for any 
 grep -w "hope" myfile.txt  #Search the file myfile.txt for lines containing the word "hope".
 ```
 
-regular expression will be addressed in other post
+regular expression will be addressed in other post.
