@@ -1,0 +1,9 @@
+<script src="/assets/js/video-control.js"></script>
+<script>
+    Array.prototype.slice.call(
+        document.querySelectorAll('video')
+    )
+    .forEach(function(vid) {
+        minimalVid(vid);
+    });
+</script>

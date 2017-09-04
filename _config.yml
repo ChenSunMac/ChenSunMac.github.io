@@ -1,64 +1,79 @@
-# Site settings
-title: Joseph Chen's blog
-description: Welcome to my blog
+#
+# This file contains configuration flags to customize your site
+#
+
+title: Mostafa Samir's Blog
+
+username: Mostafa Samir
+user_description: Wandering in a lifelong journey seeking after truth.
+user_title: Web Developer & Beginner AI Researcher
+email: mostafa.3210@gmail.com
+twitter_username: M0stafa_Samir
+github_username:  Mostafa-Samir
+linkedin_username: m0stafasamir
+disqus_username: mostafa-samir-blog
+
+# Name of your site (displayed in the header)
+name: Mostafa Samir
+
+# Short bio or description (displayed in the header)
+description: A developer in a lifelong journey seeking after truth.
+
+# URL of your avatar or profile pic (you could use your GitHub profile pic)
+avatar: https://avatars0.githubusercontent.com/u/5209140?v=2&s=460
+
+#
+# Flags below are optional
+#
+
+# Your disqus shortname, entering this will enable commenting on posts
+disqus: mostafa-samir-blog
+
+# Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
+google_analytics: UA-57191995-1
+
+
+
+url: "https://mostafa-samir.github.io"
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
 # and NOT your User repository (http://yourusername.github.io)
 # then add in the baseurl here, like this: "/repository-name"
 baseurl: ""
-url: "http://chensunmac.github.io" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
 
-# User settings
-username: Joseph Chen
-user_description: Keep curious on knowledge
-user_title: System Engineer in R&D
-email: chensunmac@gmail.com
-twitter_username: 
-github_username: chensunmac
-gplus_username: chensunmac
-disqus_username: chensunmac
+#
+# !! You don't need to change any of the configuration flags below !!
+#
 
-
-# Name of your site (displayed in the header)
-name: Joseph Chen
-
-
-# Google Analytics
-# 使用博客模板请去掉或者更换 id
-ga:
-    id: UA-103586236-1
-    host: auto  
-
-# Build settings
 markdown: kramdown
 highlighter: rouge
 permalink: /:title/
 
+links:
+  - title: Home
+    url: /
+  - title: Categories
+    url: /categories
+  - title: About Me
+    url: /about
+
+# The release of Jekyll Now that you're using
+version: v1.0.0
 
 # Set the Sass partials directory, as we're using @imports
 sass:
   sass_dir: _scss
   style: :expanded # You might prefer to minify using :compressed
 
-# html minify
-compress_html:
-  clippings: all
-  comments: all
-  endings: []
-  profile: false
+# Use the following plug-ins
+gems:
+  - jemoji # Emoji please!
+  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
 
-# Links to include in menu navigation
-# For external links add external: true
-links:
-  - title: Home
-    url: /
-  - title: Series
-    url: /series
-  - title: Tags
-    url: /tags
-  - title: About Me
-    url: /about
-
-# exclude my node related stuff
-exclude: ['package.json', 'src', 'node_modules']
+# Exclude these files from your production _site
+exclude:
+    - Gemfile
+    - Gemfile.lock
+    - LICENSE
+    - README.md

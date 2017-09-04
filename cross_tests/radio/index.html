@@ -1,0 +1,513 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Bab Radio</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+		<!--<link rel="stylesheet" type="text/css" href="perfect.scroll.min.css">-->
+		<style type="text/css">
+
+			@media only screen and (min-width: 1280px) {
+				#stick {
+					left: 150px;
+				}
+
+				.wrapper {
+					left:250px;
+				}
+
+				#disk {
+					left:-150px;
+				}
+
+				#now {
+					padding-top: 10px;
+					height: 35px; 
+				}
+			}
+
+			@media only screen and (min-width: 1024px) and (max-width: 1279px) {
+				#stick {
+					left: 110px;
+				}
+
+				.wrapper {
+					left:190px;
+				}
+
+				#disk {
+					left:-150px;
+				}
+
+				#now {
+					padding-top: 10px;
+					height: 35px; 
+				}
+			}
+
+			@media only screen and (min-width: 960px) and (max-width: 1023px) {
+				#stick {
+					left: 80px;
+				}
+
+				.wrapper {
+					left:150px;
+				}
+
+				#disk {
+					left:-150px;
+				}
+
+				#now {
+					padding-top: 10px;
+					height: 35px; 
+				}
+			}
+
+			@media only screen and (min-width: 800px) and (max-width: 959px) {
+				#stick {
+					left: 75px;
+				}
+
+				.wrapper {
+					left:125px;
+				}
+
+				#disk {
+					left:-120px;
+				}
+
+				#now {
+					padding-top: 10px;
+					height: 35px; 
+				}
+			}
+
+			@media only screen and (min-width: 640px) and (max-width: 799px) {
+				#stick {
+					left: 75px;
+				}
+
+				.wrapper {
+					left:110px;
+				}
+
+				#disk {
+					left:-80px;
+				}
+
+				#now {
+					padding-top: 10px;
+					height: 35px; 
+				}
+
+
+				.top-left-corner {
+					width:250px;
+				}
+
+				.bottom-right-corner {
+					width: 400px;
+				}
+			}
+
+			@media only screen and (min-width: 480px) and (max-width: 639px) {
+				#stick {
+					left: 60px;
+				}
+
+				.wrapper {
+					left:77px;
+				}
+
+				#disk {
+					left:-60px;
+				}
+
+				#now {
+					display: none;
+				}
+
+				.top-left-corner {
+					width:300px;
+				}
+
+				.bottom-right-corner {
+					width: 300px;
+				}
+			}
+
+			@media only screen and (min-width: 320px) and (max-width: 479px) {
+				#stick {
+					left: 40px;
+				}
+
+				.wrapper {
+					left:40px;
+				}
+
+				#disk {
+					left:-40px;
+				}
+
+				#now {
+					display: none;
+				}
+
+				.top-left-corner {
+					width:200px;
+				}
+
+				.bottom-right-corner {
+					width: 200px;
+				}
+			}
+
+
+			html, body {
+				background-color: #AEB0B5;
+				font-family: 'Oswald', sans-serif;
+				overflow: hidden;
+				position: relative;
+				height: 100%;
+				margin: 0px
+			}
+
+			.header {
+				width : 100%;
+				height: 70px;
+				position: absolute;
+			}
+
+			.disk-container {
+				display: inline-block;
+				width: 40%;
+				top:70px;
+				position: absolute;
+				z-index: 1;
+			}
+
+			.rest-of-content {
+				width: 60%;
+				z-index: 1;
+				position: absolute;
+				top:70px;
+				left:40%;
+			}
+
+			.nav {
+				max-width:100%;
+				height: auto;
+				cursor: pointer;
+				opacity: 0.8;
+			}
+
+			.nav-selected {
+				opacity: 1;
+			}
+
+			.nav:hover {
+				opacity: 1;
+			}
+
+			#disk {
+				position: relative;
+				max-width: 100%;
+				height: auto;
+			}
+
+			#stick {
+				position: absolute;
+				max-height: 100%;
+				width : auto;
+				z-index: 1;
+				top:-5%;
+			}
+
+			.wrapper {
+				position: relative;
+				max-width: 81%;
+				height: auto;
+				z-index: 2;
+			}
+
+			.top-left-corner {
+				position: absolute;
+				top:0px;
+				left:0px;
+				z-index: 0;
+			}
+
+			.bottom-right-corner {
+				position: absolute;
+				bottom:0px;
+				right:0px;
+				z-index: 0;
+			}
+
+			.content-div {
+				display: none;
+				overflow:hidden;
+				position: absolute;
+			}
+
+			#control {
+				max-height: 70px;
+				z-index: 2;
+				cursor: pointer;
+				float: left;
+			}
+
+			#now {
+				background-color: #E9811A;
+				width: 0px;
+				height: 35px;
+				overflow: hidden;
+				position: relative;
+				padding-left: 1.5%;
+				padding-right: 5px;
+				top: 10px;
+				border: 3px solid black;
+				border-radius: 5px;
+				border-bottom-left-radius: 20px;
+				border-top-left-radius: 20px;
+				left: -3px;
+				padding-top: 10px;
+				white-space: nowrap;
+			}
+
+			#navigation {
+				width: 20%;
+				position: absolute;
+				left: 80%;
+				padding-top: 80px;
+			}
+
+			#content {
+				width: 80%;
+				position: absolute;
+			}
+
+			#content h1 {
+				color: #E9811A;
+				width: auto;
+				height: auto;
+				text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+				background-color: rgba(0,0,0,0);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="wrapper">
+				<img id="control" src = "pause.png" />
+				<div id="now"></div>
+			</div>
+		</div>
+		<div class="disk-container">
+			<img id = "stick" src = "stick.png" />
+			<img id = "disk" src = "disk.png" />
+		</div>
+
+		<div class="rest-of-content">
+			<div id="content">
+				<div id="nights_div" class="content-div">
+					<h1>Our Musical Nights</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. </p>
+
+					<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. </p>
+
+					<p>Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. </p>
+				</div>
+				<div id="shows_div" class="content-div">
+					<h1>Our Shows</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. </p>
+
+					<p>Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. </p>
+				</div>
+				<div id="about_div" class="content-div">
+					<h1>About Us</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. </p>
+
+					<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. </p>
+				</div>
+			</div>
+			<div id = "navigation">
+				<p><img src="nights.png" id="nights" class="nav" /></p>
+				<p><img src="shows.png" id="shows" class="nav" /></p>
+				<p><img src="about.png" id="about" class="nav" /></p>
+			</div>
+		</div>
+		<img src="first-corner.png" class="top-left-corner" />
+		<img src="second-corner.png" class="bottom-right-corner" />
+		<script src="jquery.js"></script>
+		<!--<script src="soundmanager2.js"></script>-->
+		<script src="jQueryRotate.min.js"></script>
+		<script src="jquery.slim.scroll.min.js"></script>
+		<script type="text/javascript" src="http://hosted.musesradioplayer.com/mrp.js"></script>
+		<script src="flash.detect.min.js"></script>
+		<script type="text/javascript">
+			if(FlashDetect.installed) {
+				MRP.insert({
+					'url':'http://usa2.fastcast4u.com:3630/stream',
+					'codec':'aac',
+					'volume':100,
+					'autoplay':true,
+					'jsevents':true,
+					'buffering':5,
+					'title':'Bab',
+					'wmode':'transparent',
+					'skin':'mcclean',
+					'width':1,
+					'height':1
+				});
+			}
+		</script>
+		<script src="jquery.shoutcast.min.js"></script>
+		<script type="text/javascript">
+		var app = {};
+
+		app.updateCurrentSong = function(title) {
+			var $now = $("#now");
+			var $title = $("<span>Now : " + title + "</span>");
+			$now.html($title);
+
+			$now.animate({
+				width : $title.outerWidth() + 10 + "px",
+			});
+		}
+
+		app.displayError = function(msg) {
+			var timestamp = Date.now();
+			var $err_div = $("<div id = 'err" + timestamp + "'></div>").css({
+				"background-color" : "#eed3d7",
+				"color": "red",
+				"position": "absolute",
+				"top" : "10px",
+				"right": "10px",
+				"width": "200px",
+				"height": "auto",
+				"border" : "2px red solid",
+				"border-radius": "20px",
+				"z-index": "5",
+				"display": "none"
+			});
+
+			var $close = $("<p>x</p>").css({
+				"text-align": "right",
+				"cursor" : "pointer",
+				"margin-top": "0px",
+				"margin-bottom":"0px",
+				"margin-right": "10px"
+			}).click(function(){
+				$("#err" + timestamp).fadeOut({
+					duration: 'slow',
+					done : function() { $("#err" + timestamp).remove(); }
+				});
+			});
+
+			$err_div.append($close);
+			$err_div.append("<p style='margin-left:10px;'>" + msg + "</p>");
+
+			$(document.body).append($err_div);
+
+			$err_div.fadeIn('slow');
+		}
+
+		$(document).ready(function() {
+
+			if(FlashDetect.installed) {
+
+				$.SHOUTcast({
+    				host: "usa2.fastcast4u.com",
+    				port: 3630,
+    				interval: 15000,
+					stats: function(){
+					app.updateCurrentSong(this.get("songtitle"));
+					}
+				}).startStats();
+			}
+			else {
+				app.displayError("Oops, It seems that your browser doesn't have Adobe Flash.");
+			}
+
+			var angle = 0;
+			setInterval(function(){
+				angle += 3;
+				$("#disk").rotate(angle);
+			}, 25);
+
+			var state = "playing";
+
+			$("#control").click(function() {
+				if(state == "playing") {
+					$(this).attr("src", "play.png");
+					MRP.stop();
+					$("#stick").rotate({
+						center : ["58%", "0%"],
+						animateTo: -22
+					});
+
+					state = "paused";
+				}
+				else {
+					$(this).attr("src", "pause.png");
+					$("#stick").rotate({
+						center : ["58%", "0%"],
+						animateTo: 0,
+					});
+					MRP.play();
+
+					state = "playing";
+				}
+			});
+
+			var intial
+
+			$(".nav").each(function(){
+				$(this).click(function() {
+					var to_hide = $(".nav-selected").attr("id") + "_div";
+					var to_show = $(this).attr("id") + "_div";
+
+					$(".nav-selected").removeClass("nav-selected");
+					$(this).addClass("nav-selected");
+
+					$("#" + to_hide).fadeOut({
+						duration : 'slow',
+						done: function() {
+							$("#" + to_hide).slimScroll({destroy: true});
+							$("#" + to_show).fadeIn({
+								duration:'slow',
+								done: function(){
+									$("#" + to_show).slimScroll({
+										color : "#E9811A",
+										height: $(window).height() - 70 + "px",
+										alwaysVisble: true
+									});
+								}
+							});
+						}
+					});
+				});
+			});
+
+			$("#nights").addClass("nav-selected");
+			$("#nights_div").fadeIn({
+				duration:'slow',
+				done: function() { 
+					$("#nights_div").slimScroll({
+						color : "#E9811A",
+						height: $(window).height() - 70 + "px",
+						alwaysVisble: true
+					});
+				}
+
+			});
+
+
+		});
+		</script>
+	</body>
+</html>

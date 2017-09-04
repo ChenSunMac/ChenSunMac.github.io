@@ -1,4 +1,4 @@
-## Will Jekyll Template - [Demo](http://willianjusten.com.br/will-jekyll-template)
+## Will Jekyll Template
 
 ![Screenshot](screenshot.png)
 
@@ -30,7 +30,6 @@ The Theme features:
 4. Edit `_config.yml` to personalize your site.
 5. Check out the sample posts in `_posts` to see examples for assigning categories and tags, and other YAML data.
 6. Read the documentation below for further customization pointers and documentation.
-7. **Remember to compile your assets files with Gulp.**
 
 ## Site and User Settings
 
@@ -52,8 +51,6 @@ github_username:  lorem_ipsum
 gplus_username:  lorem_ipsum
 disqus_username: lorem_ipsum
 ```
-
-**Don't forget to change your baseurl before build your site!**
 
 ## Color customization
 
@@ -100,12 +97,6 @@ In order to compile the assets and run Jekyll on local you need to follow those 
 ## Questions
 
 Having a problem getting something to work or want to know why I setup something in a certain way? Ping me on Twitter [@willian_justen](https://twitter.com/willian_justen) or file a [GitHub Issue](https://github.com/willianjusten/will-jekyll-template/issues/new).
-
-## Donation
-
-If you liked my work, buy me a coffee <3
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UTMFZUHX6EUGE)
 
 ## License
 

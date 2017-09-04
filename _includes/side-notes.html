@@ -1,0 +1,28 @@
+<script src="/assets/js/side-notes.js"></script>
+<script>
+    'use strict';
+
+    window.addEventListener('resize', function() {
+        let visibleNote = document.querySelector('.sidenote-visible');
+        repositionNote(visibleNote);
+    });
+
+    document.body.addEventListener('click', function() {
+        // hide any other opened side note if any
+        let visibleNote = document.querySelector('.sidenote-visible');
+        let viewdNoteMark = document.querySelector('.sidenote-viewed');
+
+        if(visibleNote)  {
+            visibleNote.className = "sidenote-container";
+            viewdNoteMark.className = "sidenote-super";
+            visibleNote.style.display = "none";
+        }
+    });
+
+    Array.prototype.slice.call(
+        document.querySelectorAll('.sidenote')
+    )
+    .forEach(function(note) {
+        processSideNoteElement(note);
+    });
+</script>
