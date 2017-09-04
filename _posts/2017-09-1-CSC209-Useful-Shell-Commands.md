@@ -1,10 +1,18 @@
 ---
 layout: post
 title: CSC 209 Useful Shell Commands 2
-tags: [Unix, Shell, Linux, File System, CSC209]
-categories: [Linux & C]
+date: 2017-09-01 03:32:44
+image: '/assets/img/post-image.png'
+description: 'CSC209 useful commands'
+tags: 
+- Unix 
+- Shell
+- Linux
+- File System
+- CSC209
+categories: 
+- Linux & C
 ---
-
 
 This post works as a cheating sheet for CSC209 at University of Toronto.
 
