@@ -15,14 +15,23 @@ It reads data from files, and outputs their contents. It can be used to:
 - Append the contents of a text file to the end of another text file, combining them
 ```sh
 ### No >, e.g. default using std out
-cat mytext.txt      #read from mytext.txt and send them to std out (terminal screen)
-cat mytext.txt mytext2.txt #print the contents of those two text files as if they were a single file.
+cat mytext.txt      
+# read from mytext.txt and send them to std out (terminal screen)
+cat mytext.txt mytext2.txt 
+# print the contents of those two text files as if they were a single file.
 ### OverWriting using >
-cat mytext.txt > newfile.txt    #the shell will redirect the output to the file newfile.txt, if newfile.txt does not exist, it will be created, if newfile.txt already exists, it will be overwritten.
-cat mytext.txt mytext2.txt > newfile.txt #read the contents of mytext.txt and mytext2.txt and write the combined text to the file newfile.txt
+cat mytext.txt > newfile.txt    
+# the shell will redirect the output to the file newfile.txt, 
+# if newfile.txt does not exist, it will be created, 
+# if newfile.txt already exists, it will be overwritten.
+cat mytext.txt mytext2.txt > newfile.txt 
+# read the contents of mytext.txt and mytext2.txt 
+# and write the combined text to the file newfile.txt
 
 ### Append using >>
-cat mytext.txt >> another-text-file.txt #  read the contents of mytext.txt, and write them at the end of another-text-file.txt
+cat mytext.txt >> another-text-file.txt 
+# read the contents of mytext.txt, and 
+# write them at the end of another-text-file.txt
 ```
 
 
@@ -41,9 +50,11 @@ head makes it easy to output the first part of files.
 ```sh
 head myfile.txt     # print first 10 lines 
 head -15 myfile.txt     # print first 15 lines
-head myfile.txt myfile2.txt # Display the first ten lines of both myfile.txt and myfile2.txt
+head myfile.txt myfile2.txt 
+# Display the first ten lines of both myfile.txt and myfile2.txt
 #######
-head -c 20 myfile.txt   #output only the first twenty bytes (characters) of myfile.txt
+head -c 20 myfile.txt   
+#output only the first twenty bytes (characters) of myfile.txt
 ```
 <br>
 4. tail (tail prints the last 10 lines of each FILE to standard output. )
@@ -119,9 +130,12 @@ analyzes two files and prints the lines that are different. Essentially, it outp
 processes text line by line and prints any lines which match a specified pattern.
 ```sh
 grep chope /etc/passwd  #Search /etc/passwd for user chope.
-grep "May 31 03" /etc/httpd/logs/error_log # search the  error_log file for any error entries that happened on May 31st at 3AM
+grep "May 31 03" /etc/httpd/logs/error_log 
+# search the  error_log file for any error entries 
+# that happened on May 31st at 3AM
 
-grep -w "hope" myfile.txt  #Search the file myfile.txt for lines containing the word "hope".
+grep -w "hope" myfile.txt  #Search the file myfile.txt for 
+# lines containing the word "hope".
 ```
 
 regular expression will be addressed in other post
