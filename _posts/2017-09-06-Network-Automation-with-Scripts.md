@@ -77,5 +77,71 @@ we can see that Linux is now execute the file, however there is some error durin
 Then by adding the second line above to our hello.py, we can then execute our script by just calling *./hello.py* without any error.
 
 
+### Scripting
+
+#### Bash Scripts
+After we know how to log on to devices and how to run scripts, the following example shows how to get information from the Stinger device.
+```sh
+#!/bin/bash
+JMPSERVER=jump.myisp.net                # Name of Jump Server 
+PORT=9012                               # Port Name
+LOGINSEQ=('secret1' 'myadm' 'secret2')  # telnet password, user name, and user password
+CMDS=('date' 'info' 'uptime' 'quit')    # commands issued to the DSLAM command line
+while read device
+do
+   # In background, run an ssh tunnel
+   ssh  -N ${JMPSERVER} -L ${PORT}:${device}:23 &
+   sleep 2 #insert a delay (in seconds) between the echo of each string value
+   for n in 1
+   do
+      # login sequence
+      typeset -i i=0
+      while test ${i} -lt ${#LOGINSEQ[*]}
+      do
+          echo ${LOGINSEQ[${i}]}
+          i+=1
+          sleep 1
+      done
+      # run commands
+      typeset -i j=0
+      while test ${j} -lt ${#CMDS[*]} 
+      do
+          echo ${CMDS[${j}]}
+          j+=1
+          sleep 1
+      done
+   done | telnet localhost ${PORT}
+   kill $! # terminate the ssh background process
+done
+```
+
+
+When you run the script, it waits for standard input. Enter the domain name (or IP address) of a network device (or alternatively redirect input from a file containing a list of devices):
+```sh
+$ ./get_info
+st1.myisp.net
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+(City Stgr 1) Enter password:
+User: myadm
+Password: myadm> date
+Thu Feb 15 11:06:26 2007
+myadm> info
+Platform         : Lucent Stinger FS+
+System Name      : City Stgr 1
+Serial Number    : 1519531234
+Software Version : TAOS 9.9.1 (stngrcm2)
+Boot Version     : TAOS 9.9.1
+Installed Memory : 128MB
+Controller Role  : Primary
+Hardware revision: 2.2 Model E - IP (Version B)
+myadm> uptime
+Current system time: 11:06:28
+{ shelf-1 first-control-module } cm-v2 63 days 07:13:06
+( PRIMARY )
+myadm> quit
+Connection closed by foreign host.
+```
 
 
