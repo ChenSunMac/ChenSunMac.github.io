@@ -146,37 +146,36 @@ myadm> quit
 This bash Scripts  has some limitations. We use a pre-specified **sleep** time between the echo of each string value. Thus, we assume that the DSLAM will respond within the specified sleep time. 
 
 However, it would be desirable to synchronize communication with the response of the device. For example, send the telnet password only after reception of the password prompt, instead of some after arbitrary delay.
+
+
+
+#### Python Scripting
+shows a Python script info.py that issues the info command on a number of DSLAMs. It reads in a list of DSLAM addresses from standard input.
+The file devices.lst contains a list of domains names of DSLAMs
+```sh
+$ cat devices.lst
+st1.myisp.net
+st2.myisp.net
+```
+In this case, we only have two Stinger chip. Thw following *info.py* display the output to stdout.
 ```py
 #!/usr/bin/env python
 
 import sys
-
 from automgmt import *
 
-def proc_info(data,t):
-    dd = {'device' : t.stinger}
-    for line in data:
-        if re.search(':', line):
-            key,value = line.split(':')
-            dd[key.strip().lower()] = value.strip()
-    return dd
-
 if __name__=='__main__':
-
     info = []
-
     # read standard input
     for stinger in sys.stdin.readlines():
-
         # initiate Telnet session to DSLAM
         try:
-            t = stcon(stinger.strip('\n'))
+            t = stcon(stinger.strip('\n'))  #establish a telnet session by calling stcon
         except TelnetError, e:
             # if there's an error, report and
             # try next DSLAM
             print "%s: %s" % (stinger, e.args)
             continue
-
         # issue "info" command, store each
         # line of output in a list of lists
         info.append(t.do_cmd("info"))
@@ -186,3 +185,44 @@ if __name__=='__main__':
         for line in dslam:
             print line
 ```
+
+Sample result could be seen as following:
+```sh
+$ ./info.py <devices.lst
+Platform         : Lucent Stinger FS+
+System Name      : City Stgr 1
+Serial Number    : 1519531234
+Software Version : TAOS 9.9.1 (stngrcm2)
+Boot Version     : TAOS 9.9.1
+Installed Memory : 128MB
+Controller Role  : Primary
+Hardware revision: 2.2 Model E - IP (Version B)
+Platform         : Lucent Stinger FS+
+System Name      : Rovers Stinger 0
+Serial Number    : 1526535678
+Software Version : TAOS 9.9.1 (stngrcm2)
+Boot Version     : TAOS 9.9.1
+Installed Memory : 128MB
+Controller Role  : Primary
+Hardware revision: 2.2 Model E - IP (Version B)
+```
+If we want to further extract the information and store it in some data structure, we can first add the following function:
+```py
+def proc_info(data,t):
+    dd = {'device' : t.stinger}
+    for line in data:
+        if re.search(':', line):
+            key,value = line.split(':')
+            dd[key.strip().lower()] = value.strip()
+    return dd
+```
+
+This function store the output of the info command as a list of data dictionaries (one dictionary per DSLAM).
+
+### Conclusion
+If we are merely issuing commands to the devices and reading the output, then we could have just used a bash script.
+What we cannot do with the bash script, however, is respond to feedback from commands.
+<br>
+
+The command-line user interface of a network device does not provide a convenient API for scripting automated management procedures.
+However, we can always using Python module that runs a telnet client through an SSH tunnel for just such a purpose.
