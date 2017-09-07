@@ -117,12 +117,12 @@ done
 
 
 When you run the script, it waits for standard input. Enter the domain name (or IP address) of a network device (or alternatively redirect input from a file containing a list of devices):
-```sh
+<br>
 $ ./get_info
 st1.myisp.net
 Trying 127.0.0.1...
 Connected to localhost.
-Escape character is '^]'.
+Escape character is  
 (City Stgr 1) Enter password:
 User: myadm
 Password: myadm> date
@@ -141,7 +141,48 @@ Current system time: 11:06:28
 { shelf-1 first-control-module } cm-v2 63 days 07:13:06
 ( PRIMARY )
 myadm> quit
-Connection closed by foreign host.
+<br>
+
+This bash Scripts  has some limitations. We use a pre-specified **sleep** time between the echo of each string value. Thus, we assume that the DSLAM will respond within the specified sleep time. 
+
+However, it would be desirable to synchronize communication with the response of the device. For example, send the telnet password only after reception of the password prompt, instead of some after arbitrary delay.
+```py
+#!/usr/bin/env python
+
+import sys
+
+from automgmt import *
+
+def proc_info(data,t):
+    dd = {'device' : t.stinger}
+    for line in data:
+        if re.search(':', line):
+            key,value = line.split(':')
+            dd[key.strip().lower()] = value.strip()
+    return dd
+
+if __name__=='__main__':
+
+    info = []
+
+    # read standard input
+    for stinger in sys.stdin.readlines():
+
+        # initiate Telnet session to DSLAM
+        try:
+            t = stcon(stinger.strip('\n'))
+        except TelnetError, e:
+            # if there's an error, report and
+            # try next DSLAM
+            print "%s: %s" % (stinger, e.args)
+            continue
+
+        # issue "info" command, store each
+        # line of output in a list of lists
+        info.append(t.do_cmd("info"))
+        t.close()
+
+    for dslam in info:
+        for line in dslam:
+            print line
 ```
-
-
