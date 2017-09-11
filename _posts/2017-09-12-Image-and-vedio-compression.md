@@ -131,6 +131,7 @@ We can use the *printCodes()* function  by adding
 ```cpp
 printCodes(minHeap.top(), "");
 ```
-in *HuffmanCodes()*.
+in *HuffmanCodes()*. We can further obtain the coding:
+<img src="http://www.geeksforgeeks.org/wp-content/uploads/fig-6.jpg"></img>
 
 The Complexity is about $O(n\log n)$.
