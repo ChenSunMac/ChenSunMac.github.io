@@ -140,7 +140,7 @@ The Complexity is about $O(n\log n)$.
 
 #### JPEG
 
-<img src="https://en.wikipedia.org/wiki/JPEG#/media/File:JPEG_process.svg"></img>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/JPEG_process.svg/598px-JPEG_process.svg.png"></img>
 
 - Input Image: M $\times$ N matrix
 - Construct n $\times$ n sub-images (usually 8$\times$ 8)
