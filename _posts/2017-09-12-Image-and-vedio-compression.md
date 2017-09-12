@@ -135,3 +135,31 @@ in *HuffmanCodes()*. We can further obtain the coding:
 <img src="http://www.geeksforgeeks.org/wp-content/uploads/fig-6.jpg"></img>
 
 The Complexity is about $O(n\log n)$.
+
+### Lossy Compression
+
+#### JPEG
+
+<img src="https://en.wikipedia.org/wiki/JPEG#/media/File:JPEG_process.svg"></img>
+
+- Input Image: M $\times$ N matrix
+- Construct n $\times$ n sub-images (usually 8$\times$ 8)
+- Forward Transform
+- Quantizer
+- Symbol encoder
+- Output Compressed Image
+
+In each of the 8$\times$ 8 sub-matrix, we transform $[R,G,B]$ vector for each pixel into a $[Y, C_B, C_R]$ where Y represent luma, e.g. brightness and $C_B$ and $C_R$ representing color.
+
+$$
+\begin{align}
+[Y, C_B, C_R]^T = A_{3\times 3}[R,G,B]^T
+\end{align}
+$$
+Then each of the pixel with $[Y, C_B, C_R]$ undergoes the Discrete Cosine Transform (*DCT*). A DCT is similar to a Fourier transform in the sense that it produces a kind of spatial frequency spectrum.
+
+<br>
+The Quantizer part works as a low band pass filter to filter out the high frequency information.
+
+
+
