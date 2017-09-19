@@ -67,3 +67,13 @@ printf("|%10.3f|%10.3e|\n", x, x);
 
 
 #### scanf
+
+```c
+scanf(Format String, address1, address2, ...);  
+```
+和printf 一样，也是围绕着Format String 进行填空，但是注意这里是地址
+
+```c
+scanf("%d%f", &i, &x)
+```
+
