@@ -9,7 +9,7 @@ categories: C
 
 #### 整型
 |  **NAME** | **bits**  | RANGE  |
-|---|---|---|
+|------|------|------|
 | unsigned short int  | 16  | 0~65535  |
 |  short int          | 16  | -32768~32768  |
 |int                  | 32 |-2147483648~+2147483647   |
@@ -32,11 +32,11 @@ categories: C
 
 #### Escape Sequence 转义字符
 |  **NAME** | **ESCAPE SEQUENCE**  | **ESCAPE in HEX** |
-|---|---|---|
+|------|------|------|
 | Newline  | \n  | \x0A  |
 | Tab  | \t  | \x09  |
 | BackSlash  | \\\  | \x5C  |
-| Tab  | \t  | \x09  |
+
 
 小写转换成大写
 ```c
