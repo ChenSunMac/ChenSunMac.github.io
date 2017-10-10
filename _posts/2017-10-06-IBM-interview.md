@@ -63,4 +63,18 @@ and in python
         return results
 ```
 
-https://www.glassdoor.ca/Interview/IBM-Entry-Level-Software-Engineer-Interview-Questions-EI_IE354.0,3_KO4,33_IP2.htm
+- How do you like IBM?
+
+    I was impressed by all those inventions from IBM, like ATM and magnetic strip card. IBM has a great contribution to the computer society, and changed how people work and everydays life. Recently, one of my friend who works at Watson Health talk about the project he is doing and I am very impressed by that. The Cognitive Healthcare Solutions truly helps enhance peoples life a lot. I like IBM about how this company revolutionize computing and many aspects of human life.
+
+- What tech are you working with currently, how do you like it
+    
+    I currently working in the non-destructive detection signal processing in the under water robotic platform. I am in charge of the algorithm design for signal processing and pattern recognition. The main technology is system theory and signal processing, the main coding platform is in MATLAB and PYTHON, for high performance computing. First of, I like system theory and signal processing, since they are useful tools to understand various systems, either man-made system or natural systems. PYTHON or MATLAB and high performance computing is then great for huge data sets and huge amount of computation. These together helps me understand systems faster way
+
+
+- String filter under specific rule
+    
+    
+
+- a list of worker-> manager. Find first shared manager
+
