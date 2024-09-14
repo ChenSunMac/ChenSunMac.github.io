@@ -242,6 +242,7 @@ defaults:
       comments: true
       share: true
       related: true
+      toc: true
   # _pages
   - scope:
       path: ""
@@ -249,6 +250,7 @@ defaults:
     values:
       layout: single
       author_profile: true
+      toc: true
   # _teaching
   - scope:
       path: ""
@@ -258,6 +260,7 @@ defaults:
       author_profile: true
       share: true
       comments: true
+      toc: true
   # _publications
   - scope:
       path: ""
