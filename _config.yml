@@ -8,35 +8,36 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Prof. Chen Sun"
+title                    : "Chen Sun"
 title_separator          : "-"
 name                     : &name "Chen Sun"
 description              : &description "personal description"
 url                      : https://ChenSunMac.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
-
+repository               : "ChenSunMac/ChenSunMac.github.io"
+seo_description          : "Site for Chen Sun, Assistant Professor of ISME at University of Hong Kong"
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
 #               Additional customization can be done by editing /_includes/author-profile.html
+
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
+  name             : "Chen Sun"
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
+  bio              : "Assistant Professor,\n Industrial and Manufacturing Systems Engineering,\n University of Hong Kong"
+  location         : "Hong Kong, China"
+  employer         : "University of Hong Kong"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "c87sun@hku.hk" 
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  googlescholar    : "https://scholar.google.ca/citations?user=LdBn-p4AAAAJ"
   impactstory      : # URL
-  orcid            : "http://orcid.org/yourorcidurl"
+  orcid            : "http://orcid.org/0000-0001-8772-9627"
   semantic         : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           : # URL
   researchgate     : # URL
 
   # Repositories and software development
