@@ -72,7 +72,7 @@ author:
   wikipedia        : # Username
   xing             : # Username
   youtube          : # Username
-  zhihu            : "https://www.xiaohongshu.com/user/profile/5eee305100000000010064d2" # URL
+  zhihu            : # URL
   links:
     - label: "Resume"
       icon: "far fa-fw fa-file-pdf"
@@ -154,6 +154,14 @@ analytics:
   provider               :  "false" # false (default), "google", "google-universal", "google-analytics-4", "custom"
   google:
     tracking_id          :
+
+
+minimal_mistakes_skin: "contrast" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+logo: "/assets/images/88x88.png"
+search: true
+
+lunr:
+  search_within_pages: true
 
 
 # Reading Files
