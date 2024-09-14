@@ -11,8 +11,16 @@ Hi! I'm Chen, an Assistant Professor at the University of Hong Kong, with appoin
 
 My research interests include field robotics, autonomous driving (safe planning) and in general human-CPS autonomies. My research endeavors have been focused on addressing "How to improve the safety for the robotics and human-centered autonomies considering uncertainty and interactions?". I led efforts on the <a href="https://uwaterloo.ca/watonobus/">WATonoBus project</a> at <a href="https://uwaterloo.ca/mechatronic-vehicle-systems-lab/">MVS Lab</a> working on software and algorithmic development of decision-making and safety monitoring modules required for <a href="https://uwaterloo.ca/news/media/university-waterloo-launches-canadas-first-driverless">Canada's first autonomous shuttle bus</a> approved via the ministry's autonomous vehicle pilot. Additionally, I have expanded my research into argiculutral and warehouse robotics. Check out my [research projects](/Research/) and [publications](/publications/).
 
+## Affliations
+ada
+asdas
 
+###
+asdas
+
+# Recent News
  
+## whats
 A data-driven personal website
 ======
 Like many other Jekyll-based GitHub Pages templates, Academic Pages makes you separate the website's content from its form. The content & metadata of your website are in structured markdown files, while various other files constitute the theme, specifying how to transform that content & metadata into HTML pages. You keep these various markdown (.md), YAML (.yml), HTML, and CSS files in a public GitHub repository. Each time you commit and push an update to the repository, the [GitHub pages](https://pages.github.com/) service creates static HTML pages based on these files, which are hosted on GitHub's servers free of charge.
