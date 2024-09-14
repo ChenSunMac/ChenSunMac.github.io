@@ -22,7 +22,7 @@ seo_description          : "Site for Chen Sun, Assistant Professor of ISME at Un
 
 author:
   # Biographic information
-  avatar           : "profile_100.jpg"
+  avatar           : "profile_100.png"
   name             : "Chen Sun"
   pronouns         : # example: "she/her"  
   bio              : "Assistant Professor,\n Industrial and Manufacturing Systems Engineering,\n University of Hong Kong"
@@ -58,7 +58,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : # Username
+  linkedin         : chensun0 # Username
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
@@ -73,6 +73,11 @@ author:
   xing             : # Username
   youtube          : # Username
   zhihu            : "https://www.xiaohongshu.com/user/profile/5eee305100000000010064d2" # URL
+  links:
+    - label: "Resume"
+      icon: "far fa-fw fa-file-pdf"
+      url: "/assets/files/CV_CSUN.pdf"
+
 
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
