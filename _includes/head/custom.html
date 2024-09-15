@@ -2,7 +2,7 @@
 
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 
-<!-- end custom head snippets -->
+
 
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
@@ -13,3 +13,13 @@
 <meta name="msapplication-TileColor" content="#e5e5e5">
 <meta name="msapplication-config" content="/assets/images/favicons/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
+
+
+{% if page.page_css %}
+  {% for stylesheet in page.page_css %}
+    <link rel="stylesheet" href="{{ stylesheet | relative_url }}">
+  {% endfor %}
+{% endif %}
+
+
+<!-- end custom head snippets -->

@@ -34,12 +34,65 @@ I led efforts on the <a href="https://uwaterloo.ca/watonobus/">WATonoBus project
 <br><br>
 [**2023.06**](#link){: .btn .btn--inverse .btn--small} I have won Chinese Government Award for Outstanding Self-financed Students Abroad; only 500 candidates globally each year.
 <br><br>
-[Read More](/news)  
+[Read More](/news)
 {: .notice}
 
-# Experiences
+# Working Experiences
+<table class="tg" style="undefined;table-layout: fixed;" >
+<colgroup>
+<col style="width: 15%">
+<col style="width: 85%">
+</colgroup>
+<tbody>
+  <tr>
+    <td class="tg-0lax"><img src="/assets/images/HKU.png" alt="test"><br><a href="#link" class="btn btn--inverse">2024.09-Current</a></td>
+    <td class="tg-0lax"><span style="font-weight:bold">Assistant Professor<br>Department of Industrial and Manufacturing Systems Engineering, <br>University of Hong Kong, Hong Kong, China</span> <br>
+    <span style="font-style:italic">Direction: Human-centered Safe Autonomy, Logistic Optimization </span>
+    </td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><img src="/assets/images/University_of_Waterloo.png" alt="test"><br><a href="#link" class="btn btn--inverse">2022.12-2024.09</a></td>
+    <td class="tg-0lax"><span style="font-weight:bold">Postdoctoral Researcher<br>Mechatronics Vehicle Systems Lab (MVSL), <br>University of Waterloo, Waterloo, Canada</span> <br>
+    <span style="font-style:italic">Direction: Uncertainty Quantification, Safe Autonomy, Safe Planning for Connected Autonomous Driving</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><img src="/assets/images/xylem-pure.png" alt="test"><br><a href="#link" class="btn btn--inverse">2017.03-2018.09</a></td>
+    <td class="tg-0lax"><span style="font-weight:bold">R&D Robotics System Engineer<br>Pure Technologies, <br>Xylem, Mississauga, Canada</span> <br>
+    <span style="font-style:italic">Developing nondestructive testing/assesment robotics solution for infrastructure such as pipelines and bridges</span>
+    </td>
+  </tr> 
+</tbody>
+</table>
 
+# Education
+<table class="tg" style="undefined;table-layout: fixed;" >
+<colgroup>
+<col style="width: 15%">
+<col style="width: 85%">
+</colgroup>
+<tbody>
+  <tr>
+    <td class="tg-0lax"><img src="/assets/images/University_of_Waterloo.png" alt="test"><br><a href="#link" class="btn btn--inverse">2018.09-2022.12</a></td>
+    <td class="tg-0lax"><span style="font-weight:bold">PH.D.<br>Mechanical & Mechatronics Engineering, <br>University of Waterloo, Waterloo, Canada</span> <br>
+    <span style="font-style:italic">Advisor: Prof. Amir Khajepoour</span>
+    <span style="font-style:italic">Direction: Safety Monitoring, Decision Making and Planning for Autonomous Vehicles</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><img src="/assets/images/uoft.png" alt="test"><br><a href="#link" class="btn btn--inverse">2014.09-2017.03</a></td>
+    <td class="tg-0lax"><span style="font-weight:bold">M.A.Sc<br>Electrical & Computer Engineering, <br>University of Toronto, Toronto, Canada</span> <br>
+    <span style="font-style:italic">Advisor: Prof. Piero Triverio</span>
+    <span style="font-style:italic">Direction: Model Order Reduction, Computational Modelling</span>
+    </td>
+  </tr> 
+  <tr>
+    <td class="tg-0lax"><img src="/assets/images/uestc.png" alt="test"><br><a href="#link" class="btn btn--inverse">2010.06-2014.06</a></td>
+    <td class="tg-0lax"><span style="font-weight:bold">B.ENG<br>Automation, <br>University of Electronic Science and Technology of China (UESTC), Chengdu, China</span> <br>
+    <span style="font-style:italic">Advisor: Prof. Wei He</span>
+    <span style="font-style:italic">Direction: Robotics, Robust Control, Distributed Parameter Systems</span>
+    </td>
+  </tr> 
+</tbody>
+</table>
 
-# Professional Services
-
-  
