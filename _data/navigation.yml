@@ -9,7 +9,7 @@ main:
   - title: "Teaching"
     url: /teaching/      
   - title: "CV"
-    url: /cv/
+    url: "/assets/files/CV_CSUN.pdf"
 
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/

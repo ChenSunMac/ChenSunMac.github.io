@@ -7,10 +7,16 @@
 <loc>http://localhost:4000/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/news/</loc>
+<lastmod>2024-09-15T11:59:26-04:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/publications/</loc>
+<lastmod>2024-09-15T11:59:26-04:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/teaching/</loc>
+<lastmod>2024-09-15T11:59:26-04:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/assets/files/CV_CSUN.pdf</loc>

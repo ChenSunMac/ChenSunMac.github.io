@@ -6,55 +6,40 @@ redirect_from:
   - /about/
 toc: true
 ---
-Hi! I'm Chen, an Assistant Professor at the University of Hong Kong, with appointments in the Department of Industrial and Manufacturing Systems Engineering. Prior to joining HKU, I worked as a postdoc researcher in [Mechatronic Vehicle Systems Lab](https://uwaterloo.ca/mechatronic-vehicle-systems-lab/) at University of Waterloo, where I work with Prof. [Amir Khajepour](https://uwaterloo.ca/mechanical-mechatronics-engineering/profile/akhajepo). 
+Hi! I'm Chen, an Assistant Professor at the University of Hong Kong, with appointments in the [Department of Industrial and Manufacturing Systems Engineering](https://www.imse.hku.hk/). Prior to joining HKU, I worked as a postdoc researcher in [Mechatronic Vehicle Systems Lab](https://uwaterloo.ca/mechatronic-vehicle-systems-lab/) at University of Waterloo, where I work with Prof. [Amir Khajepour](https://uwaterloo.ca/mechanical-mechatronics-engineering/profile/akhajepo). 
 
-My research interests include field robotics, autonomous driving (safe planning) and in general human-CPS autonomies. My research endeavors have been focused on addressing "How to improve the safety for the robotics and human-centered autonomies considering uncertainty and interactions?". I led efforts on the <a href="https://uwaterloo.ca/watonobus/">WATonoBus project</a> at <a href="https://uwaterloo.ca/mechatronic-vehicle-systems-lab/">MVS Lab</a> working on software and algorithmic development of decision-making and safety monitoring modules required for <a href="https://uwaterloo.ca/news/media/university-waterloo-launches-canadas-first-driverless">Canada's first autonomous shuttle bus</a> approved via the ministry's autonomous vehicle pilot. Additionally, I have expanded my research into argiculutral and warehouse robotics. Check out my [research projects](/research/) and [publications](/publications/).
+My research interests include field robotics, autonomous driving (safe planning) and in general human-CPS autonomies. My research endeavors have been focused on addressing "How to improve the safety for the robotics and human-centered autonomies considering uncertainty and interactions?". My current research highlights the following perspectives:
+- **Uncertainty Quantification** for perception modules and complex learning-based systems.
+- **Safe Planning** interacting in dynamic environment considering social norms.
+- **Fault Diagnosis and Prognosis** with model-data hybrid systems under uncertaintiies.
 
-## Affliations
-ada
-asdas
+I led efforts on the <a href="https://uwaterloo.ca/watonobus/">WATonoBus project</a> at <a href="https://uwaterloo.ca/mechatronic-vehicle-systems-lab/">MVS Lab</a> working on software and algorithmic development of decision-making and safety monitoring modules required for <a href="https://uwaterloo.ca/news/media/university-waterloo-launches-canadas-first-driverless">Canada's first autonomous shuttle bus</a> approved via the ministry's autonomous vehicle pilot. Additionally, I have expanded my research into argiculutral and warehouse robotics. Check out my [research projects](/research/) and [publications](/publications/).
 
-###
-asdas
+# Affliations
+
+[**Assistant Professor**](#link){: .btn--inverse},  [Department of Industrial and Manufacturing Systems Engineering](https://www.imse.hku.hk/), **The University of Hong Kong**. <br>
+[**Committee Member**](#link){: .btn--inverse}, [Cooperative & Connected Vehicles](https://ieee-itss.org/chapters-committees/cooperative-connected-vehicles/), **IEEE Intelligent Transportation Systems Society**
+{: .notice}
 
 # Recent News
- 
-## whats
-A data-driven personal website
-======
-Like many other Jekyll-based GitHub Pages templates, Academic Pages makes you separate the website's content from its form. The content & metadata of your website are in structured markdown files, while various other files constitute the theme, specifying how to transform that content & metadata into HTML pages. You keep these various markdown (.md), YAML (.yml), HTML, and CSS files in a public GitHub repository. Each time you commit and push an update to the repository, the [GitHub pages](https://pages.github.com/) service creates static HTML pages based on these files, which are hosted on GitHub's servers free of charge.
 
-Many of the features of dynamic content management systems (like Wordpress) can be achieved in this fashion, using a fraction of the computational resources and with far less vulnerability to hacking and DDoSing. You can also modify the theme to your heart's content without touching the content of your site. If you get to a point where you've broken something in Jekyll/HTML/CSS beyond repair, your markdown files describing your talks, publications, etc. are safe. You can rollback the changes or even delete the repository and start over -- just be sure to save the markdown files! Finally, you can also write scripts that process the structured data on the site, such as [this one](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb) that analyzes metadata in pages about talks to display [a map of every location you've given a talk](https://academicpages.github.io/talkmap.html).
 
-Getting started
-======
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Fork [this repository](https://github.com/academicpages/academicpages.github.io) by clicking the "fork" button in the top right. 
-1. Go to the repository's settings (rightmost item in the tabs that start with "Code", should be below "Unwatch"). Rename the repository "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and create content & metadata (see below -- also see [this set of diffs](http://archive.is/3TPas) showing what files were changed to set up [an example site](https://getorg-testacct.github.io) for a user with the username "getorg-testacct")
-1. Upload any files (like PDFs, .zip files, etc.) to the files/ directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.  
-1. Check status by going to the repository settings, in the "GitHub pages" section
+[**2024.09**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I am joining [Department of Industrial and Manufacturing Systems Engineering](https://www.imse.hku.hk/), The University of Hong Kong.
+<br> <br> 
+[**2024.05**](#link){: .btn .btn--inverse .btn--small} **Session Chair @ IEEE-ITSC 2024**: We are going to host two special sessions for IEEE-ITSC 2024, "Trustworthy Diagnosis and Prognosis in Connected, Cooperative and Automated Mobility" and "Data-driven and Learning-based Control Techniques for Intelligent Vehicles"
+<br> <br> 
+[**2024.01**](#link){: .btn .btn--inverse .btn--small}, **WATonoBus** Project gets reported in [MathWorks](https://www.mathworks.com/company/mathworks-stories/developing-adas-technology-for-self-driving-campus-shuttle-bus.html) - Our work in safe testing and open road deployment get reported by MathWorks, thanks to all the team members @ [MVSL](https://uwaterloo.ca/mechatronic-vehicle-systems-lab/our-people)
+<br> <br> 
+[**2023.12**](#link){: .btn .btn--inverse .btn--small} Won The "Chunhui Cup" Oversea Students Innovation and Entrepreneurship Competition with Dr. Ahmad Reza Alghooneh and Dr. Minghao Ning.
+<br><br>
+[**2023.06**](#link){: .btn .btn--inverse .btn--small} I have won Chinese Government Award for Outstanding Self-financed Students Abroad; only 500 candidates globally each year.
+<br><br>
+[Read More](/news)  
+{: .notice}
 
-Site-wide configuration
-------
-The main configuration file for the site is in the base directory in [_config.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_config.yml), which defines the content in the sidebars and other site-wide features. You will need to replace the default variables with ones about yourself and your site's github repository. The configuration file for the top menu is in [_data/navigation.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_data/navigation.yml). For example, if you don't have a portfolio or blog posts, you can remove those items from that navigation.yml file to remove them from the header. 
+# Experiences
 
-Create content & metadata
-------
-For site content, there is one markdown file for each type of content, which are stored in directories like _publications, _talks, _posts, _teaching, or _pages. For example, each talk is a markdown file in the [_talks directory](https://github.com/academicpages/academicpages.github.io/tree/master/_talks). At the top of each markdown file is structured data in YAML about the talk, which the theme will parse to do lots of cool stuff. The same structured data about a talk is used to generate the list of talks on the [Talks page](https://academicpages.github.io/talks), each [individual page](https://academicpages.github.io/talks/2012-03-01-talk-1) for specific talks, the talks section for the [CV page](https://academicpages.github.io/cv), and the [map of places you've given a talk](https://academicpages.github.io/talkmap.html) (if you run this [python file](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.py) or [Jupyter notebook](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb), which creates the HTML for the map based on the contents of the _talks directory).
 
-**Markdown generator**
+# Professional Services
 
-I have also created [a set of Jupyter notebooks](https://github.com/academicpages/academicpages.github.io/tree/master/markdown_generator
-) that converts a CSV containing structured data about talks or presentations into individual markdown files that will be properly formatted for the Academic Pages template. The sample CSVs in that directory are the ones I used to create my own personal website at stuartgeiger.com. My usual workflow is that I keep a spreadsheet of my publications and talks, then run the code in these notebooks to generate the markdown files, then commit and push them to the GitHub repository.
-
-How to edit your site's GitHub repository
-------
-Many people use a git client to create files on their local computer and then push them to GitHub's servers. If you are not familiar with git, you can directly edit these configuration and markdown files directly in the github.com interface. Navigate to a file (like [this one](https://github.com/academicpages/academicpages.github.io/blob/master/_talks/2012-03-01-talk-1.md) and click the pencil icon in the top right of the content preview (to the right of the "Raw | Blame | History" buttons). You can delete a file by clicking the trashcan icon to the right of the pencil icon. You can also create new files or upload files by navigating to a directory and clicking the "Create new file" or "Upload files" buttons. 
-
-Example: editing a markdown file for a talk
-![Editing a markdown file for a talk](/images/editing-talk.png)
-
-For more info
-------
-More info about configuring Academic Pages can be found in [the guide](https://academicpages.github.io/markdown/). The [guides for the Minimal Mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) (which this theme was forked from) might also be helpful.
+  
