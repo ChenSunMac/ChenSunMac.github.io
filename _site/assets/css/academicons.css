@@ -181,6 +181,7 @@
 }
 .ai-google-scholar-square:before {
   content: "\e9f9";
+  color: #3407d8; /* Replace with the desired color, e.g., green */
 }
 .ai-hal:before {
   content: "\e92c";
@@ -319,6 +320,7 @@
 }
 .ai-orcid-square:before {
   content: "\e9c3";
+  color: #ff6347; /* Replace with the desired color, e.g., tomato red */
 }
 .ai-osf:before {
   content: "\e9ef";
