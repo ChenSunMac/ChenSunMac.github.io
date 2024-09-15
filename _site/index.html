@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Chen Sun - Chen Sun</title>
+<!-- begin _includes/seo.html --><title>About Me - Chen Sun</title>
 <meta name="description" content="An amazing website.">
 
 
@@ -21,7 +21,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Chen Sun">
-<meta property="og:title" content="Chen Sun">
+<meta property="og:title" content="About Me">
 <meta property="og:url" content="http://localhost:4000/">
 
 
@@ -79,9 +79,12 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
-<link rel="stylesheet" href="/assets/css/academicons.css"/>
+
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+<!-- Link to Academicon ORDID icon -->
+<link rel="stylesheet" href="/assets/css/academicons.css"/>
 
 
 
@@ -108,7 +111,7 @@
 <!-- end custom head snippets -->
   </head>
 
-  <body class="layout--home">
+  <body class="layout--single">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -189,6 +192,8 @@
 
 
 
+
+
 <div id="main" role="main">
   
   <div class="sidebar sticky">
@@ -244,6 +249,12 @@
         
       
 
+      
+        <li>
+          <a href="/about" itemprop="url" rel="me">
+            <i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span>
+          </a>
+        </li>
       
 
       
@@ -341,65 +352,146 @@
 
 
 
-  <div class="archive">
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="About Me">
     
-      <h1 id="page-title" class="page__title"></h1>
     
-    
-
-<h3 class="archive__subtitle">Recent posts</h3>
-
-
-
-
-<div class="entries-list">
-  
     
 
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <div class="page__inner-wrap">
       
-        <a href="/hello_world/" rel="permalink">commit 1
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/" itemprop="url">About Me
 </a>
-      
-    </h2>
-    
+          </h1>
+          
 
-  <p class="page__meta">
-    
 
-    
-
-    
-      
+        </header>
       
 
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
+      <section class="page__content" itemprop="text">
         
-          less than 1 minute read
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#affliations">Affliations</a></li><li><a href="#recent-news">Recent News</a></li><li><a href="#working-experiences">Working Experiences</a></li><li><a href="#education">Education</a></li></ul>
+            </nav>
+          </aside>
         
-      </span>
+        <p>Hi! I’m Chen, an Assistant Professor at the University of Hong Kong, with appointments in the <a href="https://www.imse.hku.hk/">Department of Industrial and Manufacturing Systems Engineering</a>. Prior to joining HKU, I worked as a postdoc researcher in <a href="https://uwaterloo.ca/mechatronic-vehicle-systems-lab/">Mechatronic Vehicle Systems Lab</a> at University of Waterloo, where I work with Prof. <a href="https://uwaterloo.ca/mechanical-mechatronics-engineering/profile/akhajepo">Amir Khajepour</a>.</p>
+
+<p>My research interests include field robotics, autonomous driving (safe planning) and in general human-CPS autonomies. My research endeavors have been focused on addressing “How to improve the safety for the robotics and human-centered autonomies considering uncertainty and interactions?”. My current research highlights the following perspectives:</p>
+<ul>
+  <li><strong>Uncertainty Quantification</strong> for perception modules and complex learning-based systems.</li>
+  <li><strong>Safe Planning</strong> interacting in dynamic environment considering social norms.</li>
+  <li><strong>Fault Diagnosis and Prognosis</strong> with model-data hybrid systems under uncertaintiies.</li>
+</ul>
+
+<p>I led efforts on the <a href="https://uwaterloo.ca/watonobus/">WATonoBus project</a> at <a href="https://uwaterloo.ca/mechatronic-vehicle-systems-lab/">MVS Lab</a> working on software and algorithmic development of decision-making and safety monitoring modules required for <a href="https://uwaterloo.ca/news/media/university-waterloo-launches-canadas-first-driverless">Canada’s first autonomous shuttle bus</a> approved via the ministry’s autonomous vehicle pilot. Additionally, I have expanded my research into argiculutral and warehouse robotics. Check out my <a href="/research/">research projects</a> and <a href="/publications/">publications</a>.</p>
+
+<h1 id="affliations">Affliations</h1>
+
+<p class="notice"><a href="#link" class="btn--inverse"><strong>Assistant Professor</strong></a>,  <a href="https://www.imse.hku.hk/">Department of Industrial and Manufacturing Systems Engineering</a>, <strong>The University of Hong Kong</strong>. <br />
+<a href="#link" class="btn--inverse"><strong>Committee Member</strong></a>, <a href="https://ieee-itss.org/chapters-committees/cooperative-connected-vehicles/">Cooperative &amp; Connected Vehicles</a>, <strong>IEEE Intelligent Transportation Systems Society</strong></p>
+
+<h1 id="recent-news">Recent News</h1>
+
+<p class="notice"><a href="#link" class="btn btn--inverse btn--small"><strong>2024.09</strong></a> Happy to annouce I am joining <a href="https://www.imse.hku.hk/">Department of Industrial and Manufacturing Systems Engineering</a>, The University of Hong Kong.
+<br /> <br /> 
+<a href="#link" class="btn btn--inverse btn--small"><strong>2024.05</strong></a> <strong>Session Chair @ IEEE-ITSC 2024</strong>: We are going to host two special sessions for IEEE-ITSC 2024, “Trustworthy Diagnosis and Prognosis in Connected, Cooperative and Automated Mobility” and “Data-driven and Learning-based Control Techniques for Intelligent Vehicles”
+<br /> <br /> 
+<a href="#link" class="btn btn--inverse btn--small"><strong>2024.01</strong></a>, <strong>WATonoBus</strong> Project gets reported in <a href="https://www.mathworks.com/company/mathworks-stories/developing-adas-technology-for-self-driving-campus-shuttle-bus.html">MathWorks</a> - Our work in safe testing and open road deployment get reported by MathWorks, thanks to all the team members @ <a href="https://uwaterloo.ca/mechatronic-vehicle-systems-lab/our-people">MVSL</a>
+<br /> <br /> 
+<a href="#link" class="btn btn--inverse btn--small"><strong>2023.12</strong></a> Won The “Chunhui Cup” Oversea Students Innovation and Entrepreneurship Competition with Dr. Ahmad Reza Alghooneh and Dr. Minghao Ning.
+<br /><br />
+<a href="#link" class="btn btn--inverse btn--small"><strong>2023.06</strong></a> I have won Chinese Government Award for Outstanding Self-financed Students Abroad; only 500 candidates globally each year.
+<br /><br />
+<a href="/news">Read More</a></p>
+
+<h1 id="working-experiences">Working Experiences</h1>
+<table class="tg" style="undefined;table-layout: fixed;">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<tbody>
+  <tr>
+    <td class="tg-0lax"><img src="/assets/images/HKU.png" alt="test" /><br /><a href="#link" class="btn btn--inverse">2024.09-Current</a></td>
+    <td class="tg-0lax"><span style="font-weight:bold">Assistant Professor<br />Department of Industrial and Manufacturing Systems Engineering, <br />University of Hong Kong, Hong Kong, China</span> <br />
+    <span style="font-style:italic">Direction: Human-centered Safe Autonomy, Logistic Optimization </span>
+    </td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><img src="/assets/images/University_of_Waterloo.png" alt="test" /><br /><a href="#link" class="btn btn--inverse">2022.12-2024.09</a></td>
+    <td class="tg-0lax"><span style="font-weight:bold">Postdoctoral Researcher<br />Mechatronics Vehicle Systems Lab (MVSL), <br />University of Waterloo, Waterloo, Canada</span> <br />
+    <span style="font-style:italic">Direction: Uncertainty Quantification, Safe Autonomy, Safe Planning for Connected Autonomous Driving</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><img src="/assets/images/xylem-pure.png" alt="test" /><br /><a href="#link" class="btn btn--inverse">2017.03-2018.09</a></td>
+    <td class="tg-0lax"><span style="font-weight:bold">R&amp;D Robotics System Engineer<br />Pure Technologies, <br />Xylem, Mississauga, Canada</span> <br />
+    <span style="font-style:italic">Developing nondestructive testing/assesment robotics solution for infrastructure such as pipelines and bridges</span>
+    </td>
+  </tr> 
+</tbody>
+</table>
+
+<h1 id="education">Education</h1>
+<table class="tg" style="undefined;table-layout: fixed;">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<tbody>
+  <tr>
+    <td class="tg-0lax"><img src="/assets/images/University_of_Waterloo.png" alt="test" /><br /><a href="#link" class="btn btn--inverse">2018.09-2022.12</a></td>
+    <td class="tg-0lax"><span style="font-weight:bold">PH.D.<br />Mechanical &amp; Mechatronics Engineering, <br />University of Waterloo, Waterloo, Canada</span> <br />
+    <span style="font-style:italic">Advisor: Prof. Amir Khajepoour</span>
+    <span style="font-style:italic">Direction: Safety Monitoring, Decision Making and Planning for Autonomous Vehicles</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><img src="/assets/images/uoft.png" alt="test" /><br /><a href="#link" class="btn btn--inverse">2014.09-2017.03</a></td>
+    <td class="tg-0lax"><span style="font-weight:bold">M.A.Sc<br />Electrical &amp; Computer Engineering, <br />University of Toronto, Toronto, Canada</span> <br />
+    <span style="font-style:italic">Advisor: Prof. Piero Triverio</span>
+    <span style="font-style:italic">Direction: Model Order Reduction, Computational Modelling</span>
+    </td>
+  </tr> 
+  <tr>
+    <td class="tg-0lax"><img src="/assets/images/uestc.png" alt="test" /><br /><a href="#link" class="btn btn--inverse">2010.06-2014.06</a></td>
+    <td class="tg-0lax"><span style="font-weight:bold">B.ENG<br />Automation, <br />University of Electronic Science and Technology of China (UESTC), Chengdu, China</span> <br />
+    <span style="font-style:italic">Advisor: Prof. Wei He</span>
+    <span style="font-style:italic">Direction: Robotics, Robust Control, Distributed Parameter Systems</span>
+    </td>
+  </tr> 
+</tbody>
+</table>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+    </div>
+
     
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">1st commit on the post for my website
-</p>
   </article>
-</div>
 
   
-</div>
-
-
-
-
-  </div>
+  
 </div>
 
       

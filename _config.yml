@@ -22,7 +22,7 @@ subtitle                 :  Safe Autonomy # site tagline that appears below site
 name                     : "Chen Sun"
 description              : "An amazing website."
 url                      : "https://ChenSunMac.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : "/about" # the subpath of your site, e.g. "/blog"
+baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "ChenSunMac/ChenSunMac.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "/assets/images/favicons/favicon.ico" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
@@ -119,7 +119,7 @@ author:
                       University of Hong Kong"
   location         : "Hong Kong, China"
   employer         : "University of Hong Kong"
-  uri              : "/about" # URL
+  uri              : "/about/" # URL
   email            : "c87sun@hku.hk" 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
