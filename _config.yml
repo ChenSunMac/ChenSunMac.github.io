@@ -113,7 +113,7 @@ analytics:
 # Site Author
 author:
   name             : "Chen Sun"
-  avatar           : "/assets/images/profile_100.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/profile_csun.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Assistant Professor, <br>
                       Industrial and Manufacturing Systems Engineering, <br>
                       University of Hong Kong"
