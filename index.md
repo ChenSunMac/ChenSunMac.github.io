@@ -6,7 +6,7 @@ redirect_from:
   - /
 toc: true
 ---
-Hi! I'm Chen, an Assistant Professor at the University of Hong Kong, with appointments in the [Department of Data and Systems Engineering (DASE)](https://www.dase.hku.hk/). Prior to joining HKU, I worked as a postdoc researcher in [Mechatronic Vehicle Systems Lab](https://uwaterloo.ca/mechatronic-vehicle-systems-lab/) at University of Waterloo, where I work with Prof. [Amir Khajepour](https://uwaterloo.ca/mechanical-mechatronics-engineering/profile/akhajepo). 
+Hi! I'm Chen Sun, an Assistant Professor at the University of Hong Kong, with appointments in the [Department of Data and Systems Engineering (DASE)](https://www.dase.hku.hk/). Prior to joining HKU, I worked as a postdoc researcher in [Mechatronic Vehicle Systems Lab](https://uwaterloo.ca/mechatronic-vehicle-systems-lab/) at University of Waterloo, where I work with Prof. [Amir Khajepour](https://uwaterloo.ca/mechanical-mechatronics-engineering/profile/akhajepo). 
 
 My research interests include field robotics, autonomous driving (safe planning) and in general human-CPS autonomies. My research endeavors have been focused on addressing "How to improve the safety for the robotics and human-centered autonomies considering uncertainty and interactions?". My current research highlights the following perspectives:
 - **Uncertainty Quantification** for perception modules and complex learning-based systems.
@@ -96,3 +96,5 @@ I led efforts on the <a href="https://uwaterloo.ca/watonobus/">WATonoBus project
 </tbody>
 </table>
 
+
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5f6wusb9l8h&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>

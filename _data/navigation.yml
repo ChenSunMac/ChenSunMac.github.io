@@ -2,19 +2,21 @@
 main:
   - title: "About"
     url: /about/
-  - title: "Research"
-    url: /research/
+  # - title: "Research"
+  #   url: /research/
   - title: "Publications"
     url: /publications/
   - title: "Teaching"
     url: /teaching/      
   - title: "CV"
     url: "/assets/files/CV_CSUN.pdf"
+  - title: "Openings"
+    url: /openings/
 
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  - title: "Blog Posts"
-    url: /tags/
+  # - title: "Blog Posts"
+  #   url: /tags/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
