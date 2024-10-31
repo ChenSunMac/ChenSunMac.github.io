@@ -1,7 +1,7 @@
 ---
 permalink: /openings/
 title: "Openings"
-author_profile: false
+author_profile: true
 redirect_from: 
   - /openings/
 toc: true
