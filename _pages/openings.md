@@ -5,6 +5,8 @@ author_profile: false
 redirect_from: 
   - /openings/
 toc: true
+classes: wide
+last_modified_at: 2024-10-30T11:59:26-04:00
 ---
 
 I welcome strong candidates at postdoctoral, graduate, and undergraduate levels. Postdoc openings are dependent on potentially positive funding decisions on yearly basis. You will receive a reply if your background is a fit for following topics:
