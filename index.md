@@ -13,17 +13,19 @@ My research interests include field robotics, autonomous driving (safe planning)
 - **Safe Planning** interacting in dynamic environment considering social norms.
 - **Fault Diagnosis and Prognosis** with model-data hybrid systems under uncertaintiies.
 
-I led efforts on the <a href="https://uwaterloo.ca/watonobus/">WATonoBus project</a> at <a href="https://uwaterloo.ca/mechatronic-vehicle-systems-lab/">MVS Lab</a> working on software and algorithmic development of decision-making and safety monitoring modules required for <a href="https://uwaterloo.ca/news/media/university-waterloo-launches-canadas-first-driverless">Canada's first autonomous shuttle bus</a> approved via the ministry's autonomous vehicle pilot. Additionally, I have expanded my research into agriculture and warehouse robotics. Check out my [research projects](/research/) and [publications](/publications/).
+I led efforts on the <a href="https://uwaterloo.ca/watonobus/">WATonoBus project</a> at <a href="https://uwaterloo.ca/mechatronic-vehicle-systems-lab/">MVS Lab</a> working on software and algorithmic development of decision-making and safety monitoring modules required for <a href="https://uwaterloo.ca/news/media/university-waterloo-launches-canadas-first-driverless">Canada's first autonomous shuttle bus</a> approved via the ministry's autonomous vehicle pilot. Additionally, I have expanded my research into agriculture and warehouse robotics. 
 
 # Affliations
 
 [**Assistant Professor**](#link){: .btn--inverse},  [Department of Data and Systems Engineering (DASE)](https://www.dase.hku.hk/), **The University of Hong Kong**. <br>
+[**Fellow**](#link){: .btn--inverse},  [Institute of Transport Studies](https://www.institute-of-transport-studies.hku.hk/), **The University of Hong Kong**. <br>
 [**Committee Member**](#link){: .btn--inverse}, [Cooperative & Connected Vehicles](https://ieee-itss.org/chapters-committees/cooperative-connected-vehicles/), **IEEE Intelligent Transportation Systems Society**
 {: .notice}
 
 # Recent News
-
-
+<br> <br>
+[**2025.01**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I am appointed as IEEE Future Networks-ITSS Society Representative in Year 2025-2026!
+<br> <br> 
 [**2024.09**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I am joining [Department of Data and Systems Engineering (DASE)](https://www.dase.hku.hk/), The University of Hong Kong.
 <br> <br> 
 [**2024.05**](#link){: .btn .btn--inverse .btn--small} **Session Chair @ IEEE-ITSC 2024**: We are going to host two special sessions for IEEE-ITSC 2024, "Trustworthy Diagnosis and Prognosis in Connected, Cooperative and Automated Mobility" and "Data-driven and Learning-based Control Techniques for Intelligent Vehicles"

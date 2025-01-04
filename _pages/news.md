@@ -8,7 +8,9 @@ toc: false
 classes: wide
 last_modified_at: 2024-09-15T11:59:26-04:00
 ---
-
+<br> <br>
+[**2025.01**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I am appointed as IEEE Future Networks-ITSS Society Representative in Year 2025-2026!
+<br> <br> 
 [**2024.09**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I am joining [Department of Industrial and Manufacturing Systems Engineering](https://www.imse.hku.hk/), The University of Hong Kong.
 <br> <br> 
 [**2024.05**](#link){: .btn .btn--inverse .btn--small} **Session Chair @ IEEE-ITSC 2024**: We are going to host two special sessions for IEEE-ITSC 2024, "Trustworthy Diagnosis and Prognosis in Connected, Cooperative and Automated Mobility" and "Data-driven and Learning-based Control Techniques for Intelligent Vehicles"
