@@ -23,8 +23,8 @@ I led efforts on the <a href="https://uwaterloo.ca/watonobus/">WATonoBus project
 {: .notice}
 
 # Recent News
-<br> <br>
-[**2025.01**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I am appointed as IEEE Future Networks-ITSS Society Representative in Year 2025-2026!
+<br>
+[**2025.01**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I am appointed as **IEEE Future Networks-ITSS Society Representative** in Year 2025-2026!
 <br> <br> 
 [**2024.09**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I am joining [Department of Data and Systems Engineering (DASE)](https://www.dase.hku.hk/), The University of Hong Kong.
 <br> <br> 
