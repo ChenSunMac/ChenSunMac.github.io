@@ -12,6 +12,35 @@ last_modified_at: 2024-09-15T11:59:26-04:00
 (*: corresponding author) .
 {: .notice--info}
 
+# 2025
+
+<table class="tg" style="undefined;table-layout: fixed;">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 70%">
+<col style="width: 5%">
+</colgroup>
+<tbody>
+  <tr>
+    <td class="tg-0lax"><img src="/assets/images/exps/app2025.png" alt="test"></td>
+    <td class="tg-0lax"><span style="font-weight:bold">Quantifying learning algorithm uncertainties in autonomous driving systems: Enhancing safety through Polynomial Chaos Expansion and High Definition maps</span> : Zhang, R., <span style="font-weight:bold;font-style:italic">*C. Sun</span>, Ning, M., Valiollahimehrizi, R., Lu, Y., Czarnecki, K., & Khajepour, A. <span style="font-weight:bold;font-style:italic;text-decoration:underline">Accident Analysis & Prevention</span>. 2025.</td>
+    <td class="tg-0lax">
+    <a href="https://doi.org/10.1016/j.aap.2024.107903" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf" style="font-size:20px;"></i></a><br>
+    <a href="https://doi.org/10.1016/j.aap.2024.107903" target="_blank" rel="noopener noreferrer"><i class="fas fa-search" style="font-size:20px;"></i></a></td>
+  </tr>
+
+
+  <tr>
+    <td class="tg-0lax"><img src="/assets/images/exps/cep2025.png" alt="test"></td>
+    <td class="tg-0lax"><span style="font-weight:bold">Practical solution for attenuating industrial heavy vehicle vibration: A new gain-adaptive coordinated suspension control system</span> : Lu, Y., Zhen, R., Liu, Y., Zhong, J., <span style="font-weight:bold;font-style:italic">*C. Sun</span>, Huang, Y., & Khajepour, A. <span style="font-weight:bold;font-style:italic;text-decoration:underline">Control Engineering Practice</span>. 2025.</td>
+    <td class="tg-0lax">
+    <a href="https://doi.org/10.1016/j.conengprac.2024.106125" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf" style="font-size:20px;"></i></a><br>
+    <a href="https://doi.org/10.1016/j.conengprac.2024.106125" target="_blank" rel="noopener noreferrer"><i class="fas fa-search" style="font-size:20px;"></i></a></td>
+  </tr>
+
+</tbody>
+</table>
+
 # 2024
 
 <table class="tg" style="undefined;table-layout: fixed;">
@@ -22,6 +51,22 @@ last_modified_at: 2024-09-15T11:59:26-04:00
 </colgroup>
 <tbody>
   <tr>
+    <td class="tg-0lax"><img src="/assets/images/exps/TITS2024.png" alt="test"></td>
+    <td class="tg-0lax"><span style="font-weight:bold">An Uncertainty-Aware, Dual-Tiered Decision-Making Method for Safe Autonomous Driving</span> : Zhang, R., <span style="font-weight:bold;font-style:italic">*C. Sun</span>, Valiollahimehrizi, R., Czarnecki, K. <span style="font-weight:bold;font-style:italic;text-decoration:underline">IEEE Transactions on Intelligent Transportation Systems</span>. 2024.</td>
+    <td class="tg-0lax">
+    <a href="https://doi.org/10.1109/TITS.2024.3492794" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf" style="font-size:20px;"></i></a><br>
+    <a href="https://doi.org/10.1109/TITS.2024.3492794" target="_blank" rel="noopener noreferrer"><i class="fas fa-search" style="font-size:20px;"></i></a></td>
+  </tr>
+
+  <tr>
+    <td class="tg-0lax"><img src="/assets/images/exps/TVT2024.png" alt="test"></td>
+    <td class="tg-0lax"><span style="font-weight:bold">A Novel Motion Planning for Autonomous Vehicles Using Point Cloud based Potential Field</span> : Ning, M., Khajepour, A., Hashemi, E., <span style="font-weight:bold;font-style:italic">*C. Sun</span>. <span style="font-weight:bold;font-style:italic;text-decoration:underline">IEEE Transactions on Vehicular Technology</span>. 2024.</td>
+    <td class="tg-0lax">
+    <a href="https://doi.org/10.1109/TVT.2024.3485511" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf" style="font-size:20px;"></i></a><br>
+    <a href="https://doi.org/10.1109/TVT.2024.3485511" target="_blank" rel="noopener noreferrer"><i class="fas fa-search" style="font-size:20px;"></i></a></td>
+  </tr>
+
+  <tr>
     <td class="tg-0lax"><img src="/assets/images/cat.gif" alt="test"></td>
     <td class="tg-0lax"><span style="font-weight:bold">Modelling and experimental validation of an adaptive interconnected suspension with adjustable roll stiffness (AIS-ARS)</span> : Y. Lu,  Y. Huang, R. Zhen, Z. Yue, A. Pazooki, A. Soltani, <span style="font-weight:bold;font-style:italic">*C. Sun</span>, A. Khajepour. <span style="font-weight:bold;font-style:italic;text-decoration:underline">Vehicle System Dynamics</span>. 2024.</td>
     <td class="tg-0lax">
@@ -29,7 +74,7 @@ last_modified_at: 2024-09-15T11:59:26-04:00
     <a href="https://doi.org/10.1080/00423114.2024.2387782" target="_blank" rel="noopener noreferrer"><i class="fas fa-search" style="font-size:20px;"></i></a></td>
   </tr>
   <tr>
-    <td class="tg-0lax"><img src="https://spj.science.org/cms/10.34133/research.0349/asset/edffaf5c-212a-492b-80da-b75aa6eb8c0b/assets/graphic/research.0349.fig.001.jpg" alt="test"></td>
+    <td class="tg-0lax"><img src="https://spj.science.org/cms/10.34133/research.0349/asset/55cecd51-110a-498f-86f1-d40e4aecd0a4/assets/graphic/research.0349.fig.001.jpg" alt="test"></td>
     <td class="tg-0lax"><span style="font-weight:bold">Parallel Driving with Big Models and Foundation Intelligence in Cyber–Physical–Social Spaces</span> : X. Wang, J. Huang, Y. Tian, <span style="font-weight:bold;font-style:italic">C. Sun</span>, L. Yang, S. Lou, C. Lv, C. Sun, FY. Wang. <span style="font-weight:bold;font-style:italic;text-decoration:underline">Research</span>. 2024.</td>
     <td class="tg-0lax">
     <!-- <a href="/assets/images/robot1.jpg" target="_blank" rel="noopener noreferrer"><i class="fas fa-quote-right" style="font-size:15px;"></i></a><br> -->
