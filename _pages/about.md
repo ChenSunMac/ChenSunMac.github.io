@@ -4,7 +4,8 @@ title: "About Me"
 author_profile: true
 redirect_from: 
   - /about/
-toc: true
+toc: false
+classes: wide
 ---
 Hi! I'm Chen Sun, an Assistant Professor at the University of Hong Kong, with appointments in the [Department of Data and Systems Engineering (DASE)](https://www.dase.hku.hk/). Prior to joining HKU, I worked as a postdoc researcher in [Mechatronic Vehicle Systems Lab](https://uwaterloo.ca/mechatronic-vehicle-systems-lab/) at University of Waterloo, where I work with Prof. [Amir Khajepour](https://uwaterloo.ca/mechanical-mechatronics-engineering/profile/akhajepo). 
 
@@ -18,15 +19,16 @@ I led efforts on the <a href="https://uwaterloo.ca/watonobus/">WATonoBus project
 # Affliations
 
 [**Assistant Professor**](#link){: .btn--inverse},  [Department of Data and Systems Engineering (DASE)](https://www.dase.hku.hk/), **The University of Hong Kong**. <br>
+[**Adjunct Assistant Professor**](#link){: .btn--inverse},  [Mechanical and Mechatronics Engineering](https://uwaterloo.ca/mechanical-mechatronics-engineering/), **University of Waterloo**. <br>
 [**Fellow**](#link){: .btn--inverse},  [Institute of Transport Studies](https://www.institute-of-transport-studies.hku.hk/), **The University of Hong Kong**. <br>
 [**Committee Member**](#link){: .btn--inverse}, [Cooperative & Connected Vehicles](https://ieee-itss.org/chapters-committees/cooperative-connected-vehicles/), **IEEE Intelligent Transportation Systems Society**
 {: .notice}
 
 # Recent News
 <br>
-[**2025.01**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I am appointed as **IEEE Future Networks-ITSS Society Representative** in Year 2025-2026!
+[**2025.01**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I am appointed as **IEEE Future Networks-ITSS Society Representative** in Year 2025-2027!
 <br> <br> 
-[**2024.09**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I am joining [Department of Data and Systems Engineering (DASE)](https://www.dase.hku.hk/), The University of Hong Kong.
+[**2024.09**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I am joining [Department of Data and Systems Engineering (DASE)](https://www.dase.hku.hk/), **The University of Hong Kong**.
 <br> <br> 
 [**2024.05**](#link){: .btn .btn--inverse .btn--small} **Session Chair @ IEEE-ITSC 2024**: We are going to host two special sessions for IEEE-ITSC 2024, "Trustworthy Diagnosis and Prognosis in Connected, Cooperative and Automated Mobility" and "Data-driven and Learning-based Control Techniques for Intelligent Vehicles"
 <br> <br> 
