@@ -8,8 +8,11 @@ toc: false
 classes: wide
 last_modified_at: 2024-09-15T11:59:26-04:00
 ---
+[**2025.01**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I am appointed as **Adjunct Assistant Professor** at [Department of Mechanical and Mechatronics Engineering](https://uwaterloo.ca/mechanical-mechatronics-engineering/), **University of Waterloo**.
 <br> <br>
-[**2025.01**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I am appointed as IEEE Future Networks-ITSS Society Representative in Year 2025-2026!
+[**2025.01**](#link){: .btn .btn--inverse .btn--small} Check out our recent book on  **Active and Semi-active Suspension Systems** [here](https://link.springer.com/book/10.1007/978-3-031-73924-8).
+<br> <br>
+[**2025.01**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I am appointed as **IEEE Future Networks-Intelligent Transportation Systems Society Representative** in Year 2025-2027!
 <br> <br> 
 [**2024.09**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I am joining [Department of Industrial and Manufacturing Systems Engineering](https://www.imse.hku.hk/), The University of Hong Kong.
 <br> <br> 
