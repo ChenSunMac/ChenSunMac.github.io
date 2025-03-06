@@ -12,7 +12,7 @@ Hi! I'm Chen Sun, an Assistant Professor at the University of Hong Kong, with ap
 My research interests include field robotics, autonomous driving (safe planning) and in general human-CPS autonomies. My research endeavors have been focused on addressing "How to improve the safety for the robotics and human-centered autonomies considering uncertainty and interactions?". My current research highlights the following perspectives:
 - **Uncertainty Quantification** for perception modules and complex learning-based systems.
 - **Safe Planning** interacting in dynamic environment considering social norms.
-- **Fault Diagnosis and Prognosis** with model-data hybrid systems under uncertaintiies.
+- **Fault Diagnosis and Prognosis** with model-data hybrid systems under uncertainties.
 
 I led efforts on the <a href="https://uwaterloo.ca/watonobus/">WATonoBus project</a> at <a href="https://uwaterloo.ca/mechatronic-vehicle-systems-lab/">MVS Lab</a> working on software and algorithmic development of decision-making and safety monitoring modules required for <a href="https://uwaterloo.ca/news/media/university-waterloo-launches-canadas-first-driverless">Canada's first autonomous shuttle bus</a> approved via the ministry's autonomous vehicle pilot. Additionally, I have expanded my research into agriculture and warehouse robotics. 
 
@@ -35,7 +35,7 @@ I led efforts on the <a href="https://uwaterloo.ca/watonobus/">WATonoBus project
 <br> <br> 
 [**2024.05**](#link){: .btn .btn--inverse .btn--small} **Session Chair @ IEEE-ITSC 2024**: We are going to host two special sessions for IEEE-ITSC 2024, "Trustworthy Diagnosis and Prognosis in Connected, Cooperative and Automated Mobility" and "Data-driven and Learning-based Control Techniques for Intelligent Vehicles"
 <br> <br> 
-[**2024.01**](#link){: .btn .btn--inverse .btn--small}, **WATonoBus** Project gets reported in [MathWorks](https://www.mathworks.com/company/mathworks-stories/developing-adas-technology-for-self-driving-campus-shuttle-bus.html) - Our work in safe testing and open road deployment get reported by MathWorks, thanks to all the team members @ [MVSL](https://uwaterloo.ca/mechatronic-vehicle-systems-lab/our-people)
+[**2024.01**](#link){: .btn .btn--inverse .btn--small}, **WATonoBus** Project gets reported in [MathWorks](https://www.mathworks.com/company/mathworks-stories/developing-adas-technology-for-self-driving-campus-shuttle-bus.html) - Our work in safe testing and open road deployment gets reported by MathWorks, thanks to all the team members @ [MVSL](https://uwaterloo.ca/mechatronic-vehicle-systems-lab/our-people)
 <br> <br> 
 [**2023.12**](#link){: .btn .btn--inverse .btn--small} Won The "Chunhui Cup" Oversea Students Innovation and Entrepreneurship Competition with Dr. Ahmad Reza Alghooneh and Dr. Minghao Ning.
 <br><br>
@@ -82,21 +82,21 @@ I led efforts on the <a href="https://uwaterloo.ca/watonobus/">WATonoBus project
   <tr>
     <td class="tg-0lax"><img src="/assets/images/University_of_Waterloo.png" alt="test"><br><a href="#link" class="btn btn--inverse">2018.09-2022.12</a></td>
     <td class="tg-0lax"><span style="font-weight:bold">PH.D.<br>Mechanical & Mechatronics Engineering, <br>University of Waterloo, Waterloo, Canada</span> <br>
-    <span style="font-style:italic">Advisor: Prof. Amir Khajepoour</span>
+    <span style="font-style:italic">Advisor: Prof. Amir Khajepour</span><br>
     <span style="font-style:italic">Direction: Safety Monitoring, Decision Making and Planning for Autonomous Vehicles</span>
     </td>
   </tr>
   <tr>
     <td class="tg-0lax"><img src="/assets/images/uoft.png" alt="test"><br><a href="#link" class="btn btn--inverse">2014.09-2017.03</a></td>
     <td class="tg-0lax"><span style="font-weight:bold">M.A.Sc<br>Electrical & Computer Engineering, <br>University of Toronto, Toronto, Canada</span> <br>
-    <span style="font-style:italic">Advisor: Prof. Piero Triverio</span>
+    <span style="font-style:italic">Advisor: Prof. Piero Triverio</span><br>
     <span style="font-style:italic">Direction: Model Order Reduction, Computational Modelling</span>
     </td>
   </tr> 
   <tr>
     <td class="tg-0lax"><img src="/assets/images/uestc.png" alt="test"><br><a href="#link" class="btn btn--inverse">2010.06-2014.06</a></td>
     <td class="tg-0lax"><span style="font-weight:bold">B.ENG<br>Automation, <br>University of Electronic Science and Technology of China (UESTC), Chengdu, China</span> <br>
-    <span style="font-style:italic">Advisor: Prof. Wei He</span>
+    <span style="font-style:italic">Advisor: Prof. Wei He</span><br>
     <span style="font-style:italic">Direction: Robotics, Robust Control, Distributed Parameter Systems</span>
     </td>
   </tr> 
