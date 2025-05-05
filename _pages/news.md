@@ -8,6 +8,8 @@ toc: false
 classes: wide
 last_modified_at: 2024-09-15T11:59:26-04:00
 ---
+[**2025.05**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I will take the **Associate Editor** role for [IEEE Vehicular Technology Magazine](https://vtsociety.org/publication/vtmagazine/).
+<br> <br>
 [**2025.01**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I am appointed as **Adjunct Assistant Professor** at [Department of Mechanical and Mechatronics Engineering](https://uwaterloo.ca/mechanical-mechatronics-engineering/), **University of Waterloo**.
 <br> <br>
 [**2025.01**](#link){: .btn .btn--inverse .btn--small} Check out our recent book on  **Active and Semi-active Suspension Systems** [here](https://link.springer.com/book/10.1007/978-3-031-73924-8).

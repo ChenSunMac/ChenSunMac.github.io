@@ -22,6 +22,14 @@ last_modified_at: 2024-09-15T11:59:26-04:00
 </colgroup>
 <tbody>
   <tr>
+    <td class="tg-0lax"><img src="/assets/images/exps/safeAnalysis.png" alt="test"></td>
+    <td class="tg-0lax"><span style="font-weight:bold">Cascaded Safety Analysis and Test Scenario Generation Techniques for Autonomous Driving: A Case Study with WATonoBus</span> : <span style="font-weight:bold;font-style:italic">*C. Sun</span>, Zhang, R., Alghooneh, A. R., Ning, M., Panahandeh, P., Tuer, S., & Khajepour, A. <span style="font-weight:bold;font-style:italic;text-decoration:underline">Automotive Innovation</span>. 2025.</td>
+    <td class="tg-0lax">
+    <a href="https://link.springer.com/article/10.1007/s42154-024-00313-z" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf" style="font-size:20px;"></i></a><br>
+    <a href="https://link.springer.com/article/10.1007/s42154-024-00313-z" target="_blank" rel="noopener noreferrer"><i class="fas fa-search" style="font-size:20px;"></i></a></td>
+  </tr>
+
+  <tr>
     <td class="tg-0lax"><img src="/assets/images/exps/app2025.png" alt="test"></td>
     <td class="tg-0lax"><span style="font-weight:bold">Quantifying learning algorithm uncertainties in autonomous driving systems: Enhancing safety through Polynomial Chaos Expansion and High Definition maps</span> : Zhang, R., <span style="font-weight:bold;font-style:italic">*C. Sun</span>, Ning, M., Valiollahimehrizi, R., Lu, Y., Czarnecki, K., & Khajepour, A. <span style="font-weight:bold;font-style:italic;text-decoration:underline">Accident Analysis & Prevention</span>. 2025.</td>
     <td class="tg-0lax">

@@ -12,8 +12,9 @@ last_modified_at: 2024-09-15T11:59:26-04:00
 
 ## University of Hong Kong, 2024 -
 
-**Course coming up in Spring 2025.** 
-{: .notice--info}
+### Intelligent transportation and autonomous driving, IMSE7505
+- **Lecturer**, Summer 2025
+- **Core topics:** Intelligent transportation systems, connected autonomous driving, mobile robotics
 
 ## University of Waterloo, 2018 - 2023
 
