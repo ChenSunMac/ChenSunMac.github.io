@@ -22,6 +22,7 @@ I led efforts on the <a href="https://uwaterloo.ca/watonobus/">WATonoBus project
 [**Adjunct Assistant Professor**](#link){: .btn--inverse},  [Mechanical and Mechatronics Engineering](https://uwaterloo.ca/mechanical-mechatronics-engineering/), **University of Waterloo**. <br>
 [**Fellow**](#link){: .btn--inverse},  [Institute of Transport Studies](https://www.institute-of-transport-studies.hku.hk/), **The University of Hong Kong**. <br>
 [**Committee Member**](#link){: .btn--inverse}, [Cooperative & Connected Vehicles](https://ieee-itss.org/chapters-committees/cooperative-connected-vehicles/), **IEEE Intelligent Transportation Systems Society**
+[**副秘书长**](#link){: .btn--inverse}, [CAA-YAC](https://www.caayac.org.cn/), **中国自动化学会青年工作委员会**
 {: .notice}
 
 # Recent News
