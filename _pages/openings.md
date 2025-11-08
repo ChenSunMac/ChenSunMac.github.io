@@ -6,14 +6,14 @@ redirect_from:
   - /openings/
 toc: true
 classes: wide
-last_modified_at: 2025-01-08T11:59:26-04:00
+last_modified_at: 2025-11-08T11:59:26-04:00
 ---
 
 I welcome strong candidates at postdoctoral, graduate, and undergraduate levels. Postdoc openings are dependent on potentially positive funding decisions on a yearly basis. You will receive a reply if your background is a fit for following topics:
 
-- multimodal scene representation for safe autonomy
-- safe planning and control at interactive and dynamic environment, especially for driving
-- intelligent and safe warehouse robotic fleet management
+- World Models for Safety-Critical Embodied-AI
+- Safe Planning and Control at Interactive Environment 
+- Provably-Safe Coordination of Robotic/Vehicle Fleets
 
 Please submit your application here: [Join us](https://forms.gle/gQbw62Gc887sGXi99){: .btn .btn--success}
 
@@ -27,17 +27,17 @@ If you are interested, please submit your application here: [Join us](https://fo
 > Check also the funding support here: [RGC Postdoctoral Fellowship Scheme](https://www.ugc.edu.hk/eng/rgc/funding_opport/pdfs/).
 
 # PhD Openings
-Please apply to the PhD programs at HKU-DASE and list Chen Sun as a potential advisor. I am looking for 1-2 self-motivated Ph.D. students to join my research group in 2026 Spring or 2026 Fall. Please note it is rather a highly competitive admission due to the global environment and the standards from HKU.
+Please apply to the PhD programs at HKU-DASE and list Chen Sun as a potential advisor. I am looking for 1-2 self-motivated Ph.D. students (funded/self-funded) to join my research group in 2026/27 Fall. Please note it is rather a highly competitive admission due to the global environment and the standards from HKU.
 
 Successful applicants should meet the following criteria.
 
 - Strong mathematical and/or programming skills, programming experience with ROS, pytorch preferred.
 
-- A B.S. degree in related fields such as Automation, Statistics, Applied Math, Computer Science, Industrial Engineering, Electrical Engineering, Mechanical Engineering etc. 
+- A B.S. degree in related fields such as Automation, Statistics, Applied Math, Computer Science, Industrial Engineering, Electrical Engineering, Mechanical Engineering etc. (National-level Scholarship Recipient preferred)
 
 - Good writing and communication skills in English.
 
-Successful applicants are normally considered eligible to receive a Postgraduate Scholarship (PGS) during the normative study period. The basic level of scholarship is HK$18,760 per month. Outstanding applicants are also strongly encouraged to apply for the Hong Kong PhD Fellowship scheme (HKPFS) and the Presidential Fellowship of the University of Hong Kong (HKU-PS), which offer a stipend of HK$28,100 per month plus a conference and research-related travel allowance of HK$14,000 per year. HKU will also provide HKPF and HKU-PS awardees additional living and accommodation support (HK$40,000 in the first year and HK$20,000 per year in the remaining normative study period).
+Outstanding applicants are also strongly encouraged to apply for the Hong Kong PhD Fellowship scheme (HKPFS) and the Presidential Fellowship of the University of Hong Kong (HKU-PS). HKU will also provide HKPF and HKU-PS awardees additional living and accommodation support (HK$40,000 in the first year and HK$20,000 per year in the remaining normative study period).
 
 If you are interested, please submit your application here: [Join us](https://forms.gle/gQbw62Gc887sGXi99){: .btn .btn--success}
 

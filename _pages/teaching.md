@@ -5,12 +5,17 @@ author_profile: true
 redirect_from: 
   - /teaching/
 toc: true
-last_modified_at: 2024-09-15T11:59:26-04:00
+last_modified_at: 2024-11-15T11:59:26-04:00
 ---
 
 <hr class="solid">
 
 ## University of Hong Kong, 2024 -
+
+### Intelligent unmanned systems, DASE7505
+- **Lecturer**, Fall 2025
+- **Core topics:** Intelligent robotic systems, mobile robotics
+
 
 ### Intelligent transportation and autonomous driving, IMSE7505
 - **Lecturer**, Summer 2025

@@ -10,9 +10,9 @@ classes: wide
 Hi! I'm Chen Sun, an Assistant Professor at the University of Hong Kong, with appointments in the [Department of Data and Systems Engineering (DASE)](https://www.dase.hku.hk/). Prior to joining HKU, I worked as a postdoc researcher in [Mechatronic Vehicle Systems Lab](https://uwaterloo.ca/mechatronic-vehicle-systems-lab/) at University of Waterloo, where I work with Prof. [Amir Khajepour](https://uwaterloo.ca/mechanical-mechatronics-engineering/profile/akhajepo). 
 
 My research interests include field robotics, autonomous driving (safe planning) and in general human-CPS autonomies. My research endeavors have been focused on addressing "How to improve the safety for the robotics and human-centered autonomies considering uncertainty and interactions?". My current research highlights the following perspectives:
-- **Uncertainty Quantification** for perception modules and complex learning-based systems.
-- **Safe Planning** interacting in dynamic environment considering social norms.
-- **Fault Diagnosis and Prognosis** with model-data hybrid systems under uncertainties.
+- **Social Navigation and Proactive Human-Robot Interaction** for safety-critical Embodied AI.
+- **Game-Theoretic Planning for Mixed-Autonomy Traffic** with provable safety and performance guarantees.
+- **Social Contract for AI** to calibrate, understand, mitigate and trust autonomous systems.
 
 I led efforts on the <a href="https://uwaterloo.ca/watonobus/">WATonoBus project</a> at <a href="https://uwaterloo.ca/mechatronic-vehicle-systems-lab/">MVS Lab</a> working on software and algorithmic development of decision-making and safety monitoring modules required for <a href="https://uwaterloo.ca/news/media/university-waterloo-launches-canadas-first-driverless">Canada's first autonomous shuttle bus</a> approved via the ministry's autonomous vehicle pilot. Additionally, I have expanded my research into agriculture and warehouse robotics. 
 
@@ -26,6 +26,12 @@ I led efforts on the <a href="https://uwaterloo.ca/watonobus/">WATonoBus project
 {: .notice}
 
 # Recent News
+[**2025.11**](#link){: .btn .btn--inverse .btn--small} Our project "Development of Safety-Critical Hypervisor for Mixed-Criticality Systems in Automotive Zonal Controllers" is funded by [The Innovation and Technology Fund (ITF)](https://www.itc.gov.hk/en/index.html), thanks to the Innovation and Technology Commission (ITC) of Hong Kong.
+<br> <br>
+[**2025.09**](#link){: .btn .btn--inverse .btn--small} Our project "Real-time Safeguard for Autonomous Systems under Uncertain and Interactive Environment" is funded by [Early Career Scheme (ECS)](https://www.ugc.edu.hk/eng/rgc/funding_opport/ecs), thanks to Research Grants Council (RGC) of Hong Kong.
+<br> <br>
+[**2025.06**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I will take the **Associate Editor** role for [IEEE Transactions on Vehicular Technology](https://vtsociety.org/publication/ieee-transactions-vehicular-technology).
+<br> <br>
 [**2025.05**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I will take the **Associate Editor** role for [IEEE Vehicular Technology Magazine](https://vtsociety.org/publication/vtmagazine/).
 <br> <br>
 [**2025.01**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I am appointed as **Adjunct Assistant Professor** at [Department of Mechanical and Mechatronics Engineering](https://uwaterloo.ca/mechanical-mechatronics-engineering/), **University of Waterloo**.

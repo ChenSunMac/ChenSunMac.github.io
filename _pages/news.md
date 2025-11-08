@@ -6,8 +6,14 @@ redirect_from:
   - /news/
 toc: false
 classes: wide
-last_modified_at: 2024-09-15T11:59:26-04:00
+last_modified_at: 2024-11-08T11:59:26-04:00
 ---
+[**2025.11**](#link){: .btn .btn--inverse .btn--small} Our project "Development of Safety-Critical Hypervisor for Mixed-Criticality Systems in Automotive Zonal Controllers" is funded by [The Innovation and Technology Fund (ITF)](https://www.itc.gov.hk/en/index.html), thanks to the Innovation and Technology Commission (ITC) of Hong Kong.
+<br> <br>
+[**2025.09**](#link){: .btn .btn--inverse .btn--small} Our project "Real-time Safeguard for Autonomous Systems under Uncertain and Interactive Environment" is funded by [Early Career Scheme (ECS)](https://www.ugc.edu.hk/eng/rgc/funding_opport/ecs), thanks to Research Grants Council (RGC) of Hong Kong.
+<br> <br>
+[**2025.06**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I will take the **Associate Editor** role for [IEEE Transactions on Vehicular Technology](https://vtsociety.org/publication/ieee-transactions-vehicular-technology).
+<br> <br>
 [**2025.05**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I will take the **Associate Editor** role for [IEEE Vehicular Technology Magazine](https://vtsociety.org/publication/vtmagazine/).
 <br> <br>
 [**2025.01**](#link){: .btn .btn--inverse .btn--small} Happy to annouce I am appointed as **Adjunct Assistant Professor** at [Department of Mechanical and Mechatronics Engineering](https://uwaterloo.ca/mechanical-mechatronics-engineering/), **University of Waterloo**.
